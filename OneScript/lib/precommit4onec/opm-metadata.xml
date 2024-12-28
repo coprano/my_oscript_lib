@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<opm-metadata xmlns="http://oscript.io/schemas/opm-metadata/1.0">
+    <name>precommit4onec</name>
+    <engine-version>1.8.1</engine-version>
+    <version>24.11</version>
+    <depends-on name="logos" dev="false" version="1.4.0"/>
+    <depends-on name="cmdline" dev="false" version="1.0.0"/>
+    <depends-on name="1bdd" dev="false" version="1.13.0"/>
+    <depends-on name="gitrunner" dev="false" version="1.7.0"/>
+    <depends-on name="v8runner" dev="false" version="1.8.2"/>
+    <depends-on name="v8unpack" dev="false" version="1.0.4"/>
+    <depends-on name="1testrunner" dev="true"/>
+    <depends-on name="asserts" dev="true"/>
+    <depends-on name="tempfiles" dev="true" version="1.1.1"/>
+    <depends-on name="fs" dev="true"/>
+    <depends-on name="coverage" dev="true"/>
+    <executable name="precommit4onec">src/main.os</executable>
+</opm-metadata>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<opm-metadata xmlns="http://oscript.io/schemas/opm-metadata/1.0">
+    <name>v8storage</name>
+    <version>0.6.5</version>
+    <engine-version>1.0.18</engine-version>
+    <depends-on name="asserts" />
+    <depends-on name="json" />
+    <depends-on name="v8runner" />
+    <depends-on name="logos" />
+    <depends-on name="fs" />
+    <depends-on name="tempfiles" />
+</opm-metadata>

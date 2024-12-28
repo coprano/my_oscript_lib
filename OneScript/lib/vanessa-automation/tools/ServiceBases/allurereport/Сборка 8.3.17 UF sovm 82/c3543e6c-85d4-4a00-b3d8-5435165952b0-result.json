@@ -1,0 +1,91 @@
+{
+	"uuid": "c3543e6c-85d4-4a00-b3d8-5435165952b0",
+	"historyId": "Помещение файла перед началом сценария.(Сборка 8_3_17 UF sovm 82) Помещение файла перед началом сценария",
+	"name": "(Сборка 8_3_17 UF sovm 82) Помещение файла перед началом сценария",
+	"fullName": null,
+	"testCaseId": null,
+	"start": 1668077314669,
+	"stop": 1668077314680,
+	"statusDetails": {
+		"known": false,
+		"muted": false,
+		"flaky": false
+	},
+	"status": "passed",
+	"stage": "finished",
+	"steps": [
+		{
+			"name": "Когда Сценарий выполнен без ошибок",
+			"start": 1668077314677,
+			"stop": 1668077314679,
+			"status": "passed",
+			"stage": "finished",
+			"statusDetails": {
+				"known": false,
+				"muted": false,
+				"flaky": false
+			},
+			"parameters": [],
+			"attachments": [],
+			"steps": []
+		}
+	],
+	"parameters": [],
+	"labels": [
+		{
+			"name": "story",
+			"value": "Помещение файла перед началом сценария"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreonweb"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreonofbuilds"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreon82builds"
+		},
+		{
+			"name": "tag",
+			"value": "ua45_прочая_активность_вообще"
+		},
+		{
+			"name": "tag",
+			"value": "uf11_прочее"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreonweb"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreonofbuilds"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreon82builds"
+		},
+		{
+			"name": "tag",
+			"value": "ua45_прочая_активность_вообще"
+		},
+		{
+			"name": "tag",
+			"value": "uf11_прочее"
+		},
+		{
+			"name": "package",
+			"value": "11111111"
+		},
+		{
+			"name": "host",
+			"value": "Pautov-i7"
+		}
+	],
+	"links": [],
+	"attachments": [],
+	"description": null
+}

@@ -1,0 +1,210 @@
+Фича: C:\Commons\rep\vanessa-automation\features\Core\ExpectedSomething\ExpectedForms.feature
+0% 
+	Сценарий: Основной сценарий проверки работы шагов Gherkin из поставляемой библиотеки.
+		ПодключениеTestClient:порт <1538>
+Фича: C:\Commons\rep\vanessa-automation\features\Core\ExpectedSomething\ExpectedReport.feature
+1% 
+	Сценарий: Проверка редактирования табличного документа
+	Сценарий: Проверка проверки значения макета, когда макет формируется с задержкой. Проверка через макет.
+	Сценарий: Проверка проверки значения макета, когда макет формируется с задержкой. Проверка через таблицу Gherkin.
+	Сценарий: Проверка использования переменных при сравнении таблицы
+	Сценарий: Проверка получения макета из формы списка справочника
+Закрытие окна <Список>.
+	Сценарий: Проверка получения макета когда данные получены два раза в одном окне
+Закрытие клиента тестирования.
+	Сценарий: Проверка шага, ожидающего значения ячейки макета
+		ПодключениеTestClient:порт <1538>
+	Сценарий: Проверка макета, когда используются значения контекста
+	Сценарий: Я запоминаю значение макета и потом сравниваю с текущим макетом
+	Сценарий: Я получаю данные макета где есть объединенные ячейки
+	Сценарий: Проверка получения областей табличного документа
+	Сценарий: Я получаю данные макета открытого отдельным окном
+	Сценарий: Я получаю данные макета открытого отдельным окном когда в ячейке макета есть экранированная вертикальная черта
+	Сценарий: Я получаю данные макета открытого отдельным окном когда в ячейке макета есть вертикальная черта
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-235-РедактированиеПоля.feature
+16% 
+	Сценарий: Проверка редактирования поля ТЧ
+Закрытие клиента тестирования.
+		ПодключениеTestClient:порт <1538>
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-240-ДекорацияФормы.feature
+17% 
+	Сценарий: Проверка работы Декорации формы
+		ПодключениеTestClient:порт <1538>
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-256-КнопкаОткрытьУПоля.feature
+18% 
+	Сценарий: Проверка открытия поля ТЧ
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-259-DropList.feature
+19% 
+	Сценарий: Проверка простого выпадающего списка на форме
+	Сценарий: Проверка простого выпадающего списка В ТЧ
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-263-АктивацияКолонкиТаблицы.feature
+21% 
+	Сценарий: Активизация колонки ТЧ
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-263-Компановка.feature
+22% 
+	Сценарий: Проверка состава колонок
+	Сценарий: Проверка редактирования настроек компановки данных
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-269-ВыборИзСоставногоСписка.feature
+24% 
+	Сценарий: Проверка выбора типа из списка выбора, когда реквизит имеет составной тип
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-272-ПроизвольноеЗначениеВТаблице.feature
+25% 
+	Сценарий: Сравнение таблиц формы когда используется символ звёздочка
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-275-ПереносСтрокВМакете.feature
+26% 
+	Сценарий: Проверка состояния макета у которого в ячейках есть переносы строк
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-276-ПолучитьПустойМакет.feature
+27% 
+	Сценарий: Получение пустого макета
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-342-НеПереходитКСтрокеТаблицыЗначений.feature
+29% 
+	Сценарий: Переход к строке таблицы значений
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Issue-ПереходКСтрокеВМетодеШаг.feature
+30% 
+	Сценарий: Проверка метода шаг для перехода к строке ТЧ
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ЗакрытиеОкна.feature
+31% 
+	Сценарий: Я открываю и закрываю окно справочника
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\КомандаИнтерфейсаВОкне.feature
+32% 
+	Сценарий: Я нажмаю команду интерфейса в открытом окне
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\КомандныйИнтерфейс.feature
+33% 
+	Сценарий: Проверка шагов, проверяющих командный интерфейс
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\НажатияНаКнопкуВыбораПриРедактированииДругогоПоля.feature
+34% 
+	Сценарий: Проверка доступности полей с учетом родителя
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ОткрытьФормуЧерезКоманду.feature
+35% 
+	Сценарий: Открытие формы обработки
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПереходКСтрокеПоЗначениюПеременных.feature
+36% 
+	Сценарий: Переход к строке таблицы по значнию переменных Контекст и КонтекстСохраняемый
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\Проверка длинных чисел.feature
+37% 
+	Сценарий: Проверка сравнение длинных чисел в ТЧ
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаВидимостиПолейСУчетомРодителя.feature
+38% 
+	Сценарий: Проверка видимости полей с учетом родителя
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаВопроса.feature
+39% 
+	Сценарий: Проверка нажатия на кнопку диалога, который был вызван через ПоказатьВопрос
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаВыделенияСтрокТаблицы.feature
+40% 
+	Сценарий: Проверка выделения строк таблицы вниз
+	Сценарий: Проверка выделения строк таблицы вверх
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаДоступностиПолейСУчетомРодителя.feature
+43% 
+	Сценарий: Проверка доступности полей с учетом родителя
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаЗначенияКолонки.feature
+44% 
+	Сценарий: Проверка значения колонки
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаЗначенияТаблицы.feature
+45% 
+	Сценарий: Проверка равенства таблицы макету
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаКнопкиОткрытияЭлемента.feature
+46% 
+	Сценарий: Проверка открытия элемента формы
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаМногострочногоПоляВТЧ.feature
+47% 
+	Сценарий: Переход к строке и проверка значения
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаОжиданияЗначенияТаблицы.feature
+48% 
+	Сценарий: Проверка ожидания значения таблицы
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаОкнаСЗаголовкомНайти.feature
+49% 
+	Сценарий: Проверка определения окна с заголовком "Найти"
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаОткрытияНавигационныхСсылок.feature
+50% 
+	Сценарий: Открытие навигационной ссылки формы списка справочника
+	Сценарий: Открытие навигационной ссылки формы списка документа
+	Сценарий: Открытие навигационной ссылки отчета
+	Сценарий: Открытие навигационной ссылки обработки
+	Сценарий: Открытие навигационной ссылки формы РС
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаПанельРазделовИПанельФункций.feature
+55% 
+	Сценарий: Проверяю работу генератора шагов
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаПереходаКДатеКалендаря.feature
+56% 
+	Сценарий: Переход к дате в поле календаря
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаПоявленияОкна.feature
+58% 
+	Сценарий: Проверка появления окна
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаРаботыИзмененияФлаговИРеквизитов.feature
+59% 
+	Сценарий: Проверка работы флагов в разных режимах
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаРаботыСоЗначениямиПеременных.feature
+60% 
+	Сценарий: Проверка работы со значениями переменных
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаСодержимогоТаблицы.feature
+61% 
+	Сценарий: Проверка содержимого таблицы
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаСпецСимволовВЗаголовкеОкна.feature
+62% 
+	Сценарий: Проверка спецсимволов в заголовке окна
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаТолькоПросмотрПолейСУчетомРодителя.feature
+63% 
+	Сценарий: Проверка доступности полей с учетом родителя
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаШагаЕслиОкноРавно.feature
+64% 
+	Сценарий: Проверка шага условия Если текущее окно "равно" ожидаемому окну "ИмяОкна" Тогда
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\ПроверкаШагаЗаполняющегоТабличнуюЧасть.feature
+65% 
+	Сценарий: Проверка шага заполняющего табличную часть
+Фича: C:\Commons\rep\vanessa-automation\features\Core\TestClient\РазворачиваниеТаблицы.feature
+66% 
+	Сценарий: Разворачивание таблицы в режиме иерархический список
+Закрытие окна <Справочник2>.
+	Сценарий: Разворачивание таблицы в режиме Дерево
+Фича: C:\Commons\rep\vanessa-automation\features\Libraries\UITestRunner\РаботаСИнтерфейсом.feature
+68% 
+	Сценарий: Работа с гиперссылкой
+	Сценарий: Работа с группой элементов формы
+	Сценарий: Работа с иерархией групп справочников
+	Сценарий: Основной сценарий работы с элементами формы
+	Сценарий: Проверка состояния ТЧ
+Фича: C:\Commons\rep\vanessa-automation\features\Libraries\UITestRunner\РаботаСИнтерфейсомДополнительный.feature
+74% 
+	Сценарий: Сравнение табличного документа в клиенте тестирования с макетом
+	Сценарий: Открытие окна предупреждения
+	Сценарий: Проверка открытия формы
+Фича: C:\Commons\rep\vanessa-automation\features\Libraries\UITestRunner\РаботаСТаблицами.feature
+77% 
+	Сценарий: Количество строк в таблице
+Фича: C:\Commons\rep\vanessa-automation\features\Libraries\UITestRunner\РаботаСФлагами.feature
+78% 
+	Сценарий: Работа с флагами
+Фича: C:\Commons\rep\vanessa-automation\features\Libraries\UITestRunner\ФильтрФормыСписка.feature
+79% 
+	Сценарий: Проверка работы фильтра
+Закрытие клиента тестирования.
+		ПодключениеTestClient:порт <1538>
+	Сценарий: Сброс фильтра на форме списка
+Закрытие клиента тестирования.
+		ПодключениеTestClient:порт <1538>
+Фича: C:\Commons\rep\vanessa-automation\features\Libraries\ИнициаторДанных\БиблиотекаШаговИнициаторДанных.feature
+81% 
+	Сценарий: подготовка окружения
+	Сценарий: Шаги инициатора
+	Сценарий: проверка доступности переменной VA в инициаторе
+	Сценарий: проверка использования переменных VA
+	Сценарий: проверка использования перменных-ссылок VA
+	Сценарий: откат изменений
+Фича: C:\Commons\rep\vanessa-automation\features\Libraries\Цикл\ПереборМассива.feature
+88% 
+	Сценарий: Перебор элементов массива, когда он задан массивом
+	Сценарий: Перебор таблицы с несколькими колонками
+	Сценарий: Перебор элементов массива
+	Сценарий: Перебор таблицы в памяти
+Фича: C:\Commons\rep\vanessa-automation\features\Libraries\Цикл\ПереборСтрокТаблицы.feature
+92% 
+	Сценарий: Проверка цикла, когда используется явный переход к строке
+	Сценарий: Цикл пока есть строки в таблице
+	Сценарий: Перебор всех строк таблицы с вложенной проверкой
+	Сценарий: Проверка глобального флага
+	Сценарий: Перебор всех строк таблицы с проверкой ТЧ
+	Сценарий: Перебор всех строк таблицы без проверки ТЧ
+Фича: C:\Commons\rep\vanessa-automation\features\StepsRunner\ЗапускПростогоСценария.feature
+98% 
+	Сценарий: Запуск простого сценария
+Закрытие клиента тестирования.

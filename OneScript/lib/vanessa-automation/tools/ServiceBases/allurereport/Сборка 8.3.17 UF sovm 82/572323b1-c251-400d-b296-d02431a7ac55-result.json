@@ -1,0 +1,124 @@
+{
+	"uuid": "572323b1-c251-400d-b296-d02431a7ac55",
+	"historyId": "Проверка выполнения сценария передача таблицы.(Сборка 8_3_17 UF sovm 82) Проверка выполнения сценария передача таблицы",
+	"name": "(Сборка 8_3_17 UF sovm 82) Проверка выполнения сценария передача таблицы",
+	"fullName": null,
+	"testCaseId": null,
+	"start": 1668077314680,
+	"stop": 1668077315312,
+	"statusDetails": {
+		"known": false,
+		"muted": false,
+		"flaky": false
+	},
+	"status": "passed",
+	"stage": "finished",
+	"steps": [
+		{
+			"name": "И пауза 0.1",
+			"start": 1668077314682,
+			"stop": 1668077314961,
+			"status": "passed",
+			"stage": "finished",
+			"statusDetails": {
+				"known": false,
+				"muted": false,
+				"flaky": false
+			},
+			"parameters": [
+				{
+					"name": "Парам1",
+					"value": "0.1"
+				}
+			],
+			"attachments": [],
+			"steps": []
+		},
+		{
+			"name": "И пауза 0.2",
+			"start": 1668077315108,
+			"stop": 1668077315312,
+			"status": "passed",
+			"stage": "finished",
+			"statusDetails": {
+				"known": false,
+				"muted": false,
+				"flaky": false
+			},
+			"parameters": [
+				{
+					"name": "Парам1",
+					"value": "0.2"
+				}
+			],
+			"attachments": [],
+			"steps": []
+		}
+	],
+	"parameters": [],
+	"labels": [
+		{
+			"name": "story",
+			"value": "Проверка выполнения сценария передача таблицы"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreon8312"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreonweb"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreonofbuilds"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreon82builds"
+		},
+		{
+			"name": "tag",
+			"value": "ua44_прочая_активность_по_проверке"
+		},
+		{
+			"name": "tag",
+			"value": "uf11_прочее"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreon8312"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreonweb"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreonofbuilds"
+		},
+		{
+			"name": "tag",
+			"value": "ignoreon82builds"
+		},
+		{
+			"name": "tag",
+			"value": "ua44_прочая_активность_по_проверке"
+		},
+		{
+			"name": "tag",
+			"value": "uf11_прочее"
+		},
+		{
+			"name": "package",
+			"value": "11111111"
+		},
+		{
+			"name": "host",
+			"value": "Pautov-i7"
+		}
+	],
+	"links": [],
+	"attachments": [],
+	"description": null
+}

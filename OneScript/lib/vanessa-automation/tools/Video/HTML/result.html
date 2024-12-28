@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    h1 {
+      text-align: center;
+      font-size: 35px
+    }
+    p {
+      text-align: left;
+      font-size: 30px;
+    }
+    div {
+      text-align: center;
+    }
+  </style>
+  <script>
+    function fullscreen(self) {
+      if (self.requestFullscreen) {
+        self.requestFullscreen();
+      }
+      else if (self.webkitRequestFullscreen) {
+        self.webkitRequestFullscreen();
+      }
+      else if (self.mozRequestFullScreen) {
+        self.mozRequestFullScreen();
+      }
+      else if (self.msRequestFullscreen) {
+        self.msRequestFullscreen();
+      }
+    }
+  </script>
+</head>
+
+<body>
+<h1><p align="center" style="font-size:35px">Выполнение первого 	  простого сценария</p></h1>
+
+<p><b>001</b>. И пауза 10</p>
+<div>
+  <video width="1280" height="720" loop onmouseover="this.play()" onmouseout="this.pause()" onclick="fullscreen(this)">
+    <source src="files/scen_000_step_000_main.webm" type='video/webm; codecs="vp8, vorbis"'>
+  </video>
+</div>
+</body>
+</html>

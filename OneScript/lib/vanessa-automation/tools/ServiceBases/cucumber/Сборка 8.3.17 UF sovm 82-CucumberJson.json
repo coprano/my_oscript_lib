@@ -1,0 +1,117 @@
+[
+	{
+		"uri": "Помещение файла перед началом сценария",
+		"keyword": "Feature",
+		"id": "C:\\Users\\Pautov_L\\Desktop\\11111111\\PomeschenieFailaPeredNachalomScenariya.feature",
+		"name": "Помещение файла перед началом сценария",
+		"description": "",
+		"tags": [
+			{
+				"name": "@uf11_прочее",
+				"line": 4
+			},
+			{
+				"name": "@ua45_прочая_активность_вообще",
+				"line": 6
+			},
+			{
+				"name": "@ignoreon82builds",
+				"line": 8
+			},
+			{
+				"name": "@ignoreonofbuilds",
+				"line": 9
+			},
+			{
+				"name": "@ignoreonweb",
+				"line": 10
+			}
+		],
+		"elements": [
+			{
+				"keyword": "Scenario",
+				"id": "Pomeschenie faila pered nachalom scenariya-Pomeschenie faila pered nachalom scenariya1",
+				"name": "Помещение файла перед началом сценария",
+				"line": 17,
+				"description": "",
+				"tags": [],
+				"type": "scenario",
+				"steps": [
+					{
+						"keyword": "Когда",
+						"name": "Сценарий выполнен без ошибок",
+						"line": 17,
+						"result": {
+							"status": "passed",
+							"duration": 2000000
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"uri": "Проверка выполнения сценария передача таблицы",
+		"keyword": "Feature",
+		"id": "C:\\Users\\Pautov_L\\Desktop\\11111111\\ProverkaVipolneniyaScenariyaPeredachaTablici.feature",
+		"name": "Проверка выполнения сценария передача таблицы",
+		"description": "",
+		"tags": [
+			{
+				"name": "@uf11_прочее",
+				"line": 4
+			},
+			{
+				"name": "@ua44_прочая_активность_по_проверке",
+				"line": 6
+			},
+			{
+				"name": "@ignoreon82builds",
+				"line": 8
+			},
+			{
+				"name": "@ignoreonofbuilds",
+				"line": 9
+			},
+			{
+				"name": "@ignoreonweb",
+				"line": 10
+			},
+			{
+				"name": "@ignoreon8312",
+				"line": 11
+			}
+		],
+		"elements": [
+			{
+				"keyword": "Scenario",
+				"id": "Proverka vipolneniya scenariya peredacha tablici-Proverka vipolneniya scenariya peredacha tablici1",
+				"name": "Проверка выполнения сценария передача таблицы",
+				"line": 21,
+				"description": "",
+				"tags": [],
+				"type": "scenario",
+				"steps": [
+					{
+						"keyword": "И",
+						"name": "пауза 0.1",
+						"line": 21,
+						"result": {
+							"status": "passed",
+							"duration": 279000000
+						}
+					},
+					{
+						"keyword": "И",
+						"name": "пауза 0.2",
+						"line": 21,
+						"result": {
+							"status": "passed",
+							"duration": 204000000
+						}
+					}
+				]
+			}
+		]
+	}
+]

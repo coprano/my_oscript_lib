@@ -1,0 +1,841 @@
+23.08.2020 18:22:21 Информация: Параметр данныеклиентовтестирования не загружен.
+23.08.2020 18:22:21 Информация: Параметр данныеклиентовтестирования не загружен.
+23.08.2020 18:22:23 Использование Vanessa editor в данном окружении (версия платформы и режим совместимости) невозможно.
+23.08.2020 18:22:31 Ошибка в файле C:/Commons/rep/vanessa-automation/features/Libraries/Clipboard/step_definition/РаботаСБуферомОбменаVanessaExt.epf, снипет ЯЗапоминаюЗначениеПоляСИменемВБуферОбмена(Парам01) уже был в C:/Commons/rep/vanessa-automation/features/Core/Clipboard/step_definition/РаботаСБуферомОбменаVanessaExt.epf
+23.08.2020 18:22:31 Ошибка в файле C:/Commons/rep/vanessa-automation/features/Libraries/Clipboard/step_definition/РаботаСБуферомОбменаVanessaExt.epf, снипет ЯВставляюТекстовоеЗначениеБуфераОбменаВПолеСИменем(Парам01) уже был в C:/Commons/rep/vanessa-automation/features/Core/Clipboard/step_definition/РаботаСБуферомОбменаVanessaExt.epf
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Allure/Issue-34-ОтчетAllure.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Allure/Issue-34-ОтчетAllureEN.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Allure/Issue-34-ОтчетAllureTM.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/BreakPoints/ТочкиОстанова.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CheckSteps/ТаблицаСталаРавной.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CollapseTree/СвернутьДерево.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CommandLine/files/Test1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CommandLine/files/Test2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CommandLine/files/Test3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CommandLine/files/Test4.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CommandLine/files/Test5.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CommandLine/ЗагрузкаПараметровИзКоманднойСтроки.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CommandLine/ЗагрузкаПараметровИзКоманднойСтрокиЭкспорт.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/CucumberReport/ФормированиеОтчетаCucumber.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/DeletionMark/ПроверкаПометкиУдаления.feature, т.к. обнаружен тег исключение: ignoreonweb
+Фича <C:/Commons/rep/vanessa-automation/features/Core/Draft/ОтладкаФичВТонкомКлиенте.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <8>, часть строк содержит символы табуляции <4>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Draft/ОтладкаФичВТонкомКлиенте.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Core/Draft/ПроизвольноеВыполнениеТестов.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <1>, часть строк содержит символы табуляции <10>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Draft/ПроизвольноеВыполнениеТестов.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ErrorDetails/ОкноДеталейОшибки.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ErrorExtraDataFiles/ПроверкаФормированияФайлаОПроцессахОС.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ErrorExtraDataFiles/ПроверкаФормированияФайлаСетевыхСоединений.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ExecuteCode/ExecuteCode.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ExpectedSomething/ExpectedSteps.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureGeneration/FeatureGeneration.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/files/Test1_1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/files/Test1_2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/files/Test2_1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/files/Test2_2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/files/Test3_1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/files/Test3_2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/files/Test4_1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/files/Test4_2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/Issue-146-ПустыеВеткиДерева.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/Док-ЗагрузкаФич.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/ЗагрузкаФичИзКаталога.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/ЗагрузкаФичИспользуяКешEPF.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/ЗагрузкаФичПоТегам.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/ЗагрузкаФичПоТегамTestClient.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/НедавноЗагруженныеФичи.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/ПроверкаЗагрузкиРежимЗапретаСинхронныхВызовов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/ПроверкаОптимизацииЗагрузкиФич.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureLoad/РазныеВариантыЗагрузкиФич.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ЗагрузкаФичиСПустойГруппой.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ОтрицательныеЧисла.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПарсингСкобок.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПередачаВТекстовоеПолеСложногоТекста.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПередачаПараметраВСценарий.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПередачаТаблицВПосдценарийСЦиклом.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПередчаВоВложенныйСценарийТаблиц.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПодключениеСценарияКакШага.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПодключениеСценарияКакШагаСтруктураСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПодключениеШагаБиблиотекиРегистрБукв.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаКешаСценариев.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаМетодаШаг.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаМетодаШагАсинхронноеПодключение.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаМетодаШагОФ.feature, т.к. обнаружен тег исключение: ignoreonufbuilds
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаПередачиПараметров.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаПередачиСложныхТипов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаПередачиСтрок.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаПодключенияЭкспортныхСценариевДругиеЯзыки.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаСтруктурыСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ПроверкаУсловийВКонтексте.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/РаботаСDataTables.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/РаботаСDataTables2.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/РаботаСDataTablesСтруктураСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/РаботаСНесколькоDataTables.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/РаботаСоСтруктуройСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/СоседняяФича.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/СоседняяФичаСТаблицами.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/СоседняяФичаСтруктураСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/СоседняяФичаСтруктураСценарияОбычныеПараметры.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/СоседняяФичаСтруктураСценарияПередачаТаблиц.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/СтруктураСценарияТег_tree.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/СтруктураСценарияЧисло.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/Тег_tree.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ФичаДляПроверкиМетодаШаг.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ФичаДляПроверкиМетодаШагExportScenarios.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureReader/ФичаТолькоСШагамиИзБиблиотек.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureWrite/Lib/Demo.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureWrite/Док-ИспользованиеТегаTreeИФичиИзВоздуха.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FeatureWrite/Док-ПримерНаписанияФичи.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/FormExplorer/ИсследовательФормы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/GetFormState/ПолучитьСостояниеФормы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/HTML/HTML-report.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/jUnit/Issue-102-ОтчетjUnit.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/jUnit/АсинхронныеАссерты.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/jUnit/МодульныеТестыVA_ПроверкаИсключений.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/jUnit/МодульныеТестыVA_ПроверкаЧтоНетИсключений.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/KnownSteps/ВыгрузкаШаговВJSON.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/KnownSteps/ДвойнойКликПоШагуВДеревеШагов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/KnownSteps/ПереходКОпределениюШага.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/KnownSteps/ПоказатьСкрытыеШаги.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/KnownSteps/ФильтрДереваШагов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/KnownSteps/ШагиПриПервомЗапуске.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Log/ВыводПроизвольнойИнформацииВЛог.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ВопросПриЗакрытии.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ВыборКаталогов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ВызовНекоторыхПроцедурНапрямую.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ВызовНекоторыхПроцедурНапрямуюEN.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ВызовНекоторыхПроцедурНапрямуюTM.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ОпцияЗагружатьФичиПриОткрытии.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ОткрытиеVAДляЗаписиАвтодоков.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ПерейтиКСтрокеСОшибкой.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ПоказатьСкрытьКолонки.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ПроверкаДублированияСценариев.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ПроверкаКопированияПрофиляКлиентаТестирования.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ПроверкаПереводаВОсновнойФорме.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ПроцедурыОставленныеДляСовместимости.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ПроцедурыОставленныеДляСовместимостиЗавершитьСеансы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/СобытияДереваШагов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/MainForm/ФорматированиеКода.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Markdown/Markdown-report.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Notification/ОбработкаОповещений.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/OpenForm/Док-ОткрытиеФормы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/OpenForm/ОткрытиеФормы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/OpenForm/ПроверкаНастроекВидимостиКолонок.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Plugins/ЗагрузчикПользовательскихНастроек.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/RecordActions/ЗаписьДействий.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/RegExp/ПроверкаРегулярныхВыражений.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/SaveSettings/СохранениеНастроек.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ScreenShot/1cWinCtrl.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ScreenShot/Issue-149-ДелатьСкриншотПриОшибке.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ScreenShot/ЗадатьРазмерОкнаТестирования.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ScreenShot/СнятиеСкриншовПриВыполненииПроизвольногоШага.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ScreenShot/СнятиеСкриншотов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/ScreenShot/УстановкаКомпоненты1cWinCtrl.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/SettingsJson/SettingsJson.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/SimpleReport/ОтчетВоВнутреннемФормате.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/SPPR/ОтчетВФорматеСППР.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/Issue-285-ВертикальнаяЧерта-tree.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/Issue-319-Контекст-Тег-tree.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/Issue-348-ЧтениеСтруктурыСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/Issue-353-Тег-tree-комментарий.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/Issue-451-Сценарий-Тег-tree.feature, т.к. обнаружен тег исключение: ignoreonweb
+Фича <C:/Commons/rep/vanessa-automation/features/Core/TestClient/Issue-461-Обработка временной фичи.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <2>, часть строк содержит символы табуляции <13>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/Issue-461-Обработка временной фичи.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/Issue-464-Запуск толстого клиента.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ВычислитьPIDTestClient.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ДвойнойСлешКакКомментарий.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ДиалогВыбораФайла.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ЗагрузкаСтруктурыСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ЗапускТонкогоTestClientИзТолстогоTestManager.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/КопированиеПрофиляTestClient.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПодключениеКлиентаТестированияВторойРаз_641.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПодключениеКлиентаТестированияКонтекстноеМеню.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПолучениеМакетаИзТаблицыGherkin.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПолучениеТаблицыУКоторойЕстьВертикальнаяЧерта.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПровекаЗагрузкиТаблицы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаВыполненияСценарияСШагаВнутриЦикла.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаЗакрытияTestClientИПодключенияЗаново.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаИсправленияОшибкиКомпиляцииСтруктурыСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаНажатияF11НаУсловиеВнутриЦикла.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаНажатияF11НаУсловиеКогдаНетШаговНиже.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаОбработкиМодальногоДиалогаПриОшибке.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаПередачиПараметровВПодсценарий.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаПередачиПараметровСтруктурыСценарияВПодсценарий.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаПодключенияУжеПодключенногоTestClient.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаПолученияТабличногоДокумента.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаПреобразованияXMLДействийПользователя.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаПрикрепленияПроизвольногоФайлаКСценарию.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаРаботыОпределенияШагаВУсловии.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаРаботыОпределенияШагаПослеЦикла.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаРаботыПереходаКСтрокеТаблицы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаРаботыТаблицыTestClients.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаРаботыУсловия.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаРаботыЦиклаИВложенногоСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаСообщенийПользователюНаДругомЯзыке.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаСохраненияДоппараметровПриНачалеЗаписи.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаТегаTreeПеревод.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаФормированияФайлаОшибки.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаФормированияФайлаСостоянияАктивнойФормы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаШагаЯКопируюТекущийПрофильTestClient.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаШагаЯПодключаюУжеЗапущенныйКлиентТестированияСПараметрами.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ПроверкаЭкранированияПереводаСтрокиВВидеСимволов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/РедактированиеТаблицыGherkin.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/СохранениеКлиентовТестирования.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/TestClient/ТегиВСценарияхИФичах.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Translate/ПолучениеТаблицыПеревода.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Translate/ПроверкаДереваИзвестныхШагов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Translate/ПроверкаЗагрузкиФичиНаДругомЯзыке.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Translate/ПроверкаПереводаПолученияСостояниеФормы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Translate/ПроверкаПереводаТекстаGherkin.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Translate/ПроверкаПоказаШаговНаРусском.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Translate/ПроверкаРаботыВызоваПодсценарияНаДругомЯзке.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Translate/ПроверкаРаботыСценарияНаДругомЯзыке.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Translate/ПроверкаРаботыУсловийНаАнглийском.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/UserMessages/СообщенияПользователю.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/ВыполнениеСценариевВРедакторе.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/ЗаписьДействийПользователя.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкаДобавитьПроверкуСообщенийПользователя.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкаОткрытияФичиВПроводнике.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкаОткрытияФичиВРедакторе.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкаОчиститьРаскраску.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкаПереходКСледующейОшибке.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкаПолучитьМакетПоТаблице.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкаПолучитьСостояниеВсейФормы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкаПолучитьСостояниеТекущегоЭлементаФормы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкаРедактированияТаблицы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкиUndoRedo.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкиZoom.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкиБуфераОбмена.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкиИзмененияТекста.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкиПоиска.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкиСворачивания.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкиСменаТемы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/КнопкиТочкиОстанова.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/ПереходКИзвестнымШагам.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/ПроверкаВставокПодсценариев.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/ПроверкаВыполненияСценарияКогдаИзмененТекст.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/VAEditor/ПроверкаРаботыДереваФайлов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Variables/НесколькоПеременныхВОдномПараметре.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Variables/ПеременныеВТаблицах.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Variables/ПроверкаРаботыАвтоПередачиНеСтроковыхПеременных.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Variables/ПроверкаРаботыЧетыреДоллара.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Variables/ПроверкаУдаленияПеременных.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Variables/ПросмотрИРедактированиеПеременных.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Video/Issue-148-Video-Make.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Video/ПодсветкаЭлементовФормыДо8312HtmlMarkdown.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Video/ПодсветкаЭлементовФормыДо8312Видео.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Video/ПроверкаГолоса.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Video/ПроверкаНастроекYandex.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Core/Video/ПроверкаЧтоВидеоБудетСобираться.feature, т.к. обнаружен тег исключение: ignoreonweb
+Фича <C:/Commons/rep/vanessa-automation/features/Drafts/Поддержкаi18n.feature> содержит тег @Tree. Найдены строки, которые содержат символы пробелов и символы табуляции в начале строки. Дерево не может быть корректно построено.
+ 	Дано:  имеется stack-commons библиотека
+Фича <C:/Commons/rep/vanessa-automation/features/Drafts/Поддержкаi18n.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <1>, часть строк содержит символы табуляции <2>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Drafts/Поддержкаi18n.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Drafts/ПроверкаСтороннихУтилит.feature> содержит тег @Tree. Найдены строки, которые содержат символы пробелов и символы табуляции в начале строки. Дерево не может быть корректно построено.
+ 	Дано:  Открыта обработка vanessa-behavior
+Фича <C:/Commons/rep/vanessa-automation/features/Drafts/ПроверкаСтороннихУтилит.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <1>, часть строк содержит символы табуляции <2>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Drafts/ПроверкаСтороннихУтилит.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Drafts/РаботаСоСкриншотамиTestClient.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <1>, часть строк содержит символы табуляции <4>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Drafts/РаботаСоСкриншотамиTestClient.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Drafts/СкриптыКонтрибьютора.feature> содержит тег @Tree. Найдены строки, которые содержат символы пробелов и символы табуляции в начале строки. Дерево не может быть корректно построено.
+ 	Дано:  проверена установка "Oscript"
+Фича <C:/Commons/rep/vanessa-automation/features/Drafts/СкриптыКонтрибьютора.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <1>, часть строк содержит символы табуляции <18>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Drafts/СкриптыКонтрибьютора.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Smoke/Smoke_InputBasedOn.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/TestClients/ЗакрытиеTestClient.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/TestClients/Нескольких клиентов тестирования.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/TestClients/НесколькоКлиентовТестирования.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/TestClients/Подключение клиента тестирования с параметрами.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/UITestRunner/ОткрытьTestClient.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/UITestRunner/ОткрытьTestClientExport.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/UITestRunner/ПодключениеНесколькихКлиентовТестирования.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/UITestRunner/ПроверкаИсключенияШага.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/UITestRunner/РаботаСОкномСообщений.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Libraries/UITestRunner/СостояниеЭлементаФормы.feature> содержит тег @Tree. Найдены строки, которые содержат символы пробелов и символы табуляции в начале строки. Дерево не может быть корректно построено.
+ 	И     элемент формы "Реквизит1" доступен
+ 	И     элемент формы с именем "Реквизит2" не доступен
+Фича <C:/Commons/rep/vanessa-automation/features/Libraries/UITestRunner/СостояниеЭлементаФормы.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <2>, часть строк содержит символы табуляции <36>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/UITestRunner/СостояниеЭлементаФормы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/UITestRunner/ФильтрФормыСпискаЭкспорт.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/Legal.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Libraries/VB/Load1000ItemsfromMxl.feature> содержит тег @Tree. Найдены строки, которые содержат символы пробелов и символы табуляции в начале строки. Дерево не может быть корректно построено.
+ 	Дано:  Имеется метаданное "Справочник.Справочник1"
+Фича <C:/Commons/rep/vanessa-automation/features/Libraries/VB/Load1000ItemsfromMxl.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <4>, часть строк содержит символы табуляции <2>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/Load1000ItemsfromMxl.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/VBManager.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/ВыводТекста.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/Док/OpenVSC.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/Док/ГенерацияEPFВСлужебномСеансе.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/Док/ЗагрузкаОднойФичиИнтерактивно.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/Док/ЗапускVBИнтерактивно.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/Док/ОткрытиеВКонфигуратореEPF.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/ЗагрузкаФичи.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/ЗаполнитьНастройкиЗаписиВидео.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/ЗапускСлужебногоTM.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/ИнтервалВыполненияШага.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/ОстановитьВыполнениеШагов.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/ОткрытиеVanessaBehavoirВTestClientБезЗагрузкиНастроек.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/ОткрытьVanessaBehaviorВTestClient.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/Плагины.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/РазвернутьВеткиДереваVB.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/СозданиеFixtures.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/СозданиеFixturesПоМакетуОбработкиФичи.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/СозданиеЗаписейРС.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/СуществованиеЭлементов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/VB/УстановкаСистемныхПараметров.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Автоинструкции/Автоинструкции.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Нумерация/Обновление нумерации объектов.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/ОбъектыКонфигурации/ТестСозданияОбъектов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/ОбычныеФормы/КнопкаНажималкаОбычныйИнтерфейс.feature, т.к. обнаружен тег исключение: ignoreonufbuilds
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Пауза/СделатьПаузу.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Пауза/СделатьПаузуОФ.feature, т.к. обнаружен тег исключение: ignoreonufbuilds
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/РаботаСФайлами/РаботаСФайлами.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Роли/ДоступнстьРоли.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Условие/ПроверкиУсловий.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Условие/Условие.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Условие/УсловиеИначе.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Цикл/ГруппыИЦикл.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Цикл/ОжиданиеСобытияВЦикле.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Цикл/ПереборСтрокТаблицыGherkin.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Цикл/Цикл.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Libraries/Цикл/ЦиклNРаз.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Measure/ЗамерПроизводительности.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/SikuliXServer/SikuliXServer.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/SikuliXServer/SikuliXServerExport.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/SikuliXServer/ПоискКартинокСТекстом.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsGenerator/ГенерацияEPF.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsGenerator/ГенерацияEPFВыводТекста.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsGenerator/ГенерацияEPFНаАнглийском.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsGenerator/Док-ГененерацияEPF.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsGenerator/ПерегенерацияEPF.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsGenerator/ПерегенерацияEPF232.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsGenerator/ПерегенерацияEPFПроверка.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsGenerator/ПерегенерацияEPFШагиНеИзФичи.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsProgramming/Док-АсинхронноеВыполнениеШага.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsProgramming/Док-ОтркрытьФичуСразуНаНужнойСтрокеВТекстовомРедакторе.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsProgramming/Док-ПередачаПараметровВСценарий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsProgramming/Док-ПроверитьЕстьЛиОкноСОшибкой.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsProgramming/Док-РаботаСПеременнымиКонтекстИКонтекстСохраняемый.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/Issue-53ВызватьОшибкуПриВыполненииТаймера.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/TestClient/Issue-252-ПроверкаОповещений.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/TestClient/Issue-261ПолучитьСостояниеVA.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/TestClient/Issue-416-Остановка ВыполненияСценариевПоОшибке.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/TestClient/ЗапускПростогоСценарияTestClient.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/TestClient/ПроверкаГенерацииСнипета-237.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/TestClient/ПроверкаЗагрузкиИерархииФич.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/БезопасноеВыполнениеШагов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ВыводДанныхВЛог.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ВыполнитьСценарийСВыбранногоШага.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/Док-ОстановкаВыполненияСценариевПриВозникновенииОшибки.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ЗагрузкаИзМакетаВложенныйСценарий.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ЗагрузкаИзМакетаВложенныйСценарийСлужебная.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ЗаписьЛогаВЖР.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/КонтекстноеМенюДереваТестов.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ОбработкаПередНачаломСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ОбработкаПередОкончаниемСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ОстановитьВыполнениеСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ОстановкаRunnerПоТаймеру.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ОстановкаRunnerПриПомещенииФайла.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПомещениеФайлаПередНачаломСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПомещениеФайлаПередНачаломСценарияОтдельныйСеанс.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаВыполненияСценарияПередачаТаблицы.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаИсключенийВШагах.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаИсключенийСервер.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаМетодаДобавитьОшибкуСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаОстановкиВыполненияВсехСценариев.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаОстановкиВыполненияОдногоСценария.feature, т.к. обнаружен тег исключение: ignoreonweb
+Фича <C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаПередачиКонтекста.feature> содержит тег @Tree. Найдены строки, которые содержат символы пробелов и символы табуляции в начале строки. Дерево не может быть корректно построено.
+	    И я поместил в структуру КонтекстСохраняемый значение "ТестоваяСтрокаКонтекстСохраняемый"
+	    И я смог прочитать из структуры КонтекстСохраняемый значение "ТестоваяСтрокаКонтекстСохраняемый"
+Фича <C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаПередачиКонтекста.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <2>, часть строк содержит символы табуляции <5>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаПередачиКонтекста.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаРаботыМетодаШаг.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаРаботыОбластей.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ПроверкаРаботыОбластейПитонСтайл.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/РаботаСКонтекстомЧерезИнтерфейсФреймворка.feature, т.к. обнаружен тег исключение: ignoreonweb
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StepsRunner/ЧтениеМакетовВСтарыхВерсияхПлатформы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA1 Работать с макетами данных.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA10 генерировать фиче-файлы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA11 запускать сценарии на выполнение.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA12 пошаговое выполнение сценариев.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA13 управлять Test-clients.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA14 Останавливать выполнение сценариев.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA15 управлять SikuliX.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA16 парсить фиче-файлы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA18 формировать отчёт Allure.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA19 формировать отчет Cucumber.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA2 Работать с UI Всплывающие окна.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA20 формировать прочие отчеты.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA21 формировать отчет jUnit.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA22 Turbo Gherkin.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA23 Использовать условия в сценариях.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA24 Макеты для условий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA25 Макеты для jUnit.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA26 Макеты для проверки test-client.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA27 Парсинг.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA28 Макеты для SikuliX.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA29 Макеты для проверки обработки ошибок.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA3 Работать с UI Выпадающий список.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA30 Прочие макеты.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA31 описание настроек.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA32 Создание фиче файлов.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA33 преобразование XML в Gherkin.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA34 указывать настройки выполнения сценариев.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA35 запускать интерактивно.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA36 запуск CLI.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA37 Работать с UI командный интерфейс.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA38 манипулировать загруженными фичами.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA39 использовать экспортные сценарии.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA4 Использовать в фичах встроенный язык.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA40 проверять формирование видеоинструкций.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA41 текстовые инструкции.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA42 Тестовые фичи.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA43 Unit тесты.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA44 Прочая активность.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA45 Прочая активность вообще.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA47 Макеты запуска VA.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA48 Макеты формирования фич.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA49 макеты для запуска сценариев.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA5 Работа с контекстом фич.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA50 Макеты для библиотеки шагов.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA51 Макеты для ТурбоГеркин.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA52 Работать с UI прочее.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA53 Работа с данными.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA6 Работать с подключением Test-client.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA7 Работать с файлами из фич.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA8 Прочее.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UA9 загружать фиче-файлы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF10 Запуск VA.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF11 Прочее.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF2 запуск сценариев на выполнение.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF3 запись действий пользователя.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF4 Библиотека шагов.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF5 формирование результатов выполнения сценариев.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF6 видео-инструкции.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF7 системные настройки VB.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF8 Turbo Gherkin.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/StoryMapper/UF9 Фичи-макеты.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Instructions/Core/CreatingNewFeatureFile.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Instructions/Core/Demo.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Instructions/Core/LoadingFeatureFileInBehavior.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Instructions/Core/OpenVanessaBehavior.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Instructions/Core/ДляГенерацииEPF.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Instructions/Core/ДляРаботыСПеременнымиКонтекст.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Support/Instructions/Environment/СкачиваниеПрограмм.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <3>, часть строк содержит символы табуляции <6>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Instructions/Environment/СкачиваниеПрограмм.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure10.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure11.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure12.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure13.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure14.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure15.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure16.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure17.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure4.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure5.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure6.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure7.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure8.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllure9.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllureСтруктура1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllureСтруктура2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Allure/ФичаДляПроверкиОтчетаAllureСтруктура3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ErrorExtraDataFiles/ErrorExtraDataFiles01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ExportScenarioEn.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/GenerateEpf/ФичаДляПроверкиВыводаТекста.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/GenerateEpf/ФичаДляПроверкиГенерацииEPFАнглийский.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/SikuliX/ДляПроверкиКартинкаИзТекста.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/SikuliX/ФичаДляПроверкиРаботыСПрофилямиПоиска.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor03.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor04.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor05.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor06.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor07.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor08.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor09.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor10.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor11.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor12.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor13.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor14.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor15.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor16.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditor17.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditorExport.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VAEditor/VanessaEditorExport2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/VanessaExt/VanessaExt01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/БезопасноеВыполнениеШагов/ДляБезопасноеВыполнениеШагов.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Браузер/DO_СозданиеПисьма.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Браузер/БраузерАвтодок.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Браузер/Видеоэффекты.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Браузер/НажатиеМыши.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Браузер/УТ11_Дэмо.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Видео/ПроверкаПодсветки01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВнутреннийОтчет/ФичаДляПроверкиВстроенногоОтчета.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВсяСтруктураСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВыводДанныхВЛог/ВыводДанныхВЛог01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВызовПроцедур/ВызовПроцедур01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВызовПроцедур/ВызовПроцедур02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВызовПроцедур/ВызовПроцедур03.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВызовСтруктурыСценарияПроверкаОшибкиКомпиляции.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВызовСтруктурыСценарияПроверкаОшибкиКомпиляцииExport.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВыполнениеСценариев/ПростаяФича01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВыполнитьСценарийСПродолжениемСГруппы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ВыполнитьСценарийСПродолжениемУсловиеНЕИстинно.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ГенерацияСнипета-237.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДеталиОшибки/ДеталиОшибки01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляЗапускТонкогоTestClientИзТолстогоTestManager.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаАпострофИПараметрПодсценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаВыполненияСценарияПередачаТаблицы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаКешаСценариев.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаПереборСтрокТаблицыGherkin.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаПередачиПараметровВПодсценарий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаПередачиПараметровСтруктурыСценарияВПодсценарий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаПередачиПараметровСтруктурыСценарияВПодсценарийЭкспорт.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаПереходаИзЦиклаКШагам.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаРаботыОпределенияШагаВУсловииВГруппе.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаРаботыОпределенияШагаВУсловииВСтрСц1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаРаботыОпределенияШагаВУсловииВСтрСц2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаТегаTreeПеревод.Feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаШагаЯКопируюТекущийПрофильTestClient.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаЭкранированияПереводаСтрокиВВидеСимволов1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаЭкранированияПереводаСтрокиВВидеСимволов2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкаЭкранированияПереводаСтрокиВВидеСимволов3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиВыполненияСценарияСШагаВнутриЦикла.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиЗагрузкиСтруктурыСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиЗагрузкиШагаБиблиотекиСДругимРегистромБукв.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиОжиданиеВыходаИзЦиклаПоСобытию.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиОпределенияШагаПослеЦикла.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиПаденияЦиклаВТечениеСекундЯВыполняю.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиПередачиПараметровВоВложенныеСценарии1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиПередачиПараметровВоВложенныеСценарии2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиПередачиПараметровВоВложенныеСценарииВТаблицу.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиПередачиПараметровВоВложенныеСценарииВТаблицуExp.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиПередачиПараметровВоВложенныеСценарииПохожиеПараметры.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиПередачиПараметровВоВложенныеСценарииПохожиеПараметрыExp.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиПереходаКОшибке.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиРаботыУсловияГруппыИТаблицы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиРаботыУсловияШагГруппаЕсли.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиРаботыЦиклаИВложенногоСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиСнятияСкриншотаШага.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиСтруктураСценарияТег_tree.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиУсловийВКонтексте1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ДляПроверкиУсловийВКонтексте2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЗагрузкаФичПриОткрытии/ЗагрузкаФичПриОткрытии01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЗагрузчикПользовательскихНастроек/ЗагрузчикПользовательскихНастроек01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЗагрузчикПользовательскихНастроек/ЗагрузчикПользовательскихНастроек02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЗакрытьПодключенныйTestClient/ЗакрытьПодключенныйTestClient.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЗамерПроизводительности/ДляЗамераПроизводительности.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЗаписьАвтодоков/ДляЗаписиАвтодоков01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЗаписьАвтодоков/ДляЗаписиАвтодоков02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЗаписьВЖР/ЗаписьВЖР01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЗнакМинусВСценарии.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ИзвестныеШаги/ИзвестныеШаги01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ИсследовательФормы/ДляИсследователяФормы01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ИсследовательФормы/ДляИсследователяФормы02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ИсследовательФормы/ДляИсследователяФормы03.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/КлиентыТестирования/ПовторноеПодключениеШагом.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/КлиентыТестирования/Экспорт.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/НедавноЗагруженныеФичи/НедавноЗагруженныеФичи01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/НедавноЗагруженныеФичи/НедавноЗагруженныеФичи02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/НедавноЗагруженныеФичи/НедавноЗагруженныеФичи03.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/НедавноЗагруженныеФичи/НедавноЗагруженныеФичи04.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/НедавноЗагруженныеФичи/НедавноЗагруженныеФичи05.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/НедавноЗагруженныеФичи/НедавноЗагруженныеФичи06.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/НедавноЗагруженныеФичи/НедавноЗагруженныеФичи07.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/НедавноЗагруженныеФичи/НедавноЗагруженныеФичи08.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/НедавноЗагруженныеФичи/НедавноЗагруженныеФичи09.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ОбработкаОшибкиВПроцедуреПередНачаломСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ОбработкаОшибкиВПроцедуреПередОкончаниемСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ОдинСценарийСтруктураСценарияИОбычныйСтруктураСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ОдинСценарийСтруктураСценарияИОбычныйСценарий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ОдинСценарийСтруктураСценарияСПродолжением.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ОдинСценарийСтруктураСценарияСПродолжением2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ОдинСценарийШагКонтекста.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ОсновнаяТестоваяФича.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ОстановитьВыполнениеСценария/ПростаяФича01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПередачаТаблиц/Export.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПередачаТаблиц/Пример01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПерезагрузкаИВыполениеОдногоСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Переменные/Переменные01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Переменные/Переменные02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Переменные/Переменные03.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Переменные/Переменные04.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Переменные/ПеременныеSingle01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПоказатьСкрытьКолонки/ПоказатьСкрытьКолонки01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПолучениеСостоянияVanessaBehavior.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПолучитьСостояниеФормы/ПолучитьСостояниеФормы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПомещениеФайлаПередНачаломСценарияTemplate.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаExportScenariosEN.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьОдинСценарийСтруктураСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьОдинШагУсловиеИстинно.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьОдинШагУсловиеНеИстинно.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьОдинШагЦиклУсловиеИстинно.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьОдинШагЦиклУсловиеНеИстинно.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьСценарийДоБрейкпоинта.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьСценарийПоОдномуШагу.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьСценарийСВыбранногоШага.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьСценарийСВыбранногоШагаВторойШагНеРеализован.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьСценарийСПроизвольногоШага.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьСценарийСПроизвольногоШагаСПродолжением.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаВыполнитьСценарийСПроизвольногоШагаСПродолжениемЭкспортныйСценарий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаДублированияСценариев/ПроверкаДублированияСценариев01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаЗагрузкиТаблицыСлужебный.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаИсключений/ПроверкаИсключений1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаИсключений/ПроверкаИсключений2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаИсключений/ПроверкаИсключений3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаИсключенийВшагах/ПроверкаИсключенийВшагах01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаИсключенийВшагах/ПроверкаИсключенийВшагах02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаОбычныйСценарийТег_tree1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаОбычныйСценарийТег_tree2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаОбычныйСценарийТег_tree3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаОстановкиВыполненияСценариев/ДляПроверкиОстановкиВсехСценариев.Feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаОстановкиВыполненияСценариев/ДляПроверкиОстановкиОдногоСценария.Feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаПодключенияTestClient1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаПодключенияTestClient2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаРаботыF11ДляУсловияВнутриЦикла.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаРаботыF11ДляУсловияТестОшибки.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаРаботыОповещений.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаРаботыУсловияКогдаВышеГруппа.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаРаботыУсловияКогдаЕстьТаблица.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаРаботыФлагаОстановкаПриВозникновенииОшибки.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПроверкаШагов/ДляТаблицаСталаРавной01.Feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПростаяФича/ПростаяФича01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПростаяФичаДляПроверкиПарсингаУкраинскогоЯзыка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПростаяФичаДляПроверкиРаботыВыполненияСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПростаяФичаДляПроверкиРаботыВыполненияСценарияTestClient.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПростаяФичаДляПроверкиРаботыОбластей.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПростаяФичаДляПроверкиРаботыОбластейПитонСтайл.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ПростойНагрузочныйТест/ПростойНагрузочныйТест01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СвернутьДерево/ДляСвернутьДерево.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СлужебнаяФичаEN1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СлужебнаяФичаEN2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СлужебнаяФичаEN3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СлужебнаяФичаEN4.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СлужебнаяФичаEN5.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СлужебнаяФичаEN6.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СлужебнаяФичаСОднимТегомФильтром.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СлужебныйЭкспортныйСценарий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СобытияДерева/ДляСобытияДерева.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СообщенияПользователю/СообщенияПользователю01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/СтруктураСценарияОдинШагОдинПараметр.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Теги/ПримерТеги01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Теги/ПримерТеги02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_АсинхронныеВызовыКлиент.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_БулевоОшибка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_БулевоУспех.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ВызватьИсключение.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ВыполнитьОшибка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ВыполнитьУспех.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ДатаОшибка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ДатаУспех.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ЗначениеЗаполненоОшибка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ЗначениеЗаполненоУспех.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_КоллекцииОшибка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_КоллекцииУспех.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_СтрокаОшибка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_СтрокаУспех.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ТипУспех.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ТипУспехОшибка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ЧислоОшибка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Тест_ЧислоУспех.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ТочкиОстанова/ДляПроверкиТочкиОстанова01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ТочкиОстанова/ДляПроверкиТочкиОстанова02.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий10.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий11.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий12.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий13.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий14.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий15.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий16.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий17.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий18.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий19.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий20.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий21.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий22.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий4.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий5.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий6_подчиненная фича.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий6.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий7.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий8.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/Условия/ДляПроверкаРаботыУсловий9.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляВыводИнформацииВЛог.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПерегенерацияEPFШагиНеИзФичи.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиSikuliXServer.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиАсинхронныхАссертов1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиГенерацииEPF.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <2>, часть строк содержит символы табуляции <9>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиГенерацииEPF.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиЗагрузкаФичиСПустойГруппой1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиЗагрузкаФичиСПустойГруппой2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиИзмененияСтатусаШагаНаFailedПриРаботеСТаймером.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиКомментария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиКопированияПрофиля.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиКопированияПрофиляTestClient.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиМетодаДобавитьОшибкуСценария1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиМетодаДобавитьОшибкуСценария2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиМетодаШаг.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаCucumber.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаHTML.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаjUnit1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаjUnit2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаjUnit3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаjUnit4.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаjUnit5.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаjUnit6.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаjUnit7.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаMarkdown.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОтчетаСППР1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиОшибкиSikuliXServer.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПарсингаСкобок.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПерегенерацииEPF.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПерегенерацииEPF232.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПерегенерацииEPFПроверка.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПеременныеВТаблицах.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПереходаКОпределениюШага1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПереходаКОпределениюШага2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПереходаКОпределениюШага3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПодключенияЗапущенногоTestClient1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПодключенияЗапущенногоTestClient2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПодключенияЗапущенногоTestClient3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПодключенияЗапущенногоTestClient4.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПолученияСостоянияАктивнойФормы.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПолученияТаблицыСВертикальнойЧертой.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиПрикрепленияПроизвольногоФайла.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиРаботСекцииКонтекст_Тег_tree.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиРаботСекцииСценарий_Тег_tree.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиРаботыВертикальнойЧерты_Тег_tree.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиРаботыКеш.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиРаботыКомментария_Тег_tree.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <1>, часть строк содержит символы табуляции <5>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиРаботыКомментария_Тег_tree.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиРаботыСкриншотов.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиРедактораТаблицыGherkin.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиСнятияСкриншотаШагом.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиСохраненияДопПараметров.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиСтруктураСценарияЧисло.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиСтруктурыСценария348.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиТаблицыTestClient.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиТаблоПеременных.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиТег_tree1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиТег_tree2_2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиТег_tree2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиТег_tree3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Фича <C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиТеговФильтров.feature> содержит тег @Tree. Часть строк содержит в начале строки символы пробелов <1>, часть строк содержит символы табуляции <1>. Дерево не может быть корректно построено.
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиТеговФильтров.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиУдаленияПеременных1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиУдаленияПеременных2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиУдаленияПеременных3.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиУсловийАнглийскийЯзык.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиФормированияВидео.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиФормированияФайлаСОшибкой.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиШагаПроверяющегоИсключение1.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаДляПроверкиШагаПроверяющегоИсключение2.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичаПроверкаСнятияСкриншотаМодальныйДиалог.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичиДляПровериРаботыТегов/ТегВторойСценарий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичиДляПровериРаботыТегов/ТегСценарий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичиДляПровериРаботыТегов/ТегФича.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичиДляПровериРаботыТегов/ТегФичаСценарий.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ФичиДляПровериРаботыТегов/ФичаБезТегов.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЧтениеМакетов/ЧтениеМакетов01.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+Не стал загружать фичу: C:/Commons/rep/vanessa-automation/features/Support/Templates/ЭкспортныйСценарийДляСтруктурыСценария.feature, т.к. обнаружен тег исключение: ignoreoncimainbuild
+23.08.2020 18:22:46 Работаю по сценарию: Основной сценарий проверки работы шагов Gherkin из поставляемой библиотеки.
+ЗначениеРеквизитЧислоТаблица = 56,78
+23.08.2020 18:29:12 Работаю по сценарию: Проверка проверки значения макета, когда макет формируется с задержкой. Проверка через макет.
+23.08.2020 18:29:22 Работаю по сценарию: Проверка проверки значения макета, когда макет формируется с задержкой. Проверка через таблицу Gherkin.
+23.08.2020 18:29:35 Работаю по сценарию: Проверка использования переменных при сравнении таблицы
+23.08.2020 18:29:45 Работаю по сценарию: Проверка получения макета из формы списка справочника
+23.08.2020 18:30:01 Работаю по сценарию: Проверка получения макета когда данные получены два раза в одном окне
+23.08.2020 18:30:25 Работаю по сценарию: Проверка шага, ожидающего значения ячейки макета
+23.08.2020 18:30:34 Работаю по сценарию: Проверка макета, когда используются значения контекста
+23.08.2020 18:30:46 Работаю по сценарию: Я запоминаю значение макета и потом сравниваю с текущим макетом
+23.08.2020 18:30:58 Работаю по сценарию: Я получаю данные макета где есть объединенные ячейки
+23.08.2020 18:31:13 Работаю по сценарию: Проверка получения областей табличного документа
+23.08.2020 18:31:40 Работаю по сценарию: Я получаю данные макета открытого отдельным окном
+23.08.2020 18:32:28 Работаю по сценарию: Я получаю данные макета открытого отдельным окном когда в ячейке макета есть экранированная вертикальная черта
+23.08.2020 18:32:40 Работаю по сценарию: Я получаю данные макета открытого отдельным окном когда в ячейке макета есть вертикальная черта
+23.08.2020 18:32:51 Работаю по сценарию: Проверка редактирования поля ТЧ
+23.08.2020 18:33:12 Работаю по сценарию: Проверка работы Декорации формы
+23.08.2020 18:33:22 Работаю по сценарию: Проверка открытия поля ТЧ
+23.08.2020 18:33:35 Работаю по сценарию: Проверка простого выпадающего списка на форме
+Удаляю элемент справочника <Справочник1> : <Тестовый Элемент 2>
+Удаляю элемент справочника <Справочник2> : <Группа1Элем2>
+Удаляю элемент справочника <Справочник2> : <Группа1Элем1>
+Удаляю элемент справочника <Справочник2> : <Группа2Элем2>
+Удаляю элемент справочника <Справочник2> : <ТестовыйЭлемент21>
+Удаляю элемент справочника <Справочник2> : <ТестовыйЭлемент20>
+Удаляю элемент справочника <Справочник2> : <Группа2Элем1>
+Удаляю элемент справочника <Справочник2> : <Группа1>
+Удаляю элемент справочника <Справочник2> : <Группа2>
+23.08.2020 18:33:58 Работаю по сценарию: Проверка простого выпадающего списка В ТЧ
+Удаляю элемент справочника <Справочник1> : <111>
+Удаляю элемент справочника <Справочник1> : <Тестовый Элемент 1>
+Удаляю элемент справочника <Справочник1> : <Тестовый Элемент 2>
+Удаляю элемент справочника <Справочник2> : <Группа1Элем2>
+Удаляю элемент справочника <Справочник2> : <Группа1Элем1>
+Удаляю элемент справочника <Справочник2> : <Группа2Элем2>
+Удаляю элемент справочника <Справочник2> : <ТестовыйЭлемент23>
+Удаляю элемент справочника <Справочник2> : <ТестовыйЭлемент20>
+Удаляю элемент справочника <Справочник2> : <Группа2Элем1>
+Удаляю элемент справочника <Справочник2> : <Группа1>
+Удаляю элемент справочника <Справочник2> : <Группа2>
+23.08.2020 18:34:05 Работаю по сценарию: Активизация колонки ТЧ
+23.08.2020 18:34:10 Работаю по сценарию: Проверка состава колонок
+23.08.2020 18:34:17 Работаю по сценарию: Проверка редактирования настроек компановки данных
+23.08.2020 18:34:28 Работаю по сценарию: Проверка выбора типа из списка выбора, когда реквизит имеет составной тип
+23.08.2020 18:34:36 Работаю по сценарию: Сравнение таблиц формы когда используется символ звёздочка
+23.08.2020 18:34:41 Работаю по сценарию: Проверка состояния макета у которого в ячейках есть переносы строк
+23.08.2020 18:34:46 Работаю по сценарию: Получение пустого макета
+23.08.2020 18:35:38 Работаю по сценарию: Переход к строке таблицы значений
+23.08.2020 18:35:50 Работаю по сценарию: Проверка метода шаг для перехода к строке ТЧ
+23.08.2020 18:35:55 Работаю по сценарию: Я открываю и закрываю окно справочника
+23.08.2020 18:35:58 Работаю по сценарию: Я нажмаю команду интерфейса в открытом окне
+23.08.2020 18:36:03 Работаю по сценарию: Проверка шагов, проверяющих командный интерфейс
+23.08.2020 18:36:17 Работаю по сценарию: Проверка доступности полей с учетом родителя
+23.08.2020 18:36:22 Работаю по сценарию: Открытие формы обработки
+23.08.2020 18:36:26 Работаю по сценарию: Переход к строке таблицы по значнию переменных Контекст и КонтекстСохраняемый
+23.08.2020 18:36:39 Работаю по сценарию: Проверка сравнение длинных чисел в ТЧ
+23.08.2020 18:36:48 Работаю по сценарию: Проверка видимости полей с учетом родителя
+23.08.2020 18:37:07 Работаю по сценарию: Проверка нажатия на кнопку диалога, который был вызван через ПоказатьВопрос
+23.08.2020 18:37:14 Работаю по сценарию: Проверка выделения строк таблицы вниз
+23.08.2020 18:37:27 Работаю по сценарию: Проверка выделения строк таблицы вверх
+23.08.2020 18:37:40 Работаю по сценарию: Проверка доступности полей с учетом родителя
+23.08.2020 18:37:48 Работаю по сценарию: Проверка значения колонки
+23.08.2020 18:38:00 Работаю по сценарию: Проверка равенства таблицы макету
+23.08.2020 18:38:10 Работаю по сценарию: Проверка открытия элемента формы
+23.08.2020 18:38:25 Работаю по сценарию: Переход к строке и проверка значения
+23.08.2020 18:38:31 Работаю по сценарию: Проверка ожидания значения таблицы
+23.08.2020 18:38:41 Работаю по сценарию: Проверка определения окна с заголовком "Найти"
+23.08.2020 18:38:51 Работаю по сценарию: Открытие навигационной ссылки формы списка справочника
+23.08.2020 18:38:56 Работаю по сценарию: Открытие навигационной ссылки формы списка документа
+23.08.2020 18:39:00 Работаю по сценарию: Открытие навигационной ссылки отчета
+23.08.2020 18:39:03 Работаю по сценарию: Открытие навигационной ссылки обработки
+23.08.2020 18:39:07 Работаю по сценарию: Открытие навигационной ссылки формы РС
+23.08.2020 18:39:11 Работаю по сценарию: Проверяю работу генератора шагов
+23.08.2020 18:39:16 Работаю по сценарию: Переход к дате в поле календаря
+23.08.2020 18:39:22 Работаю по сценарию: Проверка появления окна
+23.08.2020 18:39:34 Работаю по сценарию: Проверка работы флагов в разных режимах
+23.08.2020 18:40:00 Работаю по сценарию: Проверка работы со значениями переменных
+23.08.2020 18:40:09 Работаю по сценарию: Проверка содержимого таблицы
+23.08.2020 18:40:34 Работаю по сценарию: Проверка спецсимволов в заголовке окна
+23.08.2020 18:40:43 Работаю по сценарию: Проверка доступности полей с учетом родителя
+23.08.2020 18:40:51 Работаю по сценарию: Проверка шага условия Если текущее окно "равно" ожидаемому окну "ИмяОкна" Тогда
+23.08.2020 18:40:59 Работаю по сценарию: Проверка шага заполняющего табличную часть
+23.08.2020 18:41:13 Работаю по сценарию: Разворачивание таблицы в режиме иерархический список
+23.08.2020 18:41:27 Работаю по сценарию: Разворачивание таблицы в режиме Дерево
+23.08.2020 18:41:36 Работаю по сценарию: Работа с гиперссылкой
+23.08.2020 18:41:46 Работаю по сценарию: Работа с группой элементов формы
+23.08.2020 18:41:56 Работаю по сценарию: Работа с иерархией групп справочников
+23.08.2020 18:42:13 Работаю по сценарию: Основной сценарий работы с элементами формы
+23.08.2020 18:42:57 Работаю по сценарию: Проверка состояния ТЧ
+23.08.2020 18:43:18 Работаю по сценарию: Сравнение табличного документа в клиенте тестирования с макетом
+23.08.2020 18:43:29 Работаю по сценарию: Открытие окна предупреждения
+23.08.2020 18:43:35 Работаю по сценарию: Проверка открытия формы
+23.08.2020 18:43:41 Работаю по сценарию: Количество строк в таблице

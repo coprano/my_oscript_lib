@@ -1,0 +1,968 @@
+{
+"ru": {
+"when": [
+"Когда"
+],
+"scenarioOutline": [
+"Структура сценария"
+],
+"else": [
+"Иначе"
+],
+"given": [
+"Допустим",
+"Дано",
+"Пусть"
+],
+"scenario": [
+"Пример",
+"Сценарий"
+],
+"then": [
+"То",
+"Затем",
+"Тогда"
+],
+"rule": [
+"Правило"
+],
+"native": "русский",
+"name": "Russian",
+"feature": [
+"Функция",
+"Функциональность",
+"Функционал",
+"Свойство"
+],
+"except": [
+"Исключение"
+],
+"if": [
+"Если"
+],
+"variables": [
+"Переменные",
+"Гиперссылки",
+"Ссылки"
+],
+"examples": [
+"Примеры"
+],
+"but": [
+"Но",
+"А"
+],
+"import": [
+"Импорт",
+"Подключить"
+],
+"background": [
+"Предыстория",
+"Контекст"
+],
+"elseif": [
+"ИначеЕсли"
+],
+"try": [
+"Попытка"
+],
+"and": [
+"И",
+"К тому же",
+"Также"
+]
+},
+"en": {
+"when": [
+"When"
+],
+"scenarioOutline": [
+"Scenario Outline",
+"Scenario Template"
+],
+"else": [
+"Else"
+],
+"given": [
+"Given"
+],
+"scenario": [
+"Example",
+"Scenario"
+],
+"then": [
+"Then"
+],
+"rule": [
+"Rule"
+],
+"native": "English",
+"name": "English",
+"feature": [
+"Feature",
+"Functionality",
+"Business Need",
+"Ability"
+],
+"except": [
+"except"
+],
+"if": [
+"If"
+],
+"variables": [
+"Variables",
+"Hyperlinks",
+"Links"
+],
+"examples": [
+"Examples",
+"Scenarios"
+],
+"but": [
+"But"
+],
+"import": [
+"Import",
+"Using"
+],
+"background": [
+"Background"
+],
+"elseif": [
+"ElseIf"
+],
+"try": [
+"try"
+],
+"and": [
+"And"
+]
+},
+"vi": {
+"then": [
+"Thì"
+],
+"scenario": [
+"Tình huống",
+"Kịch bản"
+],
+"rule": [
+"Rule"
+],
+"native": "Tiếng Việt",
+"scenarioOutline": [
+"Khung tình huống",
+"Khung kịch bản"
+],
+"name": "Vietnamese",
+"given": [
+"Biết",
+"Cho"
+],
+"feature": [
+"Tính năng"
+],
+"examples": [
+"Dữ liệu"
+],
+"when": [
+"Khi"
+],
+"but": [
+"Nhưng"
+],
+"background": [
+"Bối cảnh"
+],
+"and": [
+"Và"
+]
+},
+"tr": {
+"then": [
+"O zaman"
+],
+"scenario": [
+"Örnek",
+"Senaryo"
+],
+"rule": [
+"Rule"
+],
+"native": "Türkçe",
+"scenarioOutline": [
+"Senaryo taslağı"
+],
+"name": "Turkish",
+"given": [
+"Diyelim ki"
+],
+"feature": [
+"Özellik"
+],
+"examples": [
+"Örnekler"
+],
+"when": [
+"Eğer ki"
+],
+"but": [
+"Fakat",
+"Ama"
+],
+"background": [
+"Geçmiş"
+],
+"and": [
+"Ve"
+]
+},
+"pl": {
+"then": [
+"Wtedy"
+],
+"scenario": [
+"Przykład",
+"Scenariusz"
+],
+"rule": [
+"Rule"
+],
+"native": "polski",
+"scenarioOutline": [
+"Szablon scenariusza"
+],
+"name": "Polish",
+"given": [
+"Zakładając",
+"Mając",
+"Zakładając, że"
+],
+"feature": [
+"Właściwość",
+"Funkcja",
+"Aspekt",
+"Potrzeba biznesowa"
+],
+"examples": [
+"Przykłady"
+],
+"when": [
+"Jeżeli",
+"Jeśli",
+"Gdy",
+"Kiedy"
+],
+"but": [
+"Ale"
+],
+"background": [
+"Założenia"
+],
+"and": [
+"Oraz",
+"I"
+]
+},
+"ka": {
+"then": [
+"მაშინ"
+],
+"scenario": [
+"მაგალითად",
+"სცენარის"
+],
+"rule": [
+"Rule"
+],
+"native": "ქართველი",
+"scenarioOutline": [
+"სცენარის ნიმუში"
+],
+"name": "Georgian",
+"given": [
+"მოცემული"
+],
+"feature": [
+"თვისება"
+],
+"examples": [
+"მაგალითები"
+],
+"when": [
+"როდესაც"
+],
+"but": [
+"მაგ­რამ"
+],
+"background": [
+"კონტექსტი"
+],
+"and": [
+"და"
+]
+},
+"et": {
+"then": [
+"Siis"
+],
+"scenario": [
+"Juhtum",
+"Stsenaarium"
+],
+"rule": [
+"Reegel"
+],
+"native": "eesti keel",
+"scenarioOutline": [
+"Raamjuhtum",
+"Raamstsenaarium"
+],
+"name": "Estonian",
+"given": [
+"Eeldades"
+],
+"feature": [
+"Omadus"
+],
+"examples": [
+"Juhtumid"
+],
+"when": [
+"Kui"
+],
+"but": [
+"Kuid"
+],
+"background": [
+"Taust"
+],
+"and": [
+"Ja"
+]
+},
+"mn": {
+"then": [
+"Тэгэхэд",
+"Үүний дараа"
+],
+"scenario": [
+"Сценар"
+],
+"rule": [
+"Rule"
+],
+"native": "монгол",
+"scenarioOutline": [
+"Сценарын төлөвлөгөө"
+],
+"name": "Mongolian",
+"given": [
+"Өгөгдсөн нь",
+"Анх"
+],
+"feature": [
+"Функц",
+"Функционал"
+],
+"examples": [
+"Тухайлбал"
+],
+"when": [
+"Хэрэв"
+],
+"but": [
+"Гэхдээ",
+"Харин"
+],
+"background": [
+"Агуулга"
+],
+"and": [
+"Мөн",
+"Тэгээд"
+]
+},
+"lv": {
+"then": [
+"Tad"
+],
+"scenario": [
+"Piemērs",
+"Scenārijs"
+],
+"rule": [
+"Rule"
+],
+"native": "latviešu",
+"scenarioOutline": [
+"Scenārijs pēc parauga"
+],
+"name": "Latvian",
+"given": [
+"Kad"
+],
+"feature": [
+"Funkcionalitāte",
+"Fīča"
+],
+"examples": [
+"Piemēri",
+"Paraugs"
+],
+"when": [
+"Ja"
+],
+"but": [
+"Bet"
+],
+"background": [
+"Konteksts",
+"Situācija"
+],
+"and": [
+"Un"
+]
+},
+"sv": {
+"then": [
+"Så"
+],
+"scenario": [
+"Scenario"
+],
+"rule": [
+"Regel"
+],
+"native": "Svenska",
+"scenarioOutline": [
+"Abstrakt Scenario",
+"Scenariomall"
+],
+"name": "Swedish",
+"given": [
+"Givet"
+],
+"feature": [
+"Egenskap"
+],
+"examples": [
+"Exempel"
+],
+"when": [
+"När"
+],
+"but": [
+"Men"
+],
+"background": [
+"Bakgrund"
+],
+"and": [
+"Och"
+]
+},
+"lt": {
+"then": [
+"Tada"
+],
+"scenario": [
+"Pavyzdys",
+"Scenarijus"
+],
+"rule": [
+"Rule"
+],
+"native": "lietuvių kalba",
+"scenarioOutline": [
+"Scenarijaus šablonas"
+],
+"name": "Lithuanian",
+"given": [
+"Duota"
+],
+"feature": [
+"Savybė"
+],
+"examples": [
+"Pavyzdžiai",
+"Scenarijai",
+"Variantai"
+],
+"when": [
+"Kai"
+],
+"but": [
+"Bet"
+],
+"background": [
+"Kontekstas"
+],
+"and": [
+"Ir"
+]
+},
+"hu": {
+"then": [
+"Akkor"
+],
+"scenario": [
+"Példa",
+"Forgatókönyv"
+],
+"rule": [
+"Rule"
+],
+"native": "magyar",
+"scenarioOutline": [
+"Forgatókönyv vázlat"
+],
+"name": "Hungarian",
+"given": [
+"Amennyiben",
+"Adott"
+],
+"feature": [
+"Jellemző"
+],
+"examples": [
+"Példák"
+],
+"when": [
+"Majd",
+"Ha",
+"Amikor"
+],
+"but": [
+"De"
+],
+"background": [
+"Háttér"
+],
+"and": [
+"És"
+]
+},
+"de": {
+"then": [
+"Dann"
+],
+"scenario": [
+"Beispiel",
+"Szenario"
+],
+"rule": [
+"Rule",
+"Regel"
+],
+"native": "Deutsch",
+"scenarioOutline": [
+"Szenariogrundriss",
+"Szenarien"
+],
+"name": "German",
+"given": [
+"Angenommen",
+"Gegeben sei",
+"Gegeben seien"
+],
+"feature": [
+"Funktionalität",
+"Funktion"
+],
+"examples": [
+"Beispiele"
+],
+"when": [
+"Wenn"
+],
+"but": [
+"Aber"
+],
+"background": [
+"Grundlage",
+"Hintergrund",
+"Voraussetzungen",
+"Vorbedingungen"
+],
+"and": [
+"Und"
+]
+},
+"fr": {
+"then": [
+"Alors",
+"Donc"
+],
+"scenario": [
+"Exemple",
+"Scénario"
+],
+"rule": [
+"Règle"
+],
+"native": "français",
+"scenarioOutline": [
+"Plan du scénario",
+"Plan du Scénario"
+],
+"name": "French",
+"given": [
+"Soit",
+"Sachant que",
+"Sachant qu'",
+"Sachant",
+"Etant donné que",
+"Etant donné qu'",
+"Etant donné",
+"Etant donnée",
+"Etant donnés",
+"Etant données",
+"Étant donné que",
+"Étant donné qu'",
+"Étant donné",
+"Étant donnée",
+"Étant donnés",
+"Étant données"
+],
+"feature": [
+"Fonctionnalité"
+],
+"examples": [
+"Exemples"
+],
+"when": [
+"Quand",
+"Lorsque",
+"Lorsqu'"
+],
+"but": [
+"Mais que",
+"Mais qu'",
+"Mais"
+],
+"background": [
+"Contexte"
+],
+"and": [
+"Et que",
+"Et qu'",
+"Et"
+]
+},
+"sl": {
+"then": [
+"Nato",
+"Potem",
+"Takrat"
+],
+"scenario": [
+"Primer",
+"Scenarij"
+],
+"rule": [
+"Rule"
+],
+"native": "Slovenski",
+"scenarioOutline": [
+"Struktura scenarija",
+"Skica",
+"Koncept",
+"Oris scenarija",
+"Osnutek"
+],
+"name": "Slovenian",
+"given": [
+"Dano",
+"Podano",
+"Zaradi",
+"Privzeto"
+],
+"feature": [
+"Funkcionalnost",
+"Funkcija",
+"Možnosti",
+"Moznosti",
+"Lastnost",
+"Značilnost"
+],
+"examples": [
+"Primeri",
+"Scenariji"
+],
+"when": [
+"Ko",
+"Ce",
+"Če",
+"Kadar"
+],
+"but": [
+"Toda",
+"Ampak",
+"Vendar"
+],
+"background": [
+"Kontekst",
+"Osnova",
+"Ozadje"
+],
+"and": [
+"In",
+"Ter"
+]
+},
+"ro": {
+"then": [
+"Atunci"
+],
+"scenario": [
+"Exemplu",
+"Scenariu"
+],
+"rule": [
+"Rule"
+],
+"native": "română",
+"scenarioOutline": [
+"Structura scenariu",
+"Structură scenariu"
+],
+"name": "Romanian",
+"given": [
+"Date fiind",
+"Dat fiind",
+"Dată fiind",
+"Dati fiind",
+"Dați fiind",
+"Daţi fiind"
+],
+"feature": [
+"Functionalitate",
+"Funcționalitate",
+"Funcţionalitate"
+],
+"examples": [
+"Exemple"
+],
+"when": [
+"Cand",
+"Când"
+],
+"but": [
+"Dar"
+],
+"background": [
+"Context"
+],
+"and": [
+"Si",
+"Și",
+"Şi"
+]
+},
+"es": {
+"then": [
+"Entonces"
+],
+"scenario": [
+"Ejemplo",
+"Escenario"
+],
+"rule": [
+"Regla"
+],
+"native": "español",
+"scenarioOutline": [
+"Esquema del escenario"
+],
+"name": "Spanish",
+"given": [
+"Dado",
+"Dada",
+"Dados",
+"Dadas"
+],
+"feature": [
+"Característica"
+],
+"examples": [
+"Ejemplos"
+],
+"when": [
+"Cuando"
+],
+"but": [
+"Pero"
+],
+"background": [
+"Antecedentes"
+],
+"and": [
+"Y",
+"E"
+]
+},
+"az": {
+"then": [
+"O halda"
+],
+"scenario": [
+"Nümunə",
+"Ssenari"
+],
+"rule": [
+"Rule"
+],
+"native": "Azərbaycanca",
+"scenarioOutline": [
+"Ssenarinin strukturu"
+],
+"name": "Azerbaijani",
+"given": [
+"Tutaq ki",
+"Verilir"
+],
+"feature": [
+"Özəllik"
+],
+"examples": [
+"Nümunələr"
+],
+"when": [
+"Əgər",
+"Nə vaxt ki"
+],
+"but": [
+"Amma",
+"Ancaq"
+],
+"background": [
+"Keçmiş",
+"Kontekst"
+],
+"and": [
+"Və",
+"Həm"
+]
+},
+"it": {
+"then": [
+"Allora"
+],
+"scenario": [
+"Esempio",
+"Scenario"
+],
+"rule": [
+"Rule"
+],
+"native": "italiano",
+"scenarioOutline": [
+"Schema dello scenario"
+],
+"name": "Italian",
+"given": [
+"Dato",
+"Data",
+"Dati",
+"Date"
+],
+"feature": [
+"Funzionalità"
+],
+"examples": [
+"Esempi"
+],
+"when": [
+"Quando"
+],
+"but": [
+"Ma"
+],
+"background": [
+"Contesto"
+],
+"and": [
+"E"
+]
+},
+"bg": {
+"then": [
+"То"
+],
+"scenario": [
+"Пример",
+"Сценарий"
+],
+"rule": [
+"Rule"
+],
+"native": "български",
+"scenarioOutline": [
+"Рамка на сценарий"
+],
+"name": "Bulgarian",
+"given": [
+"Дадено"
+],
+"feature": [
+"Функционалност"
+],
+"examples": [
+"Примери"
+],
+"when": [
+"Когато"
+],
+"but": [
+"Но"
+],
+"background": [
+"Предистория"
+],
+"and": [
+"И"
+]
+},
+"am": {
+"then": [
+"Ապա"
+],
+"scenario": [
+"Օրինակ",
+"Սցենար"
+],
+"rule": [
+"Rule"
+],
+"native": "հայերեն",
+"scenarioOutline": [
+"Սցենարի կառուցվացքը"
+],
+"name": "Armenian",
+"given": [
+"Դիցուք"
+],
+"feature": [
+"Ֆունկցիոնալություն",
+"Հատկություն"
+],
+"examples": [
+"Օրինակներ"
+],
+"when": [
+"Եթե",
+"Երբ"
+],
+"but": [
+"Բայց"
+],
+"background": [
+"Կոնտեքստ"
+],
+"and": [
+"Եվ"
+]
+}
+}

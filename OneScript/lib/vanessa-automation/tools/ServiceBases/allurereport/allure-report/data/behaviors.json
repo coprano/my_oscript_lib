@@ -1,0 +1,37 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "Помещение файла перед началом сценария",
+    "children" : [ {
+      "name" : "(Сборка 8_3_17 UF sovm 82) Помещение файла перед началом сценария",
+      "uid" : "ea7c64135fc0521b",
+      "parentUid" : "9ebe48fbde17736dba2e3ef029031e27",
+      "status" : "passed",
+      "time" : {
+        "start" : 1668077314669,
+        "stop" : 1668077314680,
+        "duration" : 11
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "9ebe48fbde17736dba2e3ef029031e27"
+  }, {
+    "name" : "Проверка выполнения сценария передача таблицы",
+    "children" : [ {
+      "name" : "(Сборка 8_3_17 UF sovm 82) Проверка выполнения сценария передача таблицы",
+      "uid" : "6a795c913c2e0b6b",
+      "parentUid" : "687a25740959d5495484841de7a0d324",
+      "status" : "passed",
+      "time" : {
+        "start" : 1668077314680,
+        "stop" : 1668077315312,
+        "duration" : 632
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "687a25740959d5495484841de7a0d324"
+  } ]
+}

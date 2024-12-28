@@ -1,0 +1,108 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "1script_v8unpack/1.0.0": {
+        "dependencies": {
+          "OneScript": "2.0.0-rc4",
+          "OneScript.CoreLib": "2.0.0-rc4"
+        },
+        "runtime": {
+          "1script_v8unpack.dll": {}
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {},
+      "OneScript/2.0.0-rc4": {
+        "dependencies": {
+          "OneScript.CoreLib": "2.0.0-rc4",
+          "OneScript.Language": "2.0.0-rc4",
+          "OneScript.Native": "2.0.0-rc4"
+        },
+        "runtime": {
+          "lib/netstandard2.1/ScriptEngine.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.5"
+          }
+        }
+      },
+      "OneScript.CoreLib/2.0.0-rc4": {
+        "dependencies": {
+          "OneScript.Language": "2.0.0-rc4"
+        },
+        "runtime": {
+          "lib/netstandard2.1/OneScript.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.5"
+          }
+        }
+      },
+      "OneScript.Language/2.0.0-rc4": {
+        "runtime": {
+          "lib/netstandard2.1/OneScript.Language.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.5"
+          }
+        }
+      },
+      "OneScript.Native/2.0.0-rc4": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "OneScript.CoreLib": "2.0.0-rc4",
+          "OneScript.Language": "2.0.0-rc4"
+        },
+        "runtime": {
+          "lib/netstandard2.1/OneScript.Native.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.5"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "1script_v8unpack/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
+    },
+    "OneScript/2.0.0-rc4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V1XlVdhznxcu/qJAEwKRP7ANK2dQEwnAkTqj21jSUjiiSiQpINoPyOb8VU48SjkmTSh6+u8bUPXZZbiIMZTxMw==",
+      "path": "onescript/2.0.0-rc4",
+      "hashPath": "onescript.2.0.0-rc4.nupkg.sha512"
+    },
+    "OneScript.CoreLib/2.0.0-rc4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mEYLoZEVcbNLKEULtnBOgn3kg0VB+TXXWa7YLuYhgS36lGEgtRd895axKN7PR9JqIp+dNqM4M8xZ9tkorsytlQ==",
+      "path": "onescript.corelib/2.0.0-rc4",
+      "hashPath": "onescript.corelib.2.0.0-rc4.nupkg.sha512"
+    },
+    "OneScript.Language/2.0.0-rc4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9nrlZ9BInpuxUxNMBegVV/NP77fmsxC4KJelCl+BpNIzQvBJ3aaOjFwJgyzkG/wpXt0Llk8ZmJ6f8deVecqC7g==",
+      "path": "onescript.language/2.0.0-rc4",
+      "hashPath": "onescript.language.2.0.0-rc4.nupkg.sha512"
+    },
+    "OneScript.Native/2.0.0-rc4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hx8oo+BtCskOKKkOLXeTEfN1mtFkYo1cHdKRQg41TXL/4qZdyM/5GokdDkywZdIG/WILEt7EsqeCrDzAqLkCxw==",
+      "path": "onescript.native/2.0.0-rc4",
+      "hashPath": "onescript.native.2.0.0-rc4.nupkg.sha512"
+    }
+  }
+}

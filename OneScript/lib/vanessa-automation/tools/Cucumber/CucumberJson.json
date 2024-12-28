@@ -1,0 +1,144 @@
+[
+	{
+		"uri": "Тестовая фича, проверяющая генерацию отчета Cucumber",
+		"keyword": "Feature",
+		"id": "C:\\Commons\\rep\\vanessa-automation\\features\\Support\\Templates\\FichaDlyaProverkiOtchetaCucumber.feature",
+		"name": "Тестовая фича, проверяющая генерацию отчета Cucumber",
+		"description": "",
+		"tags": [
+			{
+				"name": "@uf9_вспомогательные_фичи",
+				"line": 4
+			},
+			{
+				"name": "@ua25_макеты_для_отчетов_о_выполнении",
+				"line": 6
+			},
+			{
+				"name": "@ignoreoncimainbuild",
+				"line": 8
+			}
+		],
+		"elements": [
+			{
+				"keyword": "Scenario",
+				"id": "Testovaya ficha, proveryayuschaya generaciyu otcheta Cucumber-Vipolnenie pervogo prostogo scenariya. Testovaya ficha, proveryayuschaya generaciyu otcheta Cucumber1",
+				"name": "Выполнение первого простого сценария. Тестовая фича, проверяющая генерацию отчета Cucumber",
+				"line": 15,
+				"description": "",
+				"tags": [],
+				"type": "scenario",
+				"steps": [
+					{
+						"keyword": "Когда",
+						"name": "я выполняю простой шаг",
+						"line": 15,
+						"result": {
+							"status": "passed",
+							"duration": 688000000
+						}
+					},
+					{
+						"keyword": "И",
+						"name": "я выполняю ещё простой шаг",
+						"line": 15,
+						"result": {
+							"status": "passed",
+							"duration": 0
+						}
+					}
+				]
+			},
+			{
+				"keyword": "Scenario",
+				"id": "Testovaya ficha, proveryayuschaya generaciyu otcheta Cucumber-Padayuschii scenarii2",
+				"name": "Падающий сценарий",
+				"line": 19,
+				"description": "",
+				"tags": [],
+				"type": "scenario",
+				"steps": [
+					{
+						"keyword": "Когда",
+						"name": "я выполняю простой шаг",
+						"line": 19,
+						"result": {
+							"status": "passed",
+							"duration": 0
+						}
+					},
+					{
+						"keyword": "И",
+						"name": "я не выполняю простой шаг",
+						"line": 19,
+						"result": {
+							"status": "failed",
+							"error_message": "{ВнешняяОбработка.ФичаДляПроверкиОтчетаjUnit.Форма.Форма.Форма(77)}: Ошибка.\n\nТехнические данные:\n        ЗаголовокАктивногоОкна: \n        ИмяАктивнойФормы: \n        ИмяФичи: Тестовая фича, проверяющая генерацию отчета Cucumber\n        ИмяСценария: Падающий сценарий\n        НомерСтрокиДерева: 7\n        НомерСтрокиФичи: 21\n        ПолнйПутьКФиче: C:\\Commons\\rep\\vanessa-automation\\features\\Support\\Templates\\ФичаДляПроверкиОтчетаCucumber.feature\n        ИмяФайла: C:\\Commons\\rep\\vanessa-automation\\features\\Support\\Templates\\step_definitions\\ФичаДляПроверкиОтчетаjUnit.epf\n        ИмяПроцедуры: ЯНеВыполняюПростойШаг\n        ИмяРаннера: PAUTOV-VM\n        ТипКлиентаТестирования: \n        СтрокаСоединения: \n        PIDКлиентаТестирования: 0\n        ВерсияVA: ver 1.2.034.21\n        ВерсияПлатформы: 8.3.13.1885\n        РежимСовместимостиTestManager: НеИспользовать\n        ДатаВремяОшибки: 31.10.2020 10:59:19",
+							"duration": 16000000
+						}
+					}
+				]
+			},
+			{
+				"keyword": "Scenario",
+				"id": "Testovaya ficha, proveryayuschaya generaciyu otcheta Cucumber-Propuschennii scenarii3",
+				"name": "Пропущенный сценарий",
+				"line": 23,
+				"description": "",
+				"tags": [],
+				"type": "scenario",
+				"steps": [
+					{
+						"keyword": "Когда",
+						"name": "я выполняю не реализованный простой шаг",
+						"line": 23,
+						"result": {
+							"status": "pending",
+							"duration": 31000000
+						}
+					}
+				]
+			},
+			{
+				"keyword": "Scenario",
+				"id": "Testovaya ficha, proveryayuschaya generaciyu otcheta Cucumber-Scenarii s tablicei №14",
+				"name": "Сценарий с таблицей №1",
+				"line": 31,
+				"description": "",
+				"tags": [],
+				"type": "scenario",
+				"steps": [
+					{
+						"keyword": "Когда",
+						"name": "я выполняю шаг в служебной фиче с параметром 1",
+						"line": 31,
+						"result": {
+							"status": "passed",
+							"duration": 0
+						}
+					}
+				]
+			},
+			{
+				"keyword": "Scenario",
+				"id": "Testovaya ficha, proveryayuschaya generaciyu otcheta Cucumber-Scenarii s tablicei №25",
+				"name": "Сценарий с таблицей №2",
+				"line": 32,
+				"description": "",
+				"tags": [],
+				"type": "scenario",
+				"steps": [
+					{
+						"keyword": "Когда",
+						"name": "я выполняю шаг в служебной фиче с параметром 2",
+						"line": 32,
+						"result": {
+							"status": "passed",
+							"duration": 0
+						}
+					}
+				]
+			}
+		]
+	}
+]

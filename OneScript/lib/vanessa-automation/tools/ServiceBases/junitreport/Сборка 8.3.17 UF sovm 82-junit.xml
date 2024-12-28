@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite name="Помещение файла перед началом сценария" errors="0" skipped="0" tests="1" failures="0" time="0.011">
+		<testcase name="Помещение файла перед началом сценария" classname="Помещение файла перед началом сценария" time="0.011"/>
+	</testsuite>
+	<testsuite name="Проверка выполнения сценария передача таблицы" errors="0" skipped="0" tests="1" failures="0" time="0.632">
+		<testcase name="Проверка выполнения сценария передача таблицы" classname="Проверка выполнения сценария передача таблицы" time="0.632"/>
+	</testsuite>
+</testsuites>

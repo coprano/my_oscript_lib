@@ -1,0 +1,4 @@
+Фича: C:\Commons\rep\vanessa-automation\features\Core\Allure\Issue-34-ОтчетAllure.feature
+0% 
+	Сценарий: Проверка заполнения suite
+		ПодключениеTestClient:порт <48000>

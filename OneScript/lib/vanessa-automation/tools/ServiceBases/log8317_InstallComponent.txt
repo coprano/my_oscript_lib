@@ -1,0 +1,6 @@
+Фича: C:\Commons\rep\vanessa-automation\features\Core\ScreenShot\УстановкаКомпоненты1cWinCtrl.feature
+0% 
+	Сценарий: Гарантированная установка компоненты VanessaExt
+		ПодключениеTestClient:порт <48001>
+	Сценарий: Закрытие клиента тестирования
+Закрытие клиента тестирования.

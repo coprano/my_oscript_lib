@@ -1,0 +1,9 @@
+Фича: C:\Commons\rep\vanessa-automation\features\Core\ExpectedSomething\ExpectedForms.feature
+0% 
+	Сценарий: Основной сценарий проверки работы шагов Gherkin из поставляемой библиотеки.
+		ПодключениеTestClient:порт <48000>
+Фича: C:\Commons\rep\vanessa-automation\features\StepsGenerator\ГенерацияEPF.feature
+33% 
+	Сценарий: Генерация EPF простая
+	Сценарий: Генерация EPF когда есть разные регистры букв в снипетах
+Закрытие клиента тестирования.

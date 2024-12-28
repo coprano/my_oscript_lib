@@ -1,0 +1,170 @@
+﻿<Structure xmlns="http://v8.1c.ru/8.1/data/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Property name="ВерсияФормата">
+		<Value xsi:type="xs:string">1.4</Value>
+	</Property>
+	<Property name="УИ">
+		<Value xsi:type="xs:string">85ce5b97-a099-4746-a5ad-af0808911432</Value>
+	</Property>
+	<Property name="ТипОшибки">
+		<Value xsi:type="xs:string">Ошибка сценария</Value>
+	</Property>
+	<Property name="ИсходнаяИнформация">
+		<Value xsi:type="xs:string">ПроверкаПопыткиИсключения13
+Не получилось сравнить таблицу с эталоном 2
+Таблица &lt;Список&gt; не стала равной за &lt;3&gt; секунд. ТЧ Список не соответствует эталону. Ожидали 1 строк, а в ней 20 строк.
+
+Технические данные:
+        ЗаголовокАктивногоОкна: Справочник1
+        ИмяАктивнойФормы: Справочник.Справочник1.ФормаСписка
+        ИмяФичи: ПроверкаПопыткиИсключения13
+        ИмяСценария: ПроверкаПопыткиИсключения13
+        НомерСтрокиДерева: 13
+        НомерСтрокиФичи: 34
+        ПолныйПутьКФиче: C:\Commons\rep\vanessa-automation\features\Support\Templates\ПроверкаПопыткиИсключения\ПроверкаПопыткиИсключения13.feature
+        ИмяФайла: C:\Commons\rep\vanessa-automation\features\Libraries\UITestRunner\step_definitions\РаботаСИнтерфейсом.epf
+        ИмяПроцедуры: ЯЖдуЧтоТаблицаСтанетРавнаДаннойВТечениеСекунд
+        ИмяРаннера: Pautov-i7
+        ИмяКлиентаТестирования: Этот клиент
+        СинонимКлиентаТестирования: 
+        ТипКлиентаТестирования: Тонкий
+        СтрокаСоединения: File="c:\Bases\8.3.22";
+        ДопПараметрыПодключения: /N"" 
+        PIDКлиентаТестирования: 10140
+        ВерсияVA: ver 1.2.040.18
+        ВерсияПлатформы: 8.3.22.1780
+        ТипПлатформы: Windows x86
+        РежимСовместимостиTestManager: НеИспользовать
+        ВремяРаботыСценария: 0:00:25 (ч:м:с)
+        ДатаВремяОшибки: 28.04.2023 9:57:46</Value>
+	</Property>
+	<Property name="ПорядокВоспроизведения">
+		<Value xsi:type="xs:string">ПроверкаПопыткиИсключения13
+
+Шаги
+И Я запоминаю значение выражения '1' в переменную "ИмяПеременной"
+И я жду, что таблица "Список" станет равна данной в течение 3 секунд:
+И я регистрирую ошибку по данным исключения "Не получилось сравнить таблицу с эталоном 2"
+Последний шаг не выполнен.
+
+Для получения дополнительной информации см. приложенные скриншоты.
+
+Не получилось сравнить таблицу с эталоном 2
+Таблица &lt;Список&gt; не стала равной за &lt;3&gt; секунд. ТЧ Список не соответствует эталону. Ожидали 1 строк, а в ней 20 строк.
+
+Технические данные:
+        ЗаголовокАктивногоОкна: Справочник1
+        ИмяАктивнойФормы: Справочник.Справочник1.ФормаСписка
+        ИмяФичи: ПроверкаПопыткиИсключения13
+        ИмяСценария: ПроверкаПопыткиИсключения13
+        НомерСтрокиДерева: 13
+        НомерСтрокиФичи: 34
+        ПолныйПутьКФиче: C:\Commons\rep\vanessa-automation\features\Support\Templates\ПроверкаПопыткиИсключения\ПроверкаПопыткиИсключения13.feature
+        ИмяФайла: C:\Commons\rep\vanessa-automation\features\Libraries\UITestRunner\step_definitions\РаботаСИнтерфейсом.epf
+        ИмяПроцедуры: ЯЖдуЧтоТаблицаСтанетРавнаДаннойВТечениеСекунд
+        ИмяРаннера: Pautov-i7
+        ИмяКлиентаТестирования: Этот клиент
+        СинонимКлиентаТестирования: 
+        ТипКлиентаТестирования: Тонкий
+        СтрокаСоединения: File="c:\Bases\8.3.22";
+        ДопПараметрыПодключения: /N"" 
+        PIDКлиентаТестирования: 10140
+        ВерсияVA: ver 1.2.040.18
+        ВерсияПлатформы: 8.3.22.1780
+        ТипПлатформы: Windows x86
+        РежимСовместимостиTestManager: НеИспользовать
+        ВремяРаботыСценария: 0:00:25 (ч:м:с)
+        ДатаВремяОшибки: 28.04.2023 9:57:46</Value>
+	</Property>
+	<Property name="ОжидаемоеПоведение">
+		<Value xsi:type="xs:string"/>
+	</Property>
+	<Property name="ВерсияПлатформы">
+		<Value xsi:type="xs:string">8.3.22.1780</Value>
+	</Property>
+	<Property name="КлиентОперативнаяПамять">
+		<Value xsi:type="xs:decimal">32614</Value>
+	</Property>
+	<Property name="КлиентВерсияОС">
+		<Value xsi:type="xs:string">Microsoft Windows 10 version 10.0  (Build 19045)</Value>
+	</Property>
+	<Property name="КлиентПроцессор">
+		<Value xsi:type="xs:string">GenuineIntel Intel64 Family 6 Model 158 Stepping 10 3696 MHz</Value>
+	</Property>
+	<Property name="КлиентТипПлатформы">
+		<Value xsi:type="xs:string">Windows x86</Value>
+	</Property>
+	<Property name="КлиентИнформацияПрограммыПросмотра">
+		<Value xsi:type="xs:string"/>
+	</Property>
+	<Property name="КлиентТекущаяДата">
+		<Value xsi:type="xs:dateTime">2023-04-28T09:57:48</Value>
+	</Property>
+	<Property name="ОбъектыМетаданных">
+		<Value xsi:type="Array">
+			<Value xsi:type="Structure">
+				<Property name="ОбъектМетаданных">
+					<Value xsi:type="xs:string"/>
+				</Property>
+				<Property name="УточнениеРасположения">
+					<Value xsi:type="xs:string">ПроверкаПопыткиИсключения13
+
+Шаги
+И Я запоминаю значение выражения '1' в переменную "ИмяПеременной"
+И я жду, что таблица "Список" станет равна данной в течение 3 секунд:
+И я регистрирую ошибку по данным исключения "Не получилось сравнить таблицу с эталоном 2"
+Последний шаг не выполнен.</Value>
+				</Property>
+			</Value>
+		</Value>
+	</Property>
+	<Property name="ИменаФайлов">
+		<Value xsi:type="Array">
+			<Value xsi:type="xs:string">C:\Commons\rep\vanessa-automation\tools\SPPR\67ef73f5-46e6-4f10-b349-87afc0c5a029-attachment.png</Value>
+			<Value xsi:type="xs:string">C:\Commons\rep\vanessa-automation\tools\SPPR\ЭталонноеЗначениеТаблицы_63818261867985.mxl</Value>
+			<Value xsi:type="xs:string">C:\Commons\rep\vanessa-automation\tools\SPPR\Различия_63818261867985.mxl</Value>
+			<Value xsi:type="xs:string">C:\Commons\rep\vanessa-automation\tools\SPPR\ТекущееЗначениеТаблицы_63818261867985.mxl</Value>
+		</Value>
+	</Property>
+	<Property name="СерверОперативнаяПамять">
+		<Value xsi:type="xs:decimal">32614</Value>
+	</Property>
+	<Property name="СерверВерсияОС">
+		<Value xsi:type="xs:string">Microsoft Windows 10 version 10.0  (Build 19045)</Value>
+	</Property>
+	<Property name="СерверПроцессор">
+		<Value xsi:type="xs:string">GenuineIntel Intel64 Family 6 Model 158 Stepping 10 3696 MHz</Value>
+	</Property>
+	<Property name="СерверТипПлатформы">
+		<Value xsi:type="xs:string">Windows x86</Value>
+	</Property>
+	<Property name="СерверИнформацияПрограммыПросмотра">
+		<Value xsi:type="xs:string"/>
+	</Property>
+	<Property name="ВерсияКонфигурации">
+		<Value xsi:type="xs:string"/>
+	</Property>
+	<Property name="ИмяКонфигурации">
+		<Value xsi:type="xs:string">Конфигурация</Value>
+	</Property>
+	<Property name="ДатаОбнаружения">
+		<Value xsi:type="xs:dateTime">2023-04-28T09:57:48</Value>
+	</Property>
+	<Property name="Ответственный">
+		<Value xsi:type="xs:string"/>
+	</Property>
+	<Property name="КодСценария">
+		<Value xsi:type="xs:string"/>
+	</Property>
+	<Property name="ИмяСценария">
+		<Value xsi:type="xs:string">ПроверкаПопыткиИсключения13</Value>
+	</Property>
+	<Property name="ДостоверностьОбнаружения">
+		<Value xsi:type="xs:string">Высокая</Value>
+	</Property>
+	<Property name="Срочность">
+		<Value xsi:type="xs:string"/>
+	</Property>
+	<Property name="АдресРепозитория">
+		<Value xsi:type="xs:string"/>
+	</Property>
+</Structure>

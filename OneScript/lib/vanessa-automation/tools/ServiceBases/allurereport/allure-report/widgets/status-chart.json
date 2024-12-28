@@ -1,0 +1,21 @@
+[ {
+  "uid" : "ea7c64135fc0521b",
+  "name" : "(Сборка 8_3_17 UF sovm 82) Помещение файла перед началом сценария",
+  "time" : {
+    "start" : 1668077314669,
+    "stop" : 1668077314680,
+    "duration" : 11
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6a795c913c2e0b6b",
+  "name" : "(Сборка 8_3_17 UF sovm 82) Проверка выполнения сценария передача таблицы",
+  "time" : {
+    "start" : 1668077314680,
+    "stop" : 1668077315312,
+    "duration" : 632
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

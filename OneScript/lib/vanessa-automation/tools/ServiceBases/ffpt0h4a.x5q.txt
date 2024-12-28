@@ -1,0 +1,1 @@
+Создание информационной базы ("File=".\tools\ServiceBases\v82ServiceBase82";Locale = "ru_RU";") успешно завершено
