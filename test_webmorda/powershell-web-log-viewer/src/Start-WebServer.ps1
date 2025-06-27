@@ -8,7 +8,9 @@ function Get-LogFilesHtml {
     param (
         [string]$logDirectory
     )
-    $files = Get-ChildItem -Path $logDirectory -File | Sort-Object LastWriteTime -Descending
+    $files = Get-ChildItem -Path $logDirectory -File |
+        Where-Object { $_.Name -like 'pref1_*' -or $_.Name -like 'pref2_*' } |
+        Sort-Object LastWriteTime -Descending
     $rows = foreach ($file in $files) {
         $name = [System.Web.HttpUtility]::UrlEncode($file.Name)
         "<tr><td><a href='/$name'>$($file.Name)</a></td><td>$($file.LastWriteTime)</td><td>$([Math]::Round($file.Length/1KB,2)) KB</td></tr>"
@@ -60,13 +62,22 @@ function Start-WebServer {
             $response.OutputStream.Write($bytes, 0, $bytes.Length)
         } else {
             $logFileName = [System.Web.HttpUtility]::UrlDecode($path)
-            $logFilePath = Join-Path -Path $logDirectory -ChildPath $logFileName
-            if (Test-Path $logFilePath) {
-                $logContents = Get-Content -Path $logFilePath -Raw
-                $bytes = [System.Text.Encoding]::UTF8.GetBytes($logContents)
-                $response.ContentType = "text/plain; charset=utf-8"
-                $response.ContentLength64 = $bytes.Length
-                $response.OutputStream.Write($bytes, 0, $bytes.Length)
+            # Разрешаем только pref1_ и pref2_
+            if ($logFileName -like 'pref1_*' -or $logFileName -like 'pref2_*') {
+                $logFilePath = Join-Path -Path $logDirectory -ChildPath $logFileName
+                # Проверка: файл должен быть внутри папки логов
+                $fullLogDir = [System.IO.Path]::GetFullPath($logDirectory)
+                $fullFilePath = [System.IO.Path]::GetFullPath($logFilePath)
+                if ($fullFilePath.StartsWith($fullLogDir, [System.StringComparison]::OrdinalIgnoreCase) -and (Test-Path $logFilePath)) {
+                    $logContents = Get-Content -Path $logFilePath -Raw
+                    $bytes = [System.Text.Encoding]::UTF8.GetBytes($logContents)
+                    $response.ContentType = "text/plain; charset=utf-8"
+                    $response.ContentLength64 = $bytes.Length
+                    $response.OutputStream.Write($bytes, 0, $bytes.Length)
+                } else {
+                    $response.StatusCode = 404
+                    $response.StatusDescription = "File Not Found"
+                }
             } else {
                 $response.StatusCode = 404
                 $response.StatusDescription = "File Not Found"
