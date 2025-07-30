@@ -541,6 +541,15 @@
         
         // Load servers when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            // Add global error handler to catch JavaScript errors
+            window.addEventListener('error', function(e) {
+                console.error('Global JavaScript error:', e.error);
+                console.error('Error message:', e.message);
+                console.error('File:', e.filename);
+                console.error('Line:', e.lineno);
+                console.error('Column:', e.colno);
+            });
+            
             loadServers();
             
             // Add listener to server dropdown to clear dependent data when selection changes
@@ -639,11 +648,15 @@
                         rac_port: data.rac_port
                     };
                     
+                    console.log('Connection established:', currentConnection);
+                    console.log('Clusters received:', data.clusters);
+                    
                     allClusters = data.clusters; // Store for re-rendering
                     showSuccess(`Connected to <b>${data.server}:${data.cluster_port}</b> (RAC: ${data.rac_port})`);
                     displayClusters(data.clusters);
                     activateStep(2);
                 } else {
+                    console.error('Connection failed:', data.error);
                     showError(data.error || 'Failed to connect');
                 }
             } catch (error) {
@@ -688,13 +701,16 @@
         }
         
         function displayClusters(clusters) {
+            console.log('displayClusters called with:', clusters);
             const container = document.getElementById('clustersList');
             
             if (clusters.length === 0) {
+                console.log('No clusters found');
                 container.innerHTML = '<p>No clusters found</p>';
                 return;
             }
             
+            console.log('Building clusters table for', clusters.length, 'clusters');
             let html = '<table class="table"><thead><tr><th>Cluster ID</th><th>Name</th><th>Action</th></tr></thead><tbody>';
             
             clusters.forEach(cluster => {
@@ -703,6 +719,8 @@
                 // Check if this cluster is currently selected
                 const isSelected = currentConnection.cluster_id === clusterId;
                 const selectedClass = isSelected ? ' class="selected"' : '';
+                
+                console.log('Cluster:', { clusterId, name: cluster.name, isSelected });
                 
                 html += `
                     <tr id="cluster-row-${clusterId}" data-cluster-id="${clusterId}"${selectedClass}>
@@ -718,76 +736,96 @@
             });
             
             html += '</tbody></table>';
+            console.log('Setting clusters HTML');
             container.innerHTML = html;
         }
         
         async function selectCluster(clusterId, clusterName) {
-            currentConnection.cluster_id = clusterId;
-            currentConnection.cluster_name = clusterName;
-            
-            // Clear dependent database data when selecting a new cluster
-            delete currentConnection.infobase_id;
-            delete currentConnection.database_name;
-            allDatabases = [];
-            
-            // Clear session data tracking
-            sessionDataTimestamp = null;
-            if (freshnessUpdateInterval) {
-                clearInterval(freshnessUpdateInterval);
-                freshnessUpdateInterval = null;
-            }
-            
-            // Clear database-related UI
-            document.getElementById('selectedDatabaseInfo').textContent = '';
-            document.getElementById('databasesList').innerHTML = '';
-            document.getElementById('sessionsList').innerHTML = '';
-            
-            // Clear search input
-            const searchInput = document.getElementById('databaseSearch');
-            if (searchInput) {
-                searchInput.value = '';
-            }
-            
-            // Re-render clusters to show selection
-            if (allClusters.length > 0) {
-                displayClusters(allClusters);
-            }
-            
-            // Update the selected cluster info in the header
-            const selectedClusterInfo = document.getElementById('selectedClusterInfo');
-            selectedClusterInfo.textContent = ` - Selected: ${clusterName}`;
-            
-            showLoading('databasesList');
+            alert('selectCluster called with: ' + clusterId + ', ' + clusterName);
             
             try {
+                currentConnection.cluster_id = clusterId;
+                currentConnection.cluster_name = clusterName;
+                
+                alert('currentConnection updated: ' + JSON.stringify(currentConnection));
+                
+                // Clear dependent database data when selecting a new cluster
+                delete currentConnection.infobase_id;
+                delete currentConnection.database_name;
+                allDatabases = [];
+                
+                // Clear session data tracking
+                sessionDataTimestamp = null;
+                if (freshnessUpdateInterval) {
+                    clearInterval(freshnessUpdateInterval);
+                    freshnessUpdateInterval = null;
+                }
+                
+                // Clear database-related UI
+                document.getElementById('selectedDatabaseInfo').textContent = '';
+                document.getElementById('databasesList').innerHTML = '';
+                document.getElementById('sessionsList').innerHTML = '';
+                
+                // Clear search input
+                const searchInput = document.getElementById('databaseSearch');
+                if (searchInput) {
+                    searchInput.value = '';
+                }
+                
+                // Re-render clusters to show selection
+                if (allClusters.length > 0) {
+                    displayClusters(allClusters);
+                }
+                
+                // Update the selected cluster info in the header
+                const selectedClusterInfo = document.getElementById('selectedClusterInfo');
+                selectedClusterInfo.textContent = ` - Selected: ${clusterName}`;
+                
+                showLoading('databasesList');
+                
+                alert('About to make request to /api/get_databases');
+                
                 const response = await fetch('/api/get_databases', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(currentConnection)
                 });
                 
+                alert('Response received, status: ' + response.status);
+                
+                if (!response.ok) {
+                    throw new Error('HTTP error! status: ' + response.status);
+                }
+                
                 const data = await response.json();
+                alert('Response data received, success: ' + data.success);
                 
                 if (data.success) {
-                    allDatabases = data.databases; // Store for filtering
+                    alert('Got ' + data.databases.length + ' databases');
+                    allDatabases = data.databases;
                     displayDatabases(data.databases);
                     activateStep(3);
                 } else {
+                    alert('Database request failed: ' + data.error);
                     showError(data.error || 'Failed to get databases', 'databasesList');
                 }
             } catch (error) {
+                alert('Error in selectCluster: ' + error.message);
                 showError('Network error: ' + error.message, 'databasesList');
             }
         }
         
         function displayDatabases(databases) {
+            console.log('displayDatabases called with:', databases);
             const container = document.getElementById('databasesList');
             
             if (databases.length === 0) {
+                console.log('No databases found, showing error message');
                 container.innerHTML = '<div class="alert alert-error">No databases found matching your username</div>';
                 return;
             }
             
+            console.log('Building database table for', databases.length, 'databases');
             let html = '<table class="table"><thead><tr><th>Database Name</th><th>Description</th><th>Action</th></tr></thead><tbody>';
             
             databases.forEach((db, index) => {
@@ -798,6 +836,8 @@
                 // Check if this database is currently selected
                 const isSelected = currentConnection.infobase_id === dbId;
                 const selectedClass = isSelected ? ' class="selected"' : '';
+                
+                console.log(`Database ${index}:`, { dbId, dbName, description: db.description || db.descr, isSelected });
                 
                 html += `
                     <tr id="database-row-${dbId}" data-database-id="${dbId}"${selectedClass}>
@@ -816,6 +856,7 @@
             });
             
             html += '</tbody></table>';
+            console.log('Setting database list HTML');
             container.innerHTML = html;
         }
         
