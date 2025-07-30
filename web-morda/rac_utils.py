@@ -91,11 +91,7 @@ def process_output(output: List[str], separator: str = '') -> List[Dict[str, str
     objects = []
     current_obj = None
     
-    for line in output:
-        # Skip empty lines
-        if not line.strip():
-            continue
-            
+    for line in output:        
         # Check if this line contains the separator field
         if separator and ':' in line:
             key, value = line.split(':', maxsplit=1)
@@ -106,6 +102,16 @@ def process_output(output: List[str], separator: str = '') -> List[Dict[str, str
                     current_obj[key] = value.strip()
                 current_obj = None  # Next non-empty line will create new object
                 continue
+        
+        # Handle empty lines when no specific separator is given
+        if not separator and not line.strip():
+            # Empty line marks end of current object
+            current_obj = None
+            continue
+            
+        # Skip empty lines when we have a specific separator
+        if separator and not line.strip():
+            continue
         
         # Parse regular field
         if ':' in line:
@@ -196,9 +202,25 @@ def validate_server_access(server: str, data_dir: str = 'data') -> Tuple[bool, s
     
     # Check if server is in whitelist (case-insensitive)
     server_lower = server.lower()
+    
     for allowed_server in whitelist:
-        if allowed_server.lower() == server_lower:
+        allowed_lower = allowed_server.lower()
+        
+        # Exact match
+        if allowed_lower == server_lower:
             return True, ""
+        
+        # If whitelist entry has server:port format, check if server part matches
+        if ':' in allowed_lower:
+            allowed_server_part = allowed_lower.split(':', 1)[0]
+            if allowed_server_part == server_lower:
+                return True, ""
+        
+        # If input has server:port format, check if server part matches whitelist entry
+        if ':' in server_lower:
+            server_part = server_lower.split(':', 1)[0]
+            if allowed_lower == server_part:
+                return True, ""
     
     return False, f"Server '{server}' is not in the whitelist. Allowed servers: {', '.join(whitelist)}"
 

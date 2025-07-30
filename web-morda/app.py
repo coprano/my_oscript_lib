@@ -164,27 +164,27 @@ def admin_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-def parse_connection_string(conn_str):
-    """Parse 1C connection string and extract server info"""
-    # Example: "Srvr=\"server:1541\";Ref=\"database_name\";" or "Srvr=server:1541;Ref=database_name;"
-    # Handle both quoted and unquoted formats
-    server_match = re.search(r'Srvr=(?:"([^"]+)"|([^;]+))', conn_str, re.IGNORECASE)
-    ref_match = re.search(r'Ref=(?:"([^"]+)"|([^;]+))', conn_str, re.IGNORECASE)
+# def parse_connection_string(conn_str):
+#     """Parse 1C connection string and extract server info"""
+#     # Example: "Srvr=\"server:1541\";Ref=\"database_name\";" or "Srvr=server:1541;Ref=database_name;"
+#     # Handle both quoted and unquoted formats
+#     server_match = re.search(r'Srvr=(?:"([^"]+)"|([^;]+))', conn_str, re.IGNORECASE)
+#     ref_match = re.search(r'Ref=(?:"([^"]+)"|([^;]+))', conn_str, re.IGNORECASE)
     
-    if not server_match:
-        return None, None, None
+#     if not server_match:
+#         return None, None, None
     
-    # Get the matched group (quoted or unquoted)
-    server_port = server_match.group(1) or server_match.group(2)
-    database = (ref_match.group(1) or ref_match.group(2)) if ref_match else ""
+#     # Get the matched group (quoted or unquoted)
+#     server_port = server_match.group(1) or server_match.group(2)
+#     database = (ref_match.group(1) or ref_match.group(2)) if ref_match else ""
     
-    # Extract server and port
-    if ':' in server_port:
-        server, port = server_port.split(':')
-        rac_port = RAC_PORT_MAP.get(port, str(int(port) + 4) if port.isdigit() else "1545")
-        return server, port, rac_port
-    else:
-        return server_port, "1541", "1545"
+#     # Extract server and port
+#     if ':' in server_port:
+#         server, port = server_port.split(':')
+#         rac_port = RAC_PORT_MAP.get(port, str(int(port) + 4) if port.isdigit() else "1545")
+#         return server, port, rac_port
+#     else:
+#         return server_port, "1541", "1545"
 
 @app.route('/')
 @login_required
@@ -335,6 +335,12 @@ def get_sessions():
     infobase_id = data.get('infobase_id')
     server = data.get('server')
     cluster_port = data.get('cluster_port')
+    
+    print(f"[DEBUG] get_sessions called with data: {data}")
+    print(f"[DEBUG] cluster_id: {cluster_id}")
+    print(f"[DEBUG] infobase_id: {infobase_id}")
+    print(f"[DEBUG] server: {server}")
+    print(f"[DEBUG] cluster_port: {cluster_port}")
     
     try:
         # Use environment cluster credentials
@@ -521,6 +527,17 @@ def delete_user(username):
     log_action(session['username'], 'delete_user', f"Deleted user: {username}")
     
     return jsonify({'success': True})
+
+@app.route('/api/get_servers', methods=['GET'])
+@login_required
+def get_servers():
+    """Get whitelisted servers for dropdown"""
+    try:
+        from rac_utils import load_server_whitelist
+        servers = load_server_whitelist(DATA_DIR)
+        return jsonify({'success': True, 'servers': servers})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
 
 if __name__ == '__main__':
     # Ensure data directory exists

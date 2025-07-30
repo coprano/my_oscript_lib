@@ -30,7 +30,9 @@ echo "📦 Creating backup archive ${ARCHIVE_NAME}..."
 FILES_TO_ARCHIVE=("${IMAGE_TAR}" "${DOCKER_COMPOSE_FILE}")
 [ -f "${ENV_FILE}" ] && FILES_TO_ARCHIVE+=("${ENV_FILE}")
 
-tar -czvf "${ARCHIVE_NAME}" "${FILES_TO_ARCHIVE[@]}"
+# tar -czvf "${ARCHIVE_NAME}" "${FILES_TO_ARCHIVE[@]}"
+tar -cvf - "${FILES_TO_ARCHIVE[@]}" | gzip -9 > "${ARCHIVE_NAME}"
+
 
 # ====== CLEANUP IMAGE TARBALL ======
 echo "🧹 Cleaning up temporary image file..."

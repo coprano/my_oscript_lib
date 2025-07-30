@@ -242,10 +242,12 @@
             <div class="card-header">Step 1: Connect to 1C Server</div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="connectionString">Connection String:</label>
-                    <input type="text" id="connectionString">
+                    <label for="serverSelect">Select Server:</label>
+                    <select id="serverSelect">
+                        <option value="">-- Select a server --</option>
+                    </select>
                     <small style="color: #6c757d; margin-top: 0.5rem; display: block;">
-                        Example: Srvr="server:1541";Ref="database_name";<br>
+                        Choose from whitelisted servers<br>
                     </small>
                 </div>
                 <button class="btn" onclick="connectToServer()">Connect</button>
@@ -337,13 +339,44 @@
             }
         }
         
+        async function loadServers() {
+            try {
+                const response = await fetch('/api/get_servers');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const serverSelect = document.getElementById('serverSelect');
+                    serverSelect.innerHTML = '<option value="">-- Select a server --</option>';
+                    
+                    data.servers.forEach(server => {
+                        const option = document.createElement('option');
+                        option.value = server;
+                        option.textContent = server;
+                        serverSelect.appendChild(option);
+                    });
+                } else {
+                    showError('Failed to load servers: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                showError('Network error loading servers: ' + error.message);
+            }
+        }
+        
+        // Load servers when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadServers();
+        });
+        
         async function connectToServer() {
-            const connectionString = document.getElementById('connectionString').value;
+            const selectedServer = document.getElementById('serverSelect').value;
             
-            if (!connectionString) {
-                showError('Please enter a connection string');
+            if (!selectedServer) {
+                showError('Please select a server');
                 return;
             }
+            
+            // Create connection string from selected server
+            const connectionString = `Srvr="${selectedServer}";Ref="";`;
             
             showLoading('connectionResult');
             
@@ -475,13 +508,20 @@
             
             let html = '<table class="table"><thead><tr><th>Database Name</th><th>Description</th><th>Action</th></tr></thead><tbody>';
             
-            databases.forEach(db => {
+            databases.forEach((db, index) => {
+                
+                const dbId = db.infobase || db.id || '';
+                const dbName = db.name || '';
+                
                 html += `
                     <tr>
-                        <td>${db.name || 'N/A'}</td>
-                        <td>${db.descr || 'N/A'}</td>
+                        <td>${dbName || 'N/A'}</td>
+                        <td>${db.description || db.descr || 'N/A'}</td>
                         <td>
-                            <button class="btn btn-small" onclick="selectDatabase('${db.id}', '${db.name}')">
+                            <button class="btn btn-small" 
+                                    data-db-id="${dbId}" 
+                                    data-db-name="${dbName}" 
+                                    onclick="selectDatabaseFromButton(this)">
                                 Select
                             </button>
                         </td>
@@ -491,6 +531,12 @@
             
             html += '</tbody></table>';
             container.innerHTML = html;
+        }
+        
+        function selectDatabaseFromButton(button) {
+            const databaseId = button.getAttribute('data-db-id');
+            const databaseName = button.getAttribute('data-db-name');
+            selectDatabase(databaseId, databaseName);
         }
         
         async function selectDatabase(databaseId, databaseName) {
