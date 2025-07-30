@@ -353,6 +353,11 @@ def get_sessions():
         # Get sessions list
         sessions = rac_manager.get_sessions_list(infobase_id, cluster_id)
         
+        print(f"[DEBUG] Raw sessions returned: {sessions}")
+        print(f"[DEBUG] Number of sessions: {len(sessions)}")
+        for i, session in enumerate(sessions):
+            print(f"[DEBUG] Session {i}: {session}")
+        
         log_action(session['username'], 'get_sessions', f"Database: {infobase_id}, Sessions: {len(sessions)}")
         
         return jsonify({

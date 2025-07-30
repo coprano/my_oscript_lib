@@ -125,8 +125,15 @@ def process_output(output: List[str], separator: str = '') -> List[Dict[str, str
                 objects.append(current_obj)
             
             current_obj[key] = value
+    
+    # Filter out empty objects (objects with no meaningful data)
+    filtered_objects = []
+    for obj in objects:
+        # Skip objects that are completely empty or only have empty values
+        if obj and any(value.strip() for value in obj.values() if value):
+            filtered_objects.append(obj)
             
-    return objects
+    return filtered_objects
 
 
 def add_cluster_credentials(command: str, cluster_user: str = '', cluster_pwd: str = '') -> str:
