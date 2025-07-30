@@ -265,6 +265,7 @@
                     </small>
                 </div>
                 <button class="btn" onclick="connectToServer()">Connect</button>
+                <button class="btn" onclick="testFunction()" style="background: #28a745;">Test JavaScript</button>
                 <div id="connectionResult"></div>
             </div>
         </div>
@@ -335,6 +336,16 @@
     </div>
     
     <script>
+        // Test function to verify JavaScript is working
+        function testFunction() {
+            alert('JavaScript is working!');
+        }
+        
+        // Call test function when page loads
+        window.addEventListener('load', function() {
+            console.log('Page loaded, JavaScript is working');
+        });
+        
         let currentConnection = {};
         let allDatabases = []; // Store all databases for filtering
         let allClusters = []; // Store all clusters for re-rendering
@@ -740,79 +751,8 @@
             container.innerHTML = html;
         }
         
-        async function selectCluster(clusterId, clusterName) {
-            alert('selectCluster called with: ' + clusterId + ', ' + clusterName);
-            
-            try {
-                currentConnection.cluster_id = clusterId;
-                currentConnection.cluster_name = clusterName;
-                
-                alert('currentConnection updated: ' + JSON.stringify(currentConnection));
-                
-                // Clear dependent database data when selecting a new cluster
-                delete currentConnection.infobase_id;
-                delete currentConnection.database_name;
-                allDatabases = [];
-                
-                // Clear session data tracking
-                sessionDataTimestamp = null;
-                if (freshnessUpdateInterval) {
-                    clearInterval(freshnessUpdateInterval);
-                    freshnessUpdateInterval = null;
-                }
-                
-                // Clear database-related UI
-                document.getElementById('selectedDatabaseInfo').textContent = '';
-                document.getElementById('databasesList').innerHTML = '';
-                document.getElementById('sessionsList').innerHTML = '';
-                
-                // Clear search input
-                const searchInput = document.getElementById('databaseSearch');
-                if (searchInput) {
-                    searchInput.value = '';
-                }
-                
-                // Re-render clusters to show selection
-                if (allClusters.length > 0) {
-                    displayClusters(allClusters);
-                }
-                
-                // Update the selected cluster info in the header
-                const selectedClusterInfo = document.getElementById('selectedClusterInfo');
-                selectedClusterInfo.textContent = ` - Selected: ${clusterName}`;
-                
-                showLoading('databasesList');
-                
-                alert('About to make request to /api/get_databases');
-                
-                const response = await fetch('/api/get_databases', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(currentConnection)
-                });
-                
-                alert('Response received, status: ' + response.status);
-                
-                if (!response.ok) {
-                    throw new Error('HTTP error! status: ' + response.status);
-                }
-                
-                const data = await response.json();
-                alert('Response data received, success: ' + data.success);
-                
-                if (data.success) {
-                    alert('Got ' + data.databases.length + ' databases');
-                    allDatabases = data.databases;
-                    displayDatabases(data.databases);
-                    activateStep(3);
-                } else {
-                    alert('Database request failed: ' + data.error);
-                    showError(data.error || 'Failed to get databases', 'databasesList');
-                }
-            } catch (error) {
-                alert('Error in selectCluster: ' + error.message);
-                showError('Network error: ' + error.message, 'databasesList');
-            }
+        function selectCluster(clusterId, clusterName) {
+            alert('Button clicked! Cluster: ' + clusterId + ', Name: ' + clusterName);
         }
         
         function displayDatabases(databases) {
