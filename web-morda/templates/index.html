@@ -169,6 +169,20 @@
             background: #f8f9fa;
         }
         
+        .table tr.selected {
+            background: #e3f2fd !important;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .table tr.selected:hover {
+            background: #e1f5fe !important;
+        }
+        
+        .table tr.selected td {
+            color: #1565c0;
+            font-weight: 500;
+        }
+        
         .table-container {
             overflow-x: auto;
             margin-top: 1rem;
@@ -257,7 +271,10 @@
         
         <!-- Step 2: Select Cluster -->
         <div class="card step step-inactive" id="step2">
-            <div class="card-header">Step 2: Select Cluster</div>
+            <div class="card-header">
+                Step 2: Select Cluster
+                <span id="selectedClusterInfo" style="font-weight: normal; color: #666; font-size: 0.9em;"></span>
+            </div>
             <div class="card-body">
                 <div id="clustersList"></div>
             </div>
@@ -265,19 +282,53 @@
         
         <!-- Step 3: Select Database -->
         <div class="card step step-inactive" id="step3">
-            <div class="card-header">Step 3: Select Database (filtered by "{{ username }}")</div>
+            <div class="card-header">
+                Step 3: Select Database
+                <span id="selectedDatabaseHeaderInfo" style="font-weight: normal; color: #666; font-size: 0.9em;"></span>
+            </div>
             <div class="card-body">
+                <div style="margin-bottom: 1rem;">
+                    <input type="text" id="databaseSearch" placeholder="Search databases..." 
+                           style="padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; width: 100%; max-width: 300px;"
+                           oninput="filterDatabases(this.value)">
+                </div>
+                <div id="selectedDatabaseStep3" style="display: none; background: #e3f2fd; color: #1565c0; padding: 0.75rem; border-radius: 5px; margin-bottom: 1rem; border-left: 4px solid #2196f3; font-weight: 500;">
+                    <span style="font-size: 0.9em;">📋 Selected Database:</span>
+                    <span id="selectedDatabaseStep3Name" style="margin-left: 0.5rem; font-weight: 600;"></span>
+                </div>
                 <div id="databasesList"></div>
             </div>
         </div>
         
         <!-- Step 4: Manage Sessions -->
         <div class="card step step-inactive" id="step4">
-            <div class="card-header">Step 4: Manage Sessions</div>
+            <div class="card-header">
+                Step 4: Manage Sessions
+                <span id="selectedDatabaseInfo" style="font-weight: normal; color: #666; font-size: 0.9em;"></span>
+            </div>
             <div class="card-body">
-                <button class="btn" onclick="loadSessions()">Refresh Sessions</button>
-                <button class="btn btn-danger" onclick="terminateAllSessions()">Terminate All Sessions</button>
-                <button class="btn btn-danger" onclick="terminateSelectedSessions()" id="terminateSelectedBtn" style="display:none;">Terminate Selected</button>
+                <div id="selectedDatabaseStep4" style="display: none; background: #e3f2fd; color: #1565c0; padding: 0.75rem; border-radius: 5px; margin-bottom: 1rem; border-left: 4px solid #2196f3; font-weight: 500;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="font-size: 0.9em;">🖥️ Server:</span>
+                            <span id="selectedServerStep4" style="margin-left: 0.5rem; font-weight: 600;"></span>
+                            <span style="margin-left: 1rem; font-size: 0.9em;">📋 Database:</span>
+                            <span id="selectedDatabaseStep4Name" style="margin-left: 0.5rem; font-weight: 600;"></span>
+                        </div>
+                        <div style="font-size: 0.85em; color: #1976d2;">
+                            <span id="dataFreshnessStep4">Data retrieved just now</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="step4Controls">
+                    <button class="btn" onclick="loadSessions()">Refresh Sessions</button>
+                    <button class="btn btn-danger" onclick="terminateAllSessions()">Terminate All Sessions</button>
+                    <button class="btn btn-danger" onclick="terminateSelectedSessions()" id="terminateSelectedBtn" style="display:none;">Terminate Selected</button>
+                </div>
+                <div id="step4BlockedOverlay" style="display: none; position: relative; background: rgba(255, 255, 255, 0.9); padding: 2rem; text-align: center; border-radius: 8px; border: 2px dashed #ff9800; margin-bottom: 1rem;">
+                    <div style="color: #ff6f00; font-weight: 600; margin-bottom: 1rem;">⚠️ Session data is outdated (more than 5 minutes old)</div>
+                    <button class="btn" onclick="loadSessions()" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">Update Session Data</button>
+                </div>
                 <div id="sessionsList"></div>
             </div>
         </div>
@@ -285,6 +336,10 @@
     
     <script>
         let currentConnection = {};
+        let allDatabases = []; // Store all databases for filtering
+        let allClusters = []; // Store all clusters for re-rendering
+        let sessionDataTimestamp = null; // Track when session data was last retrieved
+        let freshnessUpdateInterval = null; // Interval for updating freshness display
         
         function showError(message, elementId = 'connectionResult') {
             document.getElementById(elementId).innerHTML = 
@@ -328,6 +383,73 @@
             }
         }
         
+        function formatTimeSince(timestamp) {
+            if (!timestamp) return 'Unknown';
+            
+            const now = new Date();
+            const diffMs = now - timestamp;
+            const diffSeconds = Math.floor(diffMs / 1000);
+            const diffMinutes = Math.floor(diffSeconds / 60);
+            
+            if (diffSeconds < 30) {
+                return 'just now';
+            } else if (diffSeconds < 60) {
+                return 'less than a minute ago';
+            } else if (diffMinutes === 1) {
+                return '1 minute ago';
+            } else if (diffMinutes < 60) {
+                return `${diffMinutes} minutes ago`;
+            } else {
+                const diffHours = Math.floor(diffMinutes / 60);
+                if (diffHours === 1) {
+                    return '1 hour ago';
+                } else {
+                    return `${diffHours} hours ago`;
+                }
+            }
+        }
+        
+        function isDataStale() {
+            if (!sessionDataTimestamp) return true;
+            const now = new Date();
+            const diffMs = now - sessionDataTimestamp;
+            const diffMinutes = Math.floor(diffMs / (1000 * 60));
+            return diffMinutes > 5;
+        }
+        
+        function updateDataFreshness() {
+            const freshnessElement = document.getElementById('dataFreshnessStep4');
+            if (freshnessElement && sessionDataTimestamp) {
+                const timeText = formatTimeSince(sessionDataTimestamp);
+                freshnessElement.textContent = `Data retrieved ${timeText}`;
+                
+                // Check if data is stale and update UI accordingly
+                if (isDataStale()) {
+                    blockStep4ForUpdate();
+                }
+            }
+        }
+        
+        function blockStep4ForUpdate() {
+            const controls = document.getElementById('step4Controls');
+            const overlay = document.getElementById('step4BlockedOverlay');
+            const sessionsList = document.getElementById('sessionsList');
+            
+            if (controls) controls.style.display = 'none';
+            if (overlay) overlay.style.display = 'block';
+            if (sessionsList) sessionsList.style.opacity = '0.5';
+        }
+        
+        function unblockStep4() {
+            const controls = document.getElementById('step4Controls');
+            const overlay = document.getElementById('step4BlockedOverlay');
+            const sessionsList = document.getElementById('sessionsList');
+            
+            if (controls) controls.style.display = 'block';
+            if (overlay) overlay.style.display = 'none';
+            if (sessionsList) sessionsList.style.opacity = '1';
+        }
+        
         function activateStep(stepNumber) {
             for (let i = 1; i <= 4; i++) {
                 const step = document.getElementById(`step${i}`);
@@ -336,6 +458,61 @@
                 } else {
                     step.classList.add('step-inactive');
                 }
+            }
+            
+            // Clear database search when activating step 3
+            if (stepNumber === 3) {
+                const searchInput = document.getElementById('databaseSearch');
+                if (searchInput) {
+                    searchInput.value = '';
+                }
+            }
+            
+            // Clear selections when going back to earlier steps
+            if (stepNumber < 3) {
+                // Clear cluster selection styling
+                document.querySelectorAll('#clustersList tr').forEach(row => {
+                    row.classList.remove('selected');
+                });
+                // Clear cluster header info
+                const selectedClusterInfo = document.getElementById('selectedClusterInfo');
+                if (selectedClusterInfo) {
+                    selectedClusterInfo.textContent = '';
+                }
+            }
+            
+            // Clear selected database info when going back to earlier steps
+            if (stepNumber < 4) {
+                // Clear database selection styling
+                document.querySelectorAll('#databasesList tr').forEach(row => {
+                    row.classList.remove('selected');
+                });
+                const selectedDbInfo = document.getElementById('selectedDatabaseInfo');
+                if (selectedDbInfo) {
+                    selectedDbInfo.textContent = '';
+                }
+                const selectedDbHeaderInfo = document.getElementById('selectedDatabaseHeaderInfo');
+                if (selectedDbHeaderInfo) {
+                    selectedDbHeaderInfo.textContent = '';
+                }
+                // Clear the blue database indicator in Step 3
+                const step3Indicator = document.getElementById('selectedDatabaseStep3');
+                if (step3Indicator) {
+                    step3Indicator.style.display = 'none';
+                }
+                // Clear the blue database indicator in Step 4
+                const step4Indicator = document.getElementById('selectedDatabaseStep4');
+                if (step4Indicator) {
+                    step4Indicator.style.display = 'none';
+                }
+                // Clear session data timestamp and stop freshness monitoring
+                sessionDataTimestamp = null;
+                if (freshnessUpdateInterval) {
+                    clearInterval(freshnessUpdateInterval);
+                    freshnessUpdateInterval = null;
+                }
+                // Unblock Step 4
+                unblockStep4();
             }
         }
         
@@ -365,6 +542,42 @@
         // Load servers when page loads
         document.addEventListener('DOMContentLoaded', function() {
             loadServers();
+            
+            // Add listener to server dropdown to clear dependent data when selection changes
+            const serverSelect = document.getElementById('serverSelect');
+            serverSelect.addEventListener('change', function() {
+                // Clear all dependent data when server selection changes
+                if (this.value === '') {
+                    // If no server selected, clear everything
+                    currentConnection = {};
+                    allClusters = [];
+                    allDatabases = [];
+                    
+                    // Clear session data tracking
+                    sessionDataTimestamp = null;
+                    if (freshnessUpdateInterval) {
+                        clearInterval(freshnessUpdateInterval);
+                        freshnessUpdateInterval = null;
+                    }
+                    
+                    // Clear all visual elements
+                    document.getElementById('selectedClusterInfo').textContent = '';
+                    document.getElementById('selectedDatabaseInfo').textContent = '';
+                    document.getElementById('clustersList').innerHTML = '';
+                    document.getElementById('databasesList').innerHTML = '';
+                    document.getElementById('sessionsList').innerHTML = '';
+                    document.getElementById('connectionResult').innerHTML = '';
+                    
+                    // Clear search input
+                    const searchInput = document.getElementById('databaseSearch');
+                    if (searchInput) {
+                        searchInput.value = '';
+                    }
+                    
+                    // Reset to step 1
+                    activateStep(1);
+                }
+            });
         });
         
         async function connectToServer() {
@@ -374,6 +587,34 @@
                 showError('Please select a server');
                 return;
             }
+            
+            // Clear all dependent data when connecting to a new server
+            currentConnection = {}; // Reset connection object
+            allClusters = [];
+            allDatabases = [];
+            
+            // Clear session data tracking
+            sessionDataTimestamp = null;
+            if (freshnessUpdateInterval) {
+                clearInterval(freshnessUpdateInterval);
+                freshnessUpdateInterval = null;
+            }
+            
+            // Clear all visual selections and info
+            document.getElementById('selectedClusterInfo').textContent = '';
+            document.getElementById('selectedDatabaseInfo').textContent = '';
+            document.getElementById('clustersList').innerHTML = '';
+            document.getElementById('databasesList').innerHTML = '';
+            document.getElementById('sessionsList').innerHTML = '';
+            
+            // Clear search input
+            const searchInput = document.getElementById('databaseSearch');
+            if (searchInput) {
+                searchInput.value = '';
+            }
+            
+            // Reset steps - only step 1 should be active initially
+            activateStep(1);
             
             // Create connection string from selected server
             const connectionString = `Srvr="${selectedServer}";Ref="";`;
@@ -398,7 +639,8 @@
                         rac_port: data.rac_port
                     };
                     
-                    showSuccess(`Connected to ${data.server}:${data.cluster_port} (RAC: ${data.rac_port})`);
+                    allClusters = data.clusters; // Store for re-rendering
+                    showSuccess(`Connected to <b>${data.server}:${data.cluster_port}</b> (RAC: ${data.rac_port})`);
                     displayClusters(data.clusters);
                     activateStep(2);
                 } else {
@@ -456,12 +698,18 @@
             let html = '<table class="table"><thead><tr><th>Cluster ID</th><th>Name</th><th>Action</th></tr></thead><tbody>';
             
             clusters.forEach(cluster => {
+                const clusterId = cluster.cluster || cluster.id || '';
+                
+                // Check if this cluster is currently selected
+                const isSelected = currentConnection.cluster_id === clusterId;
+                const selectedClass = isSelected ? ' class="selected"' : '';
+                
                 html += `
-                    <tr>
-                        <td>${cluster.cluster || cluster.id || 'N/A'}</td>
+                    <tr id="cluster-row-${clusterId}" data-cluster-id="${clusterId}"${selectedClass}>
+                        <td>${clusterId || 'N/A'}</td>
                         <td>${cluster.name || 'N/A'}</td>
                         <td>
-                            <button class="btn btn-small" onclick="selectCluster('${cluster.cluster || cluster.id}')">
+                            <button class="btn btn-small" onclick="selectCluster('${clusterId}', '${cluster.name || 'Unknown'}')">
                                 Select
                             </button>
                         </td>
@@ -473,8 +721,41 @@
             container.innerHTML = html;
         }
         
-        async function selectCluster(clusterId) {
+        async function selectCluster(clusterId, clusterName) {
             currentConnection.cluster_id = clusterId;
+            currentConnection.cluster_name = clusterName;
+            
+            // Clear dependent database data when selecting a new cluster
+            delete currentConnection.infobase_id;
+            delete currentConnection.database_name;
+            allDatabases = [];
+            
+            // Clear session data tracking
+            sessionDataTimestamp = null;
+            if (freshnessUpdateInterval) {
+                clearInterval(freshnessUpdateInterval);
+                freshnessUpdateInterval = null;
+            }
+            
+            // Clear database-related UI
+            document.getElementById('selectedDatabaseInfo').textContent = '';
+            document.getElementById('databasesList').innerHTML = '';
+            document.getElementById('sessionsList').innerHTML = '';
+            
+            // Clear search input
+            const searchInput = document.getElementById('databaseSearch');
+            if (searchInput) {
+                searchInput.value = '';
+            }
+            
+            // Re-render clusters to show selection
+            if (allClusters.length > 0) {
+                displayClusters(allClusters);
+            }
+            
+            // Update the selected cluster info in the header
+            const selectedClusterInfo = document.getElementById('selectedClusterInfo');
+            selectedClusterInfo.textContent = ` - Selected: ${clusterName}`;
             
             showLoading('databasesList');
             
@@ -488,6 +769,7 @@
                 const data = await response.json();
                 
                 if (data.success) {
+                    allDatabases = data.databases; // Store for filtering
                     displayDatabases(data.databases);
                     activateStep(3);
                 } else {
@@ -513,8 +795,12 @@
                 const dbId = db.infobase || db.id || '';
                 const dbName = db.name || '';
                 
+                // Check if this database is currently selected
+                const isSelected = currentConnection.infobase_id === dbId;
+                const selectedClass = isSelected ? ' class="selected"' : '';
+                
                 html += `
-                    <tr>
+                    <tr id="database-row-${dbId}" data-database-id="${dbId}"${selectedClass}>
                         <td>${dbName || 'N/A'}</td>
                         <td>${db.description || db.descr || 'N/A'}</td>
                         <td>
@@ -533,6 +819,24 @@
             container.innerHTML = html;
         }
         
+        function filterDatabases(searchTerm) {
+            if (!searchTerm.trim()) {
+                // Show all databases if search is empty
+                displayDatabases(allDatabases);
+                return;
+            }
+            
+            const filtered = allDatabases.filter(db => {
+                const name = (db.name || '').toLowerCase();
+                const description = (db.description || db.descr || '').toLowerCase();
+                const search = searchTerm.toLowerCase();
+                
+                return name.includes(search) || description.includes(search);
+            });
+            
+            displayDatabases(filtered);
+        }
+        
         function selectDatabaseFromButton(button) {
             const databaseId = button.getAttribute('data-db-id');
             const databaseName = button.getAttribute('data-db-name');
@@ -543,12 +847,62 @@
             currentConnection.infobase_id = databaseId;
             currentConnection.database_name = databaseName;
             
+            // Clear session data when selecting a new database
+            document.getElementById('sessionsList').innerHTML = '';
+            
+            // Re-render the databases to update selection styling
+            displayDatabases(allDatabases.length > 0 ? 
+                (document.getElementById('databaseSearch').value ? 
+                    allDatabases.filter(db => {
+                        const name = (db.name || '').toLowerCase();
+                        const description = (db.description || db.descr || '').toLowerCase();
+                        const search = document.getElementById('databaseSearch').value.toLowerCase();
+                        return name.includes(search) || description.includes(search);
+                    }) : allDatabases
+                ) : []
+            );
+            
+            // Update the blue indicator in Step 3
+            const step3Indicator = document.getElementById('selectedDatabaseStep3');
+            const step3Name = document.getElementById('selectedDatabaseStep3Name');
+            step3Indicator.style.display = 'block';
+            step3Name.textContent = databaseName;
+            
+            // Update the blue indicator in Step 4
+            const step4Indicator = document.getElementById('selectedDatabaseStep4');
+            const step4ServerName = document.getElementById('selectedServerStep4');
+            const step4DatabaseName = document.getElementById('selectedDatabaseStep4Name');
+            
+            if (step4Indicator && step4ServerName && step4DatabaseName) {
+                step4Indicator.style.display = 'block';
+                step4ServerName.textContent = currentConnection.server || 'Unknown';
+                step4DatabaseName.textContent = databaseName;
+            }
+            
+            // Update the header info in Step 3
+            const selectedDbHeaderInfo = document.getElementById('selectedDatabaseHeaderInfo');
+            if (selectedDbHeaderInfo) {
+                selectedDbHeaderInfo.textContent = ` - Selected: ${databaseName}`;
+            }
+            
+            // Update the selected database info in the header
+            const selectedDbInfo = document.getElementById('selectedDatabaseInfo');
+            selectedDbInfo.textContent = ` - Selected: ${databaseName}`;
+            
             activateStep(4);
             loadSessions();
         }
         
         async function loadSessions() {
             showLoading('sessionsList');
+            
+            // Clear any existing freshness interval
+            if (freshnessUpdateInterval) {
+                clearInterval(freshnessUpdateInterval);
+            }
+            
+            // Unblock Step 4 while loading
+            unblockStep4();
             
             try {
                 const response = await fetch('/api/get_sessions', {
@@ -560,6 +914,15 @@
                 const data = await response.json();
                 
                 if (data.success) {
+                    // Record when data was retrieved
+                    sessionDataTimestamp = new Date();
+                    
+                    // Update freshness display immediately
+                    updateDataFreshness();
+                    
+                    // Start interval to update freshness every 30 seconds
+                    freshnessUpdateInterval = setInterval(updateDataFreshness, 30000);
+                    
                     displaySessions(data.sessions);
                 } else {
                     showError(data.error || 'Failed to get sessions', 'sessionsList');
@@ -586,10 +949,10 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>
+                                <th style="width: 100px;">
                                     <input type="checkbox" class="select-all-checkbox" id="selectAllSessions" 
                                            onchange="toggleAllSessions(this.checked)">
-                                    Select All
+                                    <label for="selectAllSessions" style="margin-left: 5px; font-size: 0.9em;">Select All</label>
                                 </th>
                                 <th>Session ID</th>
                                 <th>User Name</th>
