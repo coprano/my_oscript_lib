@@ -1,0 +1,236 @@
+[
+  {
+    "timestamp": "2025-07-30T08:57:06.963620",
+    "username": "admin",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T08:57:09.994160",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed: /bin/sh: 1: rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T09:04:50.464174",
+    "username": "admin",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T09:04:54.054853",
+    "username": "admin",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T09:04:58.890958",
+    "username": "admin",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T09:05:20.632765",
+    "username": "admin",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T09:05:21.979500",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed: /bin/sh: 1: rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T09:06:08.599308",
+    "username": "admin",
+    "action": "create_user",
+    "details": "Created user: user"
+  },
+  {
+    "timestamp": "2025-07-30T09:06:29.082838",
+    "username": "admin",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T09:06:33.425097",
+    "username": "petrovma",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:04:42.628761",
+    "username": "petrovma",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed: /bin/sh: 1: Syntax error: Unterminated quoted string\n"
+  },
+  {
+    "timestamp": "2025-07-30T10:04:49.823443",
+    "username": "petrovma",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed: /bin/sh: 1: Syntax error: Unterminated quoted string\n"
+  },
+  {
+    "timestamp": "2025-07-30T10:06:46.594314",
+    "username": "petrovma",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:06:50.758430",
+    "username": "admin",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:09:47.667348",
+    "username": "admin",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:09:51.581387",
+    "username": "admin",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:11:07.885808",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Invalid connection string format"
+  },
+  {
+    "timestamp": "2025-07-30T10:11:22.554739",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed: /bin/sh: 1: rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T10:11:26.288956",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed: /bin/sh: 1: rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T10:11:26.927217",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed: /bin/sh: 1: rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T10:11:29.837531",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed: /bin/sh: 1: Syntax error: Unterminated quoted string\n"
+  },
+  {
+    "timestamp": "2025-07-30T10:11:56.370582",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed: /bin/sh: 1: rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T10:17:07.934821",
+    "username": "admin",
+    "action": "update_user",
+    "details": "Updated user: admin"
+  },
+  {
+    "timestamp": "2025-07-30T10:19:32.857117",
+    "username": "admin",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:19:37.413958",
+    "username": "petrovma",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:21:10.787528",
+    "username": "petrovma",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:32:26.367139",
+    "username": "admin",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:32:30.753626",
+    "username": "admin",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:32:35.604170",
+    "username": "petrovma",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:32:46.636341",
+    "username": "petrovma",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:33:11.351434",
+    "username": "petrovma",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:33:25.404042",
+    "username": "petrovma",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed (code 127): /bin/sh: 1: /opt/1cv8/x86_64/current/rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T10:41:56.160519",
+    "username": "petrovma",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:42:01.530606",
+    "username": "admin",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:42:08.562654",
+    "username": "admin",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:42:15.017737",
+    "username": "petrovma",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:42:19.918971",
+    "username": "petrovma",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed (code 127): /bin/sh: 1: /opt/1cv8/x86_64/current/rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T10:44:39.590219",
+    "username": "petrovma",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T10:45:01.982322",
+    "username": "admin",
+    "action": "login",
+    "details": ""
+  }
+]

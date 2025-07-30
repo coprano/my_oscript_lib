@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  rac-panel:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+      - /opt/1cv8:/opt/1cv8:ro  # Mount 1C installation (read-only) - adjust path if needed
+    environment:
+      - FLASK_ENV=production
+      - DATA_DIR=/app/data
+      - CLUSTER_USER=your_cluster_user
+      - CLUSTER_PWD=your_cluster_password
+      - RAC_PATH=/opt/1cv8/x86_64/current/rac
+    restart: unless-stopped
