@@ -738,7 +738,7 @@
                         <td>${clusterId || 'N/A'}</td>
                         <td>${cluster.name || 'N/A'}</td>
                         <td>
-                            <button class="btn btn-small" onclick="selectCluster('${clusterId}', '${cluster.name || 'Unknown'}')">
+                            <button class="btn btn-small" data-cluster-id="${clusterId}" data-cluster-name="${(cluster.name || 'Unknown').replace(/"/g, '&quot;')}" onclick="selectClusterFromButton(this)">
                                 Select
                             </button>
                         </td>
@@ -753,6 +753,12 @@
         
         function selectCluster(clusterId, clusterName) {
             alert('Button clicked! Cluster: ' + clusterId + ', Name: ' + clusterName);
+        }
+        
+        function selectClusterFromButton(button) {
+            const clusterId = button.getAttribute('data-cluster-id');
+            const clusterName = button.getAttribute('data-cluster-name');
+            selectCluster(clusterId, clusterName);
         }
         
         function displayDatabases(databases) {

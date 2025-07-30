@@ -35,7 +35,7 @@ MOCK_SERVERS = [
 ]
 
 MOCK_CLUSTERS = [
-    {"cluster": "cluster-uuid-1", "name": "Production Cluster"},
+    {"cluster": "cluster-uuid-1", "name": '"Production Cluster"'},
     {"cluster": "cluster-uuid-2", "name": "Test Cluster"},
     {"cluster": "cluster-uuid-3", "name": "Development Cluster"}
 ]
