@@ -291,6 +291,11 @@ def get_databases():
     server = data.get('server')
     cluster_port = data.get('cluster_port')
     
+    print(f"[DEBUG] get_databases called with data: {data}")
+    print(f"[DEBUG] cluster_id: {cluster_id}")
+    print(f"[DEBUG] server: {server}")
+    print(f"[DEBUG] cluster_port: {cluster_port}")
+    
     try:
         # Use environment cluster credentials
         cluster_user = DEFAULT_CLUSTER_USER

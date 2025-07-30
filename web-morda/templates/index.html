@@ -425,10 +425,10 @@
             clusters.forEach(cluster => {
                 html += `
                     <tr>
-                        <td>${cluster.id || 'N/A'}</td>
+                        <td>${cluster.cluster || cluster.id || 'N/A'}</td>
                         <td>${cluster.name || 'N/A'}</td>
                         <td>
-                            <button class="btn btn-small" onclick="selectCluster('${cluster.id}')">
+                            <button class="btn btn-small" onclick="selectCluster('${cluster.cluster || cluster.id}')">
                                 Select
                             </button>
                         </td>
