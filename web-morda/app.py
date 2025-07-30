@@ -355,8 +355,8 @@ def get_sessions():
         
         print(f"[DEBUG] Raw sessions returned: {sessions}")
         print(f"[DEBUG] Number of sessions: {len(sessions)}")
-        for i, session in enumerate(sessions):
-            print(f"[DEBUG] Session {i}: {session}")
+        for i, session_data in enumerate(sessions):
+            print(f"[DEBUG] Session {i}: {session_data}")
         
         log_action(session['username'], 'get_sessions', f"Database: {infobase_id}, Sessions: {len(sessions)}")
         
