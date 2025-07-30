@@ -751,8 +751,67 @@
             container.innerHTML = html;
         }
         
-        function selectCluster(clusterId, clusterName) {
-            alert('Button clicked! Cluster: ' + clusterId + ', Name: ' + clusterName);
+        async function selectCluster(clusterId, clusterName) {
+            try {
+                currentConnection.cluster_id = clusterId;
+                currentConnection.cluster_name = clusterName;
+                
+                // Clear dependent database data when selecting a new cluster
+                delete currentConnection.infobase_id;
+                delete currentConnection.database_name;
+                allDatabases = [];
+                
+                // Clear session data tracking
+                sessionDataTimestamp = null;
+                if (freshnessUpdateInterval) {
+                    clearInterval(freshnessUpdateInterval);
+                    freshnessUpdateInterval = null;
+                }
+                
+                // Clear database-related UI
+                document.getElementById('selectedDatabaseInfo').textContent = '';
+                document.getElementById('databasesList').innerHTML = '';
+                document.getElementById('sessionsList').innerHTML = '';
+                
+                // Clear search input
+                const searchInput = document.getElementById('databaseSearch');
+                if (searchInput) {
+                    searchInput.value = '';
+                }
+                
+                // Re-render clusters to show selection
+                if (allClusters.length > 0) {
+                    displayClusters(allClusters);
+                }
+                
+                // Update the selected cluster info in the header
+                const selectedClusterInfo = document.getElementById('selectedClusterInfo');
+                selectedClusterInfo.textContent = ` - Selected: ${clusterName}`;
+                
+                showLoading('databasesList');
+                
+                const response = await fetch('/api/get_databases', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(currentConnection)
+                });
+                
+                if (!response.ok) {
+                    throw new Error('HTTP error! status: ' + response.status);
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    allDatabases = data.databases;
+                    displayDatabases(data.databases);
+                    activateStep(3);
+                } else {
+                    showError(data.error || 'Failed to get databases', 'databasesList');
+                }
+            } catch (error) {
+                showError('Network error: ' + error.message, 'databasesList');
+            }
         }
         
         function selectClusterFromButton(button) {
