@@ -156,6 +156,7 @@
             padding: 0.75rem;
             text-align: left;
             border-bottom: 1px solid #e9ecef;
+            white-space: nowrap;
         }
         
         .table th {
@@ -166,6 +167,17 @@
         
         .table tr:hover {
             background: #f8f9fa;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .table {
+                min-width: 800px;
+            }
         }
         
         .session-checkbox {
@@ -285,6 +297,33 @@
         function showLoading(elementId) {
             document.getElementById(elementId).innerHTML = 
                 '<div class="loading">Loading...</div>';
+        }
+        
+        function formatDateTime(dateTimeString) {
+            if (!dateTimeString || dateTimeString === 'N/A') {
+                return 'N/A';
+            }
+            
+            try {
+                // Handle ISO format like "2025-07-30T16:56:33"
+                const date = new Date(dateTimeString);
+                if (isNaN(date.getTime())) {
+                    return dateTimeString; // Return original if can't parse
+                }
+                
+                // Format as local date and time
+                return date.toLocaleString('en-US', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                });
+            } catch (e) {
+                return dateTimeString; // Return original if error
+            }
         }
         
         function activateStep(stepNumber) {
@@ -497,22 +536,25 @@
                 <div class="alert alert-success">
                     Found ${sessions.length} active session(s) for database "${currentConnection.database_name}"
                 </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                <input type="checkbox" class="select-all-checkbox" id="selectAllSessions" 
-                                       onchange="toggleAllSessions(this.checked)">
-                                Select All
-                            </th>
-                            <th>Session ID</th>
-                            <th>User</th>
-                            <th>Application</th>
-                            <th>Started</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" class="select-all-checkbox" id="selectAllSessions" 
+                                           onchange="toggleAllSessions(this.checked)">
+                                    Select All
+                                </th>
+                                <th>Session ID</th>
+                                <th>User Name</th>
+                                <th>Host</th>
+                                <th>App ID</th>
+                                <th>Started At</th>
+                                <th>Last Active</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
             `;
             
             sessions.forEach(session => {
@@ -520,16 +562,18 @@
                     <tr>
                         <td>
                             <input type="checkbox" class="session-checkbox" 
-                                   value="${session.id || session.session || ''}" 
+                                   value="${session.session || session.id || ''}" 
                                    onchange="updateSelectedButton()">
                         </td>
-                        <td>${session.id || session.session || 'N/A'}</td>
+                        <td>${session['session-id'] || session.sessionId || 'N/A'}</td>
                         <td>${session['user-name'] || session.user || 'N/A'}</td>
-                        <td>${session.app || 'N/A'}</td>
-                        <td>${session.started || 'N/A'}</td>
+                        <td>${session.host || 'N/A'}</td>
+                        <td>${session['app-id'] || session.appId || 'N/A'}</td>
+                        <td>${formatDateTime(session['started-at'] || session.startedAt) || 'N/A'}</td>
+                        <td>${formatDateTime(session['last-active-at'] || session.lastActiveAt) || 'N/A'}</td>
                         <td>
                             <button class="btn btn-danger btn-small" 
-                                    onclick="terminateSession('${session.id || session.session || ''}')"
+                                    onclick="terminateSession('${session.session || session.id || ''}')"
                                     title="Terminate this session">
                                 Terminate
                             </button>
@@ -538,7 +582,7 @@
                 `;
             });
             
-            html += '</tbody></table>';
+            html += '</tbody></table></div>';
             container.innerHTML = html;
             
             // Show the terminate selected button

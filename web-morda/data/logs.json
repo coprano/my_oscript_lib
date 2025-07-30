@@ -232,5 +232,41 @@
     "username": "admin",
     "action": "login",
     "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T14:20:28.486313",
+    "username": "admin",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T14:20:31.951103",
+    "username": "admin",
+    "action": "login",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T14:20:39.590840",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed (code 127): /bin/sh: 1: /opt/1cv8/x86_64/current/rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T14:20:44.940069",
+    "username": "admin",
+    "action": "get_clusters_error",
+    "details": "Failed to get clusters list: Command execution failed: Command failed (code 127): /bin/sh: 1: /opt/1cv8/x86_64/current/rac: not found\n"
+  },
+  {
+    "timestamp": "2025-07-30T14:20:53.514909",
+    "username": "admin",
+    "action": "logout",
+    "details": ""
+  },
+  {
+    "timestamp": "2025-07-30T14:21:01.009868",
+    "username": "petrovma",
+    "action": "login",
+    "details": ""
   }
 ]

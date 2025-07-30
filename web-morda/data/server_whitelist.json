@@ -1,0 +1,9 @@
+{
+  "whitelisted_servers": [
+    "localhost",
+    "127.0.0.1",
+    "example-server.domain.com",
+    "192.168.1.100"
+  ],
+  "description": "List of servers allowed for RAC operations. Add your server addresses here."
+}

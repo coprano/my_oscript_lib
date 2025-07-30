@@ -5,6 +5,7 @@ Based on the library provided by your friend, adapted for our web panel
 
 import subprocess
 import os
+import json
 from typing import List, Dict, Optional, Tuple
 
 
@@ -88,24 +89,36 @@ def run_command(description: str, command: str, timeout: int = 30) -> Tuple[List
 def process_output(output: List[str], separator: str = '') -> List[Dict[str, str]]:
     """Process RAC output into structured data"""
     objects = []
-    is_new_object = True
+    current_obj = None
     
     for line in output:
-        if not line and line != separator:
+        # Skip empty lines
+        if not line.strip():
             continue
             
-        if (line.startswith(separator) and bool(separator)) or separator == line:
-            is_new_object = True
-            continue
-            
-        if is_new_object:
-            obj = {}
-            objects.append(obj)
-            is_new_object = False
-            
+        # Check if this line contains the separator field
+        if separator and ':' in line:
+            key, value = line.split(':', maxsplit=1)
+            key = key.strip()
+            if key == separator:
+                # This is the separator field - add it to current object and mark for new object
+                if current_obj is not None:
+                    current_obj[key] = value.strip()
+                current_obj = None  # Next non-empty line will create new object
+                continue
+        
+        # Parse regular field
         if ':' in line:
-            key, value = line.replace(' ', '').split(':', maxsplit=1)
-            obj[key] = value
+            key, value = line.split(':', maxsplit=1)
+            key = key.strip()
+            value = value.strip()
+            
+            # Create new object if needed
+            if current_obj is None:
+                current_obj = {}
+                objects.append(current_obj)
+            
+            current_obj[key] = value
             
     return objects
 
@@ -147,10 +160,58 @@ def get_rac_address(server: str, cluster_port: str) -> str:
             return f"{server}:1545"  # Default fallback
 
 
+def load_server_whitelist(data_dir: str = 'data') -> List[str]:
+    """Load server whitelist from JSON configuration"""
+    whitelist_file = os.path.join(data_dir, 'server_whitelist.json')
+    
+    if not os.path.exists(whitelist_file):
+        # Create default whitelist file
+        default_config = {
+            "whitelisted_servers": [
+                "localhost",
+                "127.0.0.1"
+            ],
+            "description": "List of servers allowed for RAC operations. Add your server addresses here."
+        }
+        os.makedirs(data_dir, exist_ok=True)
+        with open(whitelist_file, 'w') as f:
+            json.dump(default_config, f, indent=2)
+        return default_config["whitelisted_servers"]
+    
+    try:
+        with open(whitelist_file, 'r') as f:
+            config = json.load(f)
+            return config.get("whitelisted_servers", [])
+    except Exception as e:
+        print(f"[RAC WARNING] Failed to load server whitelist: {e}")
+        return []
+
+
+def validate_server_access(server: str, data_dir: str = 'data') -> Tuple[bool, str]:
+    """Validate if server is in whitelist. Returns (is_allowed, error_message)"""
+    whitelist = load_server_whitelist(data_dir)
+    
+    if not whitelist:
+        return False, "Server whitelist is empty or could not be loaded"
+    
+    # Check if server is in whitelist (case-insensitive)
+    server_lower = server.lower()
+    for allowed_server in whitelist:
+        if allowed_server.lower() == server_lower:
+            return True, ""
+    
+    return False, f"Server '{server}' is not in the whitelist. Allowed servers: {', '.join(whitelist)}"
+
+
 class RACManager:
     """RAC Manager class for handling 1C cluster operations"""
     
-    def __init__(self, server: str, cluster_port: str, cluster_user: str = '', cluster_pwd: str = ''):
+    def __init__(self, server: str, cluster_port: str, cluster_user: str = '', cluster_pwd: str = '', data_dir: str = 'data'):
+        # Validate server access first
+        is_allowed, error_message = validate_server_access(server, data_dir)
+        if not is_allowed:
+            raise Exception(f"Server access denied: {error_message}")
+        
         self.server = server
         self.cluster_port = cluster_port
         self.rac_address = get_rac_address(server, cluster_port)
@@ -291,7 +352,7 @@ class RACManager:
     #         raise Exception(f"Failed to set sessions deny: {str(e)}")
 
 
-def create_rac_manager_from_connection_string(conn_str: str, cluster_user: str = '', cluster_pwd: str = '') -> RACManager:
+def create_rac_manager_from_connection_string(conn_str: str, cluster_user: str = '', cluster_pwd: str = '', data_dir: str = 'data') -> RACManager:
     """Create RAC manager from 1C connection string"""
     import re
     
@@ -312,4 +373,4 @@ def create_rac_manager_from_connection_string(conn_str: str, cluster_user: str =
         server = server_port
         port = "1541"  # Default port
     
-    return RACManager(server, port, cluster_user, cluster_pwd)
+    return RACManager(server, port, cluster_user, cluster_pwd, data_dir)

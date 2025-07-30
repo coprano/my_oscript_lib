@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.secret_key = 'your-secret-key-change-this'  # Change this in production
 
 # Configuration
-DATA_DIR = os.environ.get('DATA_DIR', '.')
+DATA_DIR = os.environ.get('DATA_DIR', 'data')
 USERS_FILE = os.path.join(DATA_DIR, 'users.json')
 LOGS_FILE = os.path.join(DATA_DIR, 'logs.json')
 
@@ -262,7 +262,7 @@ def get_clusters():
         
         # Create RAC manager from connection string
         rac_manager = create_rac_manager_from_connection_string(
-            conn_str, cluster_user, cluster_pwd
+            conn_str, cluster_user, cluster_pwd, DATA_DIR
         )
         
         # Get clusters list
@@ -297,7 +297,7 @@ def get_databases():
         cluster_pwd = DEFAULT_CLUSTER_PWD
         
         # Create RAC manager
-        rac_manager = RACManager(server, cluster_port, cluster_user, cluster_pwd)
+        rac_manager = RACManager(server, cluster_port, cluster_user, cluster_pwd, DATA_DIR)
         
         # Get databases list
         databases = rac_manager.get_infobases_list(cluster_id)
@@ -337,7 +337,7 @@ def get_sessions():
         cluster_pwd = DEFAULT_CLUSTER_PWD
         
         # Create RAC manager
-        rac_manager = RACManager(server, cluster_port, cluster_user, cluster_pwd)
+        rac_manager = RACManager(server, cluster_port, cluster_user, cluster_pwd, DATA_DIR)
         
         # Get sessions list
         sessions = rac_manager.get_sessions_list(infobase_id, cluster_id)
@@ -369,7 +369,7 @@ def terminate_session():
         cluster_pwd = DEFAULT_CLUSTER_PWD
         
         # Create RAC manager
-        rac_manager = RACManager(server, cluster_port, cluster_user, cluster_pwd)
+        rac_manager = RACManager(server, cluster_port, cluster_user, cluster_pwd, DATA_DIR)
         
         # Terminate session
         success, stdout, stderr = rac_manager.terminate_session(session_id, cluster_id)
@@ -407,7 +407,7 @@ def terminate_all_sessions():
         cluster_pwd = DEFAULT_CLUSTER_PWD
         
         # Create RAC manager
-        rac_manager = RACManager(server, cluster_port, cluster_user, cluster_pwd)
+        rac_manager = RACManager(server, cluster_port, cluster_user, cluster_pwd, DATA_DIR)
         
         # Terminate all sessions
         terminated_count, failed_count, error_messages = rac_manager.terminate_all_sessions(infobase_id, cluster_id)
