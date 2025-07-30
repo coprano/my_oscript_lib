@@ -1,5 +1,0 @@
-click("Sarnvzsm.png")
-sleep(1.5)
-hover("iarpvambqmai.png")
-sleep(1.5)
-exit(0)

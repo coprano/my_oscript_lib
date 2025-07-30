@@ -1,6 +1,0 @@
-﻿{
-   "ТихаяУстановкаVanessaExt":"Истина",
-   "ИспользоватьКомпонентуVanessaExt":"Истина",
-   "ВыводитьСообщенияВФайл": "./ServiceBases/Messages 8.3.16 UF.txt",
-   "КаталогФич": "./features/Core/Log"
-}
