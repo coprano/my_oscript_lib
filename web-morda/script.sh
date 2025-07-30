@@ -3,10 +3,13 @@ set -eou pipefail
 # ====== CONFIG ======
 IMAGE_NAME="web-morda-rac-panel"
 IMAGE_TAG="latest"
-ARCHIVE_NAME="docker_backup_$(date +%Y%m%d_%H%M%S).tar.gz"
+ARCHIVE_NAME="${IMAGE_NAME}_${IMAGE_TAG}_amd64"
 BUILD_CONTEXT="."  # Set to where your Dockerfile is
 DOCKER_COMPOSE_FILE="docker-compose.yml"
 ENV_FILE=".env"  # optional
+
+echo "🔧 Removing old archive..."
+rm -f "${ARCHIVE_NAME}.tar.gz"
 
 # ====== BUILDx SETUP ======
 echo "🔧 Setting up buildx..."
@@ -21,7 +24,7 @@ docker buildx build \
   ${BUILD_CONTEXT}
 
 # ====== SAVE IMAGE TO TARBALL ======
-IMAGE_TAR="${IMAGE_NAME}_${IMAGE_TAG}_amd64.tar"
+IMAGE_TAR="${ARCHIVE_NAME}.tar"
 echo "💾 Saving Docker image to ${IMAGE_TAR}..."
 docker save ${IMAGE_NAME}:${IMAGE_TAG} -o ${IMAGE_TAR}
 
@@ -30,7 +33,7 @@ echo "📦 Creating backup archive ${ARCHIVE_NAME}..."
 FILES_TO_ARCHIVE=("${IMAGE_TAR}" "${DOCKER_COMPOSE_FILE}")
 [ -f "${ENV_FILE}" ] && FILES_TO_ARCHIVE+=("${ENV_FILE}")
 
-tar -czvf "${IMAGE_NAME}_${IMAGE_TAG}_amd64" "${FILES_TO_ARCHIVE[@]}"
+tar -czvf "${ARCHIVE_NAME}.tar.gz" "${FILES_TO_ARCHIVE[@]}"
 
 
 # ====== CLEANUP IMAGE TARBALL ======

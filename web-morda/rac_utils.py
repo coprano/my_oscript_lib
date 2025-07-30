@@ -318,7 +318,7 @@ class RACManager:
         
         try:
             output, stdout, stderr = run_command('Getting sessions list', command)
-            return process_output(output, 'data-separation')
+            return process_output(output, '')
         except Exception as e:
             raise Exception(f"Failed to get sessions list: {str(e)}")
     
