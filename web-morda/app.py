@@ -8,7 +8,7 @@ import hashlib
 from functools import wraps
 import secrets
 import string
-from rac_utils import RACManager, create_rac_manager_from_connection_string
+from rac_utils import RACManager, create_rac_manager_from_connection_string, load_debug_config
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-change-this'  # Change this in production
@@ -685,6 +685,16 @@ if __name__ == '__main__':
         print(f"Data directory: {DATA_DIR}")
     except Exception as e:
         print(f"Warning: Could not create data directory: {e}")
+    
+    # Load debug configuration
+    try:
+        debug_config = load_debug_config(DATA_DIR)
+        debug_status = "enabled" if debug_config.get("debug_enabled", False) else "disabled"
+        print(f"Debug mode: {debug_status}")
+        if debug_config.get("debug_enabled", False):
+            print(f"Debug settings: {debug_config.get('settings', {})}")
+    except Exception as e:
+        print(f"Warning: Could not load debug configuration: {e}")
     
     print(f"Starting Flask app...")
     print(f"Users file: {USERS_FILE}")

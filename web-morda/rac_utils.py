@@ -8,12 +8,79 @@ import os
 import json
 from typing import List, Dict, Optional, Tuple
 
+# Global debug configuration
+_debug_config = None
 
-def run_command(description: str, command: str, timeout: int = 30) -> Tuple[List[str], str, str]:
+
+def load_debug_config(data_dir: str = 'data') -> Dict:
+    """Load debug configuration from JSON file"""
+    global _debug_config
+    
+    if _debug_config is not None:
+        return _debug_config
+    
+    debug_file = os.path.join(data_dir, 'debug_config.json')
+    
+    if not os.path.exists(debug_file):
+        # Create default debug config file
+        default_config = {
+            "debug_enabled": False,
+            "description": "Debug configuration for RAC utilities and web application",
+            "settings": {
+                "print_rac_commands": True,
+                "print_rac_output": True,
+                "print_session_operations": True,
+                "print_cluster_operations": True,
+                "print_authentication": False
+            }
+        }
+        os.makedirs(data_dir, exist_ok=True)
+        with open(debug_file, 'w') as f:
+            json.dump(default_config, f, indent=2)
+        _debug_config = default_config
+        return _debug_config
+    
+    try:
+        with open(debug_file, 'r') as f:
+            _debug_config = json.load(f)
+            return _debug_config
+    except Exception as e:
+        print(f"[RAC WARNING] Failed to load debug config: {e}")
+        _debug_config = {"debug_enabled": False, "settings": {}}
+        return _debug_config
+
+
+def debug_print(message: str, category: str = "general", data_dir: str = 'data'):
+    """Print debug message if debug is enabled for the category"""
+    config = load_debug_config(data_dir)
+    
+    if not config.get("debug_enabled", False):
+        return
+    
+    # Check if specific category is enabled
+    settings = config.get("settings", {})
+    category_enabled = True
+    
+    if category == "rac_commands":
+        category_enabled = settings.get("print_rac_commands", True)
+    elif category == "rac_output":
+        category_enabled = settings.get("print_rac_output", True)
+    elif category == "session_operations":
+        category_enabled = settings.get("print_session_operations", True)
+    elif category == "cluster_operations":
+        category_enabled = settings.get("print_cluster_operations", True)
+    elif category == "authentication":
+        category_enabled = settings.get("print_authentication", False)
+    
+    if category_enabled:
+        print(message)
+
+
+def run_command(description: str, command: str, timeout: int = 30, data_dir: str = 'data') -> Tuple[List[str], str, str]:
     """Execute a command and return (output_lines, stdout, stderr)"""
     try:
         # Log the command for debugging
-        print(f"[RAC DEBUG] {description}: {command}")
+        debug_print(f"[RAC DEBUG] {description}: {command}", "rac_commands", data_dir)
         
         # Get RAC path from environment or find it
         rac_executable = os.environ.get('RAC_PATH')
@@ -33,16 +100,16 @@ def run_command(description: str, command: str, timeout: int = 30) -> Tuple[List
                     test_result = subprocess.run([path, '--help'], capture_output=True, timeout=5)
                     if test_result.returncode == 0 or b'Usage:' in test_result.stdout:
                         rac_executable = path
-                        print(f"[RAC DEBUG] Found RAC at: {path}")
+                        debug_print(f"[RAC DEBUG] Found RAC at: {path}", "rac_commands", data_dir)
                         break
                 except:
                     continue
             
             if not rac_executable:
                 rac_executable = 'rac'  # Fallback
-                print(f"[RAC DEBUG] Using fallback RAC command: {rac_executable}")
+                debug_print(f"[RAC DEBUG] Using fallback RAC command: {rac_executable}", "rac_commands", data_dir)
         else:
-            print(f"[RAC DEBUG] Using RAC_PATH from environment: {rac_executable}")
+            debug_print(f"[RAC DEBUG] Using RAC_PATH from environment: {rac_executable}", "rac_commands", data_dir)
         
         # Replace 'rac' in command with full path
         if command.startswith('rac '):
@@ -50,7 +117,7 @@ def run_command(description: str, command: str, timeout: int = 30) -> Tuple[List
         elif command.startswith('rac.exe '):
             command = command.replace('rac.exe ', f'"{rac_executable}" ', 1)
         
-        print(f"[RAC DEBUG] Executing: {command}")
+        debug_print(f"[RAC DEBUG] Executing: {command}", "rac_commands", data_dir)
         
         result = subprocess.run(
             command, 
@@ -60,11 +127,11 @@ def run_command(description: str, command: str, timeout: int = 30) -> Tuple[List
             timeout=timeout
         )
         
-        print(f"[RAC DEBUG] Return code: {result.returncode}")
+        debug_print(f"[RAC DEBUG] Return code: {result.returncode}", "rac_output", data_dir)
         if result.stdout:
-            print(f"[RAC DEBUG] stdout: {result.stdout}")
+            debug_print(f"[RAC DEBUG] stdout: {result.stdout}", "rac_output", data_dir)
         if result.stderr:
-            print(f"[RAC DEBUG] stderr: {result.stderr}")
+            debug_print(f"[RAC DEBUG] stderr: {result.stderr}", "rac_output", data_dir)
         
         if result.returncode != 0:
             error_msg = f"Command failed (code {result.returncode})"
@@ -79,10 +146,10 @@ def run_command(description: str, command: str, timeout: int = 30) -> Tuple[List
     
     except subprocess.TimeoutExpired:
         error_msg = f"Command timed out after {timeout} seconds"
-        print(f"[RAC ERROR] {error_msg}")
+        debug_print(f"[RAC ERROR] {error_msg}", "rac_output", data_dir)
         raise Exception(error_msg)
     except Exception as e:
-        print(f"[RAC ERROR] {str(e)}")
+        debug_print(f"[RAC ERROR] {str(e)}", "rac_output", data_dir)
         raise Exception(f"Command execution failed: {str(e)}")
 
 
@@ -196,7 +263,7 @@ def load_server_whitelist(data_dir: str = 'data') -> List[str]:
             config = json.load(f)
             return config.get("whitelisted_servers", [])
     except Exception as e:
-        print(f"[RAC WARNING] Failed to load server whitelist: {e}")
+        debug_print(f"[RAC WARNING] Failed to load server whitelist: {e}", "general")
         return []
 
 
@@ -246,6 +313,7 @@ class RACManager:
         self.rac_address = get_rac_address(server, cluster_port)
         self.cluster_user = cluster_user
         self.cluster_pwd = cluster_pwd
+        self.data_dir = data_dir
         self._cluster_id = None
     
     def get_cluster_id(self) -> str:
@@ -256,7 +324,7 @@ class RACManager:
         command = f'rac cluster list {self.rac_address}'
         
         try:
-            output, stdout, stderr = run_command('Getting cluster ID', command)
+            output, stdout, stderr = run_command('Getting cluster ID', command, data_dir=self.data_dir)
             clusters = process_output(output, '')
             
             if not clusters:
@@ -276,12 +344,12 @@ class RACManager:
         command = f'rac cluster list {self.rac_address}'
         
         try:
-            output, stdout, stderr = run_command('Getting clusters list', command)
+            output, stdout, stderr = run_command('Getting clusters list', command, data_dir=self.data_dir)
             return process_output(output, '')
         except Exception as e:
             raise Exception(f"Failed to get clusters list: {str(e)}")
     
-    def get_infobases_list(self, cluster_id: str = None) -> List[Dict[str, str]]:
+    def get_infobases_list(self, cluster_id: Optional[str] = None) -> List[Dict[str, str]]:
         """Get list of infobases for a cluster"""
         if not cluster_id:
             cluster_id = self.get_cluster_id()
@@ -291,12 +359,12 @@ class RACManager:
         command += f' {self.rac_address}'
         
         try:
-            output, stdout, stderr = run_command('Getting infobases list', command)
+            output, stdout, stderr = run_command('Getting infobases list', command, data_dir=self.data_dir)
             return process_output(output, '')
         except Exception as e:
             raise Exception(f"Failed to get infobases list: {str(e)}")
     
-    def get_infobase_id(self, ib_name: str, cluster_id: str = None) -> str:
+    def get_infobase_id(self, ib_name: str, cluster_id: Optional[str] = None) -> str:
         """Get infobase ID by name"""
         infobases = self.get_infobases_list(cluster_id)
         
@@ -306,7 +374,7 @@ class RACManager:
                 
         raise Exception(f"Infobase '{ib_name}' not found")
     
-    def get_sessions_list(self, infobase_id: str, cluster_id: str = None, ib_user: str = '', ib_pwd: str = '') -> List[Dict[str, str]]:
+    def get_sessions_list(self, infobase_id: str, cluster_id: Optional[str] = None, ib_user: str = '', ib_pwd: str = '') -> List[Dict[str, str]]:
         """Get sessions list for an infobase"""
         if not cluster_id:
             cluster_id = self.get_cluster_id()
@@ -317,12 +385,12 @@ class RACManager:
         command += f' {self.rac_address}'
         
         try:
-            output, stdout, stderr = run_command('Getting sessions list', command)
+            output, stdout, stderr = run_command('Getting sessions list', command, data_dir=self.data_dir)
             return process_output(output, '')
         except Exception as e:
             raise Exception(f"Failed to get sessions list: {str(e)}")
     
-    def terminate_session(self, session_id: str, cluster_id: str = None, ib_user: str = '', ib_pwd: str = '') -> Tuple[bool, str, str]:
+    def terminate_session(self, session_id: str, cluster_id: Optional[str] = None, ib_user: str = '', ib_pwd: str = '') -> Tuple[bool, str, str]:
         """Terminate a specific session. Returns (success, stdout, stderr)"""
         if not cluster_id:
             cluster_id = self.get_cluster_id()
@@ -333,12 +401,12 @@ class RACManager:
         command += f' {self.rac_address}'
         
         try:
-            output, stdout, stderr = run_command('Terminating session', command)
+            output, stdout, stderr = run_command('Terminating session', command, data_dir=self.data_dir)
             return True, stdout, stderr
         except Exception as e:
             raise Exception(f"Failed to terminate session: {str(e)}")
     
-    def terminate_all_sessions(self, infobase_id: str, cluster_id: str = None, ib_user: str = '', ib_pwd: str = '') -> Tuple[int, int, List[str]]:
+    def terminate_all_sessions(self, infobase_id: str, cluster_id: Optional[str] = None, ib_user: str = '', ib_pwd: str = '') -> Tuple[int, int, List[str]]:
         """Terminate all sessions for an infobase. Returns (terminated_count, failed_count, error_messages)"""
         sessions = self.get_sessions_list(infobase_id, cluster_id, ib_user, ib_pwd)
         
@@ -357,7 +425,7 @@ class RACManager:
                         failed_count += 1
                         error_messages.append(f"Session {session_id}: {stderr}")
                 except Exception as e:
-                    print(f"Failed to terminate session {session_id}: {e}")
+                    debug_print(f"Failed to terminate session {session_id}: {e}", "session_operations", self.data_dir)
                     failed_count += 1
                     error_messages.append(f"Session {session_id}: {str(e)}")
         

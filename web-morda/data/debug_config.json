@@ -1,0 +1,11 @@
+{
+  "debug_enabled": false,
+  "description": "Debug configuration for RAC utilities and web application",
+  "settings": {
+    "print_rac_commands": true,
+    "print_rac_output": true,
+    "print_session_operations": true,
+    "print_cluster_operations": true,
+    "print_authentication": false
+  }
+}
