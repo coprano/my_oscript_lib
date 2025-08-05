@@ -192,6 +192,20 @@
             .table {
                 min-width: 800px;
             }
+            
+            .filters-row {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .filter-group {
+                min-width: auto;
+            }
+            
+            .reset-filters-btn {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
         }
         
         .session-checkbox {
@@ -214,6 +228,84 @@
         
         .step {
             margin-bottom: 2rem;
+        }
+        
+        .filters-container {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .filters-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: end;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .filter-group label {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: #495057;
+        }
+        
+        .filter-group input,
+        .filter-group select {
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .reset-filters-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            height: fit-content;
+            transition: background-color 0.3s;
+        }
+        
+        .reset-filters-btn:hover {
+            background: #545b62;
+        }
+        
+        .sortable-header {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .sortable-header:hover {
+            background-color: #e9ecef;
+        }
+        
+        .sort-indicator {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        
+        .sort-indicator.asc::after {
+            content: "▲";
+        }
+        
+        .sort-indicator.desc::after {
+            content: "▼";
         }
         
         .step-inactive {
@@ -351,6 +443,15 @@
         let allClusters = []; // Store all clusters for re-rendering
         let sessionDataTimestamp = null; // Track when session data was last retrieved
         let freshnessUpdateInterval = null; // Interval for updating freshness display
+        let allSessions = []; // Store all sessions for filtering/sorting
+        let currentSort = { column: null, direction: 'asc' };
+        let currentFilters = {
+            sessionId: '',
+            userName: '',
+            host: '',
+            appId: ''
+        };
+        let selectedSessionIds = new Set(); // Store selected session IDs to persist across filter changes
         
         function showError(message, elementId = 'connectionResult') {
             document.getElementById(elementId).innerHTML = 
@@ -676,7 +777,20 @@
         }
         
         async function terminateAllSessions() {
-            if (!confirm('Are you sure you want to terminate ALL sessions for this database? This action cannot be undone.')) {
+            // Get the total count of sessions (not just filtered ones)
+            const totalSessions = allSessions.length;
+            const filteredSessions = applyFilters(allSessions);
+            const isFiltered = filteredSessions.length !== totalSessions;
+            
+            let confirmMessage = `Are you sure you want to terminate ALL ${totalSessions} session(s) for database "${currentConnection.database_name}"?`;
+            
+            if (isFiltered) {
+                confirmMessage += `\n\nNote: You are currently viewing ${filteredSessions.length} filtered session(s), but this action will terminate ALL ${totalSessions} session(s) in the database, not just the visible ones.`;
+            }
+            
+            confirmMessage += '\n\nThis action cannot be undone.';
+            
+            if (!confirm(confirmMessage)) {
                 return;
             }
             
@@ -978,46 +1092,147 @@
             }
         }
         
-        function displaySessions(sessions) {
+        function displaySessions(sessions, preserveFilters = false) {
             const container = document.getElementById('sessionsList');
+            allSessions = sessions; // Store all sessions for filtering/sorting
+            
+            // Clear selected sessions if this is a fresh load (not preserving filters)
+            if (!preserveFilters) {
+                selectedSessionIds.clear();
+            }
             
             if (sessions.length === 0) {
                 container.innerHTML = '<div class="alert alert-success">No active sessions found</div>';
                 document.getElementById('terminateSelectedBtn').style.display = 'none';
+                selectedSessionIds.clear(); // Clear selections when no sessions
                 return;
             }
             
-            let html = `
-                <div class="alert alert-success">
-                    Found ${sessions.length} active session(s) for database "${currentConnection.database_name}"
-                </div>
-                <div class="table-container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th style="width: 100px;">
-                                    <input type="checkbox" class="select-all-checkbox" id="selectAllSessions" 
-                                           onchange="toggleAllSessions(this.checked)">
-                                    <label for="selectAllSessions" style="margin-left: 5px; font-size: 0.9em;">Select All</label>
-                                </th>
-                                <th>Session ID</th>
-                                <th>User Name</th>
-                                <th>Host</th>
-                                <th>App ID</th>
-                                <th>Started At</th>
-                                <th>Last Active</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+            // Apply filters and sorting
+            let filteredSessions = applyFilters(sessions);
+            filteredSessions = applySorting(filteredSessions);
+            
+            // Clean up selectedSessionIds - remove any IDs that no longer exist in ALL sessions (not just filtered)
+            const currentSessionIds = new Set(sessions.map(session => session.session || session.id || ''));
+            selectedSessionIds.forEach(id => {
+                if (!currentSessionIds.has(id)) {
+                    selectedSessionIds.delete(id);
+                }
+            });
+            
+            const hasActiveFilters = Object.values(currentFilters).some(value => value.trim() !== '');
+            
+            // Check if filters container already exists
+            let filtersContainer = document.getElementById('filtersContainer');
+            let tableContainer = document.getElementById('tableContainer');
+            
+            if (!filtersContainer || !preserveFilters) {
+                // Create the full HTML including filters
+                let html = `
+                    <div class="alert alert-success" id="sessionCount">
+                        Found ${sessions.length} active session(s) for database "${currentConnection.database_name}"
+                        ${filteredSessions.length !== sessions.length ? ` (${filteredSessions.length} after filtering)` : ''}
+                    </div>
+                    
+                    <!-- Filters -->
+                    <div class="filters-container" id="filtersContainer">
+                        <div class="filters-row">
+                            <div class="filter-group">
+                                <label for="filterSessionId">Session ID:</label>
+                                <input type="text" id="filterSessionId" placeholder="Filter by Session ID..." 
+                                       value="${currentFilters.sessionId}" onkeyup="applyFiltersFromUI()">
+                            </div>
+                            <div class="filter-group">
+                                <label for="filterUserName">User Name:</label>
+                                <input type="text" id="filterUserName" placeholder="Filter by User Name..." 
+                                       value="${currentFilters.userName}" onkeyup="applyFiltersFromUI()">
+                            </div>
+                            <div class="filter-group">
+                                <label for="filterHost">Host:</label>
+                                <input type="text" id="filterHost" placeholder="Filter by Host..." 
+                                       value="${currentFilters.host}" onkeyup="applyFiltersFromUI()">
+                            </div>
+                            <div class="filter-group">
+                                <label for="filterAppId">App ID:</label>
+                                <input type="text" id="filterAppId" placeholder="Filter by App ID..." 
+                                       value="${currentFilters.appId}" onkeyup="applyFiltersFromUI()">
+                            </div>
+                            <div id="resetButtonContainer">${hasActiveFilters ? '<button class="reset-filters-btn" onclick="resetFilters()">Reset Filters</button>' : ''}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-container" id="tableContainer">
+                `;
+                
+                container.innerHTML = html;
+                filtersContainer = document.getElementById('filtersContainer');
+                tableContainer = document.getElementById('tableContainer');
+            } else {
+                // Just update the session count and reset button
+                const sessionCountElement = document.getElementById('sessionCount');
+                if (sessionCountElement) {
+                    sessionCountElement.innerHTML = `
+                        Found ${sessions.length} active session(s) for database "${currentConnection.database_name}"
+                        ${filteredSessions.length !== sessions.length ? ` (${filteredSessions.length} after filtering)` : ''}
+                    `;
+                }
+                
+                const resetButtonContainer = document.getElementById('resetButtonContainer');
+                if (resetButtonContainer) {
+                    resetButtonContainer.innerHTML = hasActiveFilters ? '<button class="reset-filters-btn" onclick="resetFilters()">Reset Filters</button>' : '';
+                }
+            }
+            
+            // Update table content
+            let tableHtml = `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">
+                                <input type="checkbox" class="select-all-checkbox" id="selectAllSessions" 
+                                       onchange="toggleAllSessions(this.checked)">
+                                <label for="selectAllSessions" style="margin-left: 5px; font-size: 0.9em;">Select All</label>
+                            </th>
+                            <th class="sortable-header" onclick="sortTable('sessionId')">
+                                Session ID
+                                <span class="sort-indicator ${currentSort.column === 'sessionId' ? currentSort.direction : ''}"></span>
+                            </th>
+                            <th class="sortable-header" onclick="sortTable('userName')">
+                                User Name
+                                <span class="sort-indicator ${currentSort.column === 'userName' ? currentSort.direction : ''}"></span>
+                            </th>
+                            <th class="sortable-header" onclick="sortTable('host')">
+                                Host
+                                <span class="sort-indicator ${currentSort.column === 'host' ? currentSort.direction : ''}"></span>
+                            </th>
+                            <th class="sortable-header" onclick="sortTable('appId')">
+                                App ID
+                                <span class="sort-indicator ${currentSort.column === 'appId' ? currentSort.direction : ''}"></span>
+                            </th>
+                            <th class="sortable-header" onclick="sortTable('startedAt')">
+                                Started At
+                                <span class="sort-indicator ${currentSort.column === 'startedAt' ? currentSort.direction : ''}"></span>
+                            </th>
+                            <th class="sortable-header" onclick="sortTable('lastActiveAt')">
+                                Last Active
+                                <span class="sort-indicator ${currentSort.column === 'lastActiveAt' ? currentSort.direction : ''}"></span>
+                            </th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
             `;
             
-            sessions.forEach(session => {
-                html += `
+            filteredSessions.forEach(session => {
+                const sessionId = session.session || session.id || '';
+                const isChecked = selectedSessionIds.has(sessionId);
+                
+                tableHtml += `
                     <tr>
                         <td>
                             <input type="checkbox" class="session-checkbox" 
-                                   value="${session.session || session.id || ''}" 
+                                   value="${sessionId}" 
+                                   ${isChecked ? 'checked' : ''}
                                    onchange="updateSelectedButton()">
                         </td>
                         <td>${session['session-id'] || session.sessionId || 'N/A'}</td>
@@ -1028,7 +1243,7 @@
                         <td>${formatDateTime(session['last-active-at'] || session.lastActiveAt) || 'N/A'}</td>
                         <td>
                             <button class="btn btn-danger btn-small" 
-                                    onclick="terminateSession('${session.session || session.id || ''}')"
+                                    onclick="terminateSession('${sessionId}')"
                                     title="Terminate this session">
                                 Terminate
                             </button>
@@ -1037,8 +1252,8 @@
                 `;
             });
             
-            html += '</tbody></table></div>';
-            container.innerHTML = html;
+            tableHtml += '</tbody></table>';
+            tableContainer.innerHTML = tableHtml;
             
             // Show the terminate selected button
             document.getElementById('terminateSelectedBtn').style.display = 'inline-block';
@@ -1091,6 +1306,11 @@
             const checkboxes = document.querySelectorAll('.session-checkbox');
             checkboxes.forEach(checkbox => {
                 checkbox.checked = checked;
+                if (checked && checkbox.value) {
+                    selectedSessionIds.add(checkbox.value);
+                } else if (!checked && checkbox.value) {
+                    selectedSessionIds.delete(checkbox.value);
+                }
             });
             updateSelectedButton();
         }
@@ -1101,14 +1321,29 @@
             const terminateBtn = document.getElementById('terminateSelectedBtn');
             const selectAllBox = document.getElementById('selectAllSessions');
             
-            if (checkedBoxes.length > 0) {
-                terminateBtn.textContent = `Terminate Selected (${checkedBoxes.length})`;
+            // Update selectedSessionIds set based on current checkbox states
+            // First, remove any visible session IDs that are unchecked
+            checkboxes.forEach(checkbox => {
+                if (checkbox.value) {
+                    if (checkbox.checked) {
+                        selectedSessionIds.add(checkbox.value);
+                    } else {
+                        selectedSessionIds.delete(checkbox.value);
+                    }
+                }
+            });
+            
+            // Count total selected sessions (including those not visible due to filtering)
+            const totalSelectedCount = selectedSessionIds.size;
+            
+            if (totalSelectedCount > 0) {
+                terminateBtn.textContent = `Terminate Selected (${totalSelectedCount})`;
                 terminateBtn.style.display = 'inline-block';
             } else {
                 terminateBtn.style.display = 'none';
             }
             
-            // Update select all checkbox state
+            // Update select all checkbox state (only for visible/filtered sessions)
             if (selectAllBox) {
                 if (checkedBoxes.length === 0) {
                     selectAllBox.indeterminate = false;
@@ -1124,14 +1359,12 @@
         }
         
         async function terminateSelectedSessions() {
-            const checkedBoxes = document.querySelectorAll('.session-checkbox:checked');
-            
-            if (checkedBoxes.length === 0) {
+            if (selectedSessionIds.size === 0) {
                 alert('No sessions selected');
                 return;
             }
             
-            const sessionIds = Array.from(checkedBoxes).map(cb => cb.value).filter(id => id);
+            const sessionIds = Array.from(selectedSessionIds);
             
             if (!confirm(`Are you sure you want to terminate ${sessionIds.length} selected session(s)?`)) {
                 return;
@@ -1157,6 +1390,8 @@
                     
                     if (data.success) {
                         successCount++;
+                        // Remove terminated session from selected set
+                        selectedSessionIds.delete(sessionId);
                     } else {
                         failCount++;
                         let errorMsg = `Session ${sessionId}: ${data.error || 'Unknown error'}`;
@@ -1185,6 +1420,93 @@
             
             // Refresh the sessions list
             loadSessions();
+        }
+        
+        // Filtering and sorting functions
+        function applyFilters(sessions) {
+            return sessions.filter(session => {
+                const sessionId = (session['session-id'] || session.sessionId || '').toLowerCase();
+                const userName = (session['user-name'] || session.user || '').toLowerCase();
+                const host = (session.host || '').toLowerCase();
+                const appId = (session['app-id'] || session.appId || '').toLowerCase();
+                
+                return sessionId.includes(currentFilters.sessionId.toLowerCase()) &&
+                       userName.includes(currentFilters.userName.toLowerCase()) &&
+                       host.includes(currentFilters.host.toLowerCase()) &&
+                       appId.includes(currentFilters.appId.toLowerCase());
+            });
+        }
+        
+        function applySorting(sessions) {
+            if (!currentSort.column) return sessions;
+            
+            return [...sessions].sort((a, b) => {
+                let aValue, bValue;
+                
+                switch (currentSort.column) {
+                    case 'sessionId':
+                        aValue = a['session-id'] || a.sessionId || '';
+                        bValue = b['session-id'] || b.sessionId || '';
+                        break;
+                    case 'userName':
+                        aValue = a['user-name'] || a.user || '';
+                        bValue = b['user-name'] || b.user || '';
+                        break;
+                    case 'host':
+                        aValue = a.host || '';
+                        bValue = b.host || '';
+                        break;
+                    case 'appId':
+                        aValue = a['app-id'] || a.appId || '';
+                        bValue = b['app-id'] || b.appId || '';
+                        break;
+                    case 'startedAt':
+                        aValue = new Date(a['started-at'] || a.startedAt || 0);
+                        bValue = new Date(b['started-at'] || b.startedAt || 0);
+                        break;
+                    case 'lastActiveAt':
+                        aValue = new Date(a['last-active-at'] || a.lastActiveAt || 0);
+                        bValue = new Date(b['last-active-at'] || b.lastActiveAt || 0);
+                        break;
+                    default:
+                        return 0;
+                }
+                
+                if (aValue < bValue) return currentSort.direction === 'asc' ? -1 : 1;
+                if (aValue > bValue) return currentSort.direction === 'asc' ? 1 : -1;
+                return 0;
+            });
+        }
+        
+        function applyFiltersFromUI() {
+            currentFilters.sessionId = document.getElementById('filterSessionId').value || '';
+            currentFilters.userName = document.getElementById('filterUserName').value || '';
+            currentFilters.host = document.getElementById('filterHost').value || '';
+            currentFilters.appId = document.getElementById('filterAppId').value || '';
+            
+            displaySessions(allSessions, true); // Preserve filters to maintain focus
+        }
+        
+        function resetFilters() {
+            currentFilters = {
+                sessionId: '',
+                userName: '',
+                host: '',
+                appId: ''
+            };
+            
+            displaySessions(allSessions, true); // Preserve filters to maintain focus and selections
+        }
+        
+        function sortTable(column) {
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.column = column;
+                currentSort.direction = 'asc';
+            }
+            
+            displaySessions(allSessions, true); // Preserve filters to maintain focus
         }
     </script>
 </body>
