@@ -637,15 +637,106 @@
     </div>
     
     <script>
+        // Inactivity timeout variables
+        let inactivityTimer = null;
+        let isPageBlocked = false;
+        const INACTIVITY_TIMEOUT = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
+       
         // Test function to verify JavaScript is working
         function testFunction() {
             alert('JavaScript is working!');
+        }
+        
+        // Reset inactivity timer on user activity
+        function resetInactivityTimer() {
+            if (isPageBlocked) return; // Don't reset if page is already blocked
+            
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(blockPageForInactivity, INACTIVITY_TIMEOUT);
+        }
+        
+        // Block page due to inactivity
+        function blockPageForInactivity() {
+            if (isPageBlocked) return; // Prevent multiple blocks
+            
+            isPageBlocked = true;
+            
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.id = 'inactivityOverlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                color: white;
+                font-family: Arial, sans-serif;
+            `;
+            
+            overlay.innerHTML = `
+                <div style="text-align: center; padding: 40px; background: #333; border-radius: 10px; max-width: 500px;">
+                    <h2 style="margin-bottom: 20px; color: #ff6b6b;">Session Timed Out</h2>
+                    <p style="margin-bottom: 30px; font-size: 16px; line-height: 1.5;">
+                        The page has been blocked due to inactivity for more than 4 hours.
+                        <br><br>
+                        Please reload the page to continue working.
+                    </p>
+                    <button onclick="window.location.reload()" 
+                            style="
+                                background-color: #4CAF50;
+                                color: white;
+                                padding: 15px 30px;
+                                border: none;
+                                border-radius: 5px;
+                                font-size: 16px;
+                                cursor: pointer;
+                                transition: background-color 0.3s;
+                            "
+                            onmouseover="this.style.backgroundColor='#45a049'"
+                            onmouseout="this.style.backgroundColor='#4CAF50'">
+                        Reload Page
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(overlay);
+            
+            // Disable all page interactions
+            document.body.style.overflow = 'hidden';
+            
+            // Clear any running intervals
+            if (freshnessUpdateInterval) {
+                clearInterval(freshnessUpdateInterval);
+                freshnessUpdateInterval = null;
+            }
+            
+            console.log('Page blocked due to inactivity');
+        }
+        
+        // Initialize activity tracking
+        function initializeActivityTracking() {
+            const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+            
+            events.forEach(event => {
+                document.addEventListener(event, resetInactivityTimer, true);
+            });
+            
+            // Start the initial timer
+            resetInactivityTimer();
         }
         
         // Call test function when page loads
         window.addEventListener('load', function() {
             console.log('Page loaded, JavaScript is working');
             loadSystemMessage(); // Load system message on page load
+            initializeActivityTracking(); // Start inactivity tracking
         });
         
         // System message functions
@@ -813,6 +904,8 @@
         }
         
         function activateStep(stepNumber) {
+            resetInactivityTimer(); // Reset timer on step activation
+            
             for (let i = 1; i <= 4; i++) {
                 const step = document.getElementById(`step${i}`);
                 if (i <= stepNumber) {
@@ -955,6 +1048,8 @@
         });
         
         async function connectToServer() {
+            resetInactivityTimer(); // Reset timer on server connection
+            
             const selectedServer = document.getElementById('serverSelect').value;
             
             if (!selectedServer) {
@@ -1199,6 +1294,8 @@
         }
         
         async function selectCluster(clusterId, clusterName) {
+            resetInactivityTimer(); // Reset timer on cluster selection
+            
             try {
                 currentConnection.cluster_id = clusterId;
                 currentConnection.cluster_name = clusterName;
@@ -1313,6 +1410,8 @@
         }
         
         function filterDatabases(searchTerm) {
+            resetInactivityTimer(); // Reset timer on database filtering
+            
             if (!searchTerm.trim()) {
                 // Show all databases if search is empty
                 displayDatabases(allDatabases);
@@ -1337,6 +1436,8 @@
         }
         
         async function selectDatabase(databaseId, databaseName) {
+            resetInactivityTimer(); // Reset timer on database selection
+            
             currentConnection.infobase_id = databaseId;
             currentConnection.database_name = databaseName;
             
@@ -1387,6 +1488,8 @@
         }
         
         async function loadSessions() {
+            resetInactivityTimer(); // Reset timer when loading sessions
+            
             showLoading('sessionsList');
             
             // Clear any existing freshness interval
@@ -1812,6 +1915,8 @@
         }
         
         function applyFiltersFromUI() {
+            resetInactivityTimer(); // Reset timer on filter application
+            
             currentFilters.sessionId = document.getElementById('filterSessionId').value || '';
             currentFilters.userName = document.getElementById('filterUserName').value || '';
             currentFilters.host = document.getElementById('filterHost').value || '';
@@ -1832,6 +1937,8 @@
         }
         
         function sortTable(column) {
+            resetInactivityTimer(); // Reset timer on table sorting
+            
             if (currentSort.column === column) {
                 currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
             } else {
