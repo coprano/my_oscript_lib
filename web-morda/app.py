@@ -6,6 +6,8 @@ import os
 from datetime import datetime
 import hashlib
 from functools import wraps
+import secrets
+import string
 from rac_utils import RACManager, create_rac_manager_from_connection_string
 
 app = Flask(__name__)
@@ -70,6 +72,11 @@ def save_users(users):
     """Save users to JSON file"""
     with open(USERS_FILE, 'w', encoding='utf-8') as f:
         json.dump(users, f, indent=2, ensure_ascii=False)
+
+def generate_password(length=12):
+    """Generate a secure random password"""
+    characters = string.ascii_letters + string.digits + "!@#$%^&*"
+    return ''.join(secrets.choice(characters) for _ in range(length))
 
 def filter_databases_for_user(databases, username, user_data):
     """Filter databases based on user permissions"""
@@ -550,6 +557,74 @@ def delete_user(username):
     log_action(session['username'], 'delete_user', f"Deleted user: {username}")
     
     return jsonify({'success': True})
+
+@app.route('/api/admin/users/bulk', methods=['POST'])
+@admin_required
+def bulk_create_users():
+    """Create multiple users with auto-generated passwords"""
+    data = request.json
+    usernames = data.get('usernames', [])
+    is_admin = data.get('is_admin', False)
+    whitelisted_bases = data.get('whitelisted_bases', [])
+    password_length = data.get('password_length', 12)
+    
+    if not usernames or not isinstance(usernames, list):
+        return jsonify({'success': False, 'error': 'Usernames list is required'})
+    
+    # Validate password length
+    if password_length < 8 or password_length > 32:
+        password_length = 12
+    
+    users = load_users()
+    results = []
+    created_count = 0
+    updated_count = 0
+    
+    for username in usernames:
+        username = username.strip()
+        if not username:
+            continue
+            
+        # Generate a new password for each user
+        generated_password = generate_password(password_length)
+        password_hash = hashlib.sha256(generated_password.encode()).hexdigest()
+        
+        user_exists = username in users
+        
+        # Create or update user
+        users[username] = {
+            'password_hash': password_hash,
+            'whitelisted_bases': whitelisted_bases,
+            'is_admin': is_admin
+        }
+        
+        if user_exists:
+            updated_count += 1
+            action = 'updated'
+        else:
+            created_count += 1
+            action = 'created'
+        
+        results.append({
+            'username': username,
+            'password': generated_password,
+            'action': action
+        })
+    
+    if results:
+        save_users(users)
+        log_action(session['username'], 'bulk_create_users', 
+                  f"Created: {created_count}, Updated: {updated_count}, Total users: {len(results)}")
+    
+    return jsonify({
+        'success': True,
+        'results': results,
+        'summary': {
+            'created': created_count,
+            'updated': updated_count,
+            'total': len(results)
+        }
+    })
 
 @app.route('/api/get_servers', methods=['GET'])
 @login_required
