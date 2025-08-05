@@ -640,6 +640,38 @@ def bulk_create_users():
         }
     })
 
+@app.route('/api/change_password', methods=['POST'])
+@login_required
+def change_password():
+    """Allow users to change their own password"""
+    data = request.json or {}
+    current_password = data.get('current_password', '')
+    new_password = data.get('new_password', '')
+    
+    if not current_password or not new_password:
+        return jsonify({'success': False, 'error': 'Current password and new password are required'})
+    
+    if len(new_password) < 6:
+        return jsonify({'success': False, 'error': 'New password must be at least 6 characters long'})
+    
+    users = load_users()
+    username = session['username']
+    
+    if username not in users:
+        return jsonify({'success': False, 'error': 'User not found'})
+    
+    # Verify current password
+    current_password_hash = hashlib.sha256(current_password.encode()).hexdigest()
+    if users[username]['password_hash'] != current_password_hash:
+        return jsonify({'success': False, 'error': 'Current password is incorrect'})
+    
+    # Update password
+    users[username]['password_hash'] = hashlib.sha256(new_password.encode()).hexdigest()
+    save_users(users)
+    log_action(username, 'change_password', 'User changed their password')
+    
+    return jsonify({'success': True, 'message': 'Password changed successfully'})
+
 @app.route('/api/get_servers', methods=['GET'])
 @login_required
 def get_servers():

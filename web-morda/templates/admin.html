@@ -274,6 +274,7 @@
         <div class="nav-links">
             <span>Welcome, {{ username }}</span>
             <a href="/">Main Panel</a>
+            <a href="#" onclick="showChangePasswordModal()">Change Password</a>
             <a href="/logout">Logout</a>
         </div>
     </div>
@@ -440,6 +441,37 @@ test_*<br>
                     <button class="btn" onclick="closeBulkCreateModal()">Close</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeChangePasswordModal()">&times;</span>
+            <h2>Change Password</h2>
+            <div id="changePasswordMessages"></div>
+            <form id="changePasswordForm">
+                <div class="form-group">
+                    <label for="currentPassword">Current Password:</label>
+                    <input type="password" id="currentPassword" name="currentPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" required minlength="6">
+                    <small style="color: #6c757d;">Password must be at least 6 characters long</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6">
+                </div>
+                
+                <div style="text-align: right; margin-top: 1rem;">
+                    <button type="button" class="btn" onclick="closeChangePasswordModal()">Cancel</button>
+                    <button type="submit" class="btn btn-success">Change Password</button>
+                </div>
+            </form>
         </div>
     </div>
     
@@ -789,6 +821,90 @@ test_*<br>
                 showMessageStatus('Network error: ' + error.message, 'error');
             }
         });
+        
+        // Change password functions
+        function showChangePasswordModal() {
+            document.getElementById('changePasswordForm').reset();
+            document.getElementById('changePasswordMessages').innerHTML = '';
+            document.getElementById('changePasswordModal').style.display = 'block';
+        }
+
+        function closeChangePasswordModal() {
+            document.getElementById('changePasswordModal').style.display = 'none';
+            document.getElementById('changePasswordMessages').innerHTML = '';
+        }
+
+        function showPasswordMessage(message, type = 'success') {
+            const messagesDiv = document.getElementById('changePasswordMessages');
+            messagesDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            setTimeout(() => {
+                if (type === 'success') {
+                    // Clear success messages after 3 seconds and close modal
+                    messagesDiv.innerHTML = '';
+                    closeChangePasswordModal();
+                }
+            }, 3000);
+        }
+
+        document.getElementById('changePasswordForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Clear any existing messages
+            document.getElementById('changePasswordMessages').innerHTML = '';
+            
+            if (newPassword !== confirmPassword) {
+                showPasswordMessage('New passwords do not match', 'error');
+                return;
+            }
+            
+            if (newPassword.length < 6) {
+                showPasswordMessage('Password must be at least 6 characters long', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/change_password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        current_password: currentPassword,
+                        new_password: newPassword
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showPasswordMessage('Password changed successfully');
+                } else {
+                    showPasswordMessage(data.error || 'Failed to change password', 'error');
+                }
+            } catch (error) {
+                showPasswordMessage('Network error: ' + error.message, 'error');
+            }
+        });
+        
+        // Update modal close functionality
+        window.onclick = function(event) {
+            const modal = document.getElementById('userModal');
+            const bulkModal = document.getElementById('bulkCreateModal');
+            const passwordModal = document.getElementById('changePasswordModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+            if (event.target === bulkModal) {
+                closeBulkCreateModal();
+            }
+            if (event.target === passwordModal) {
+                closeChangePasswordModal();
+            }
+        }
         
         // Load users and system message on page load
         loadUsers();

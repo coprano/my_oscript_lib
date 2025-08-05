@@ -33,7 +33,6 @@ A web-based panel for managing 1C cluster sessions using RAC (Remote Administrat
 3. **Access the application:**
    - Open http://localhost:5000 (or your server IP if accessing remotely)
    - Default users:
-     - Username: `petrovma`, Password: `password123`
      - Username: `admin`, Password: `admin123`
 
 ## Manual Installation
