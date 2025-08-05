@@ -549,7 +549,10 @@
             
             if (controls) controls.style.display = 'none';
             if (overlay) overlay.style.display = 'block';
-            if (sessionsList) sessionsList.style.opacity = '0.5';
+            if (sessionsList) {
+                sessionsList.style.opacity = '0.5';
+                sessionsList.style.pointerEvents = 'none'; // Disable all interactions
+            }
         }
         
         function unblockStep4() {
@@ -559,7 +562,10 @@
             
             if (controls) controls.style.display = 'block';
             if (overlay) overlay.style.display = 'none';
-            if (sessionsList) sessionsList.style.opacity = '1';
+            if (sessionsList) {
+                sessionsList.style.opacity = '1';
+                sessionsList.style.pointerEvents = 'auto'; // Re-enable all interactions
+            }
         }
         
         function activateStep(stepNumber) {
