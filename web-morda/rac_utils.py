@@ -31,7 +31,8 @@ def load_debug_config(data_dir: str = 'data') -> Dict:
                 "print_rac_output": True,
                 "print_session_operations": True,
                 "print_cluster_operations": True,
-                "print_authentication": False
+                "print_authentication": False,
+                "flask_debug": False
             }
         }
         os.makedirs(data_dir, exist_ok=True)

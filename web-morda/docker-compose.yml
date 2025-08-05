@@ -14,4 +14,5 @@ services:
       - CLUSTER_USER=your_cluster_user
       - CLUSTER_PWD=your_cluster_password
       - RAC_PATH=/opt/1cv8/x86_64/current/rac
+      - FLASK_PORT=5000
     restart: unless-stopped

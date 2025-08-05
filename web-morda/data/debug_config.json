@@ -6,6 +6,7 @@
     "print_rac_output": true,
     "print_session_operations": true,
     "print_cluster_operations": true,
-    "print_authentication": false
+    "print_authentication": false,
+    "flask_debug": false
   }
 }

@@ -686,18 +686,26 @@ if __name__ == '__main__':
     except Exception as e:
         print(f"Warning: Could not create data directory: {e}")
     
-    # Load debug configuration
+    
     try:
         debug_config = load_debug_config(DATA_DIR)
-        debug_status = "enabled" if debug_config.get("debug_enabled", False) else "disabled"
-        print(f"Debug mode: {debug_status}")
+        debug_flask = debug_config.get("settings", {}).get("flask_debug", False)
+        print(f"Flask debug mode: {'enabled' if debug_flask else 'disabled'}")
+        
+        port = int(os.environ.get('FLASK_PORT', 5000))
+        host = os.environ.get('FLASK_HOST', "0.0.0.0")
+        print(f"Flask host: {host}, port: {port}")
+        
         if debug_config.get("debug_enabled", False):
-            print(f"Debug settings: {debug_config.get('settings', {})}")
+            print(f"RAC debug settings: {debug_config.get('settings', {})}")
     except Exception as e:
         print(f"Warning: Could not load debug configuration: {e}")
+
     
     print(f"Starting Flask app...")
     print(f"Users file: {USERS_FILE}")
     print(f"Logs file: {LOGS_FILE}")
     print(f"Cluster user configured: {'Yes' if DEFAULT_CLUSTER_USER else 'No'}")
-    app.run(host='0.0.0.0', port=5005, debug=True)
+    
+
+    app.run(host=host, port=port, debug=debug_flask)
