@@ -468,6 +468,7 @@
                 <div id="step4Controls">
                     <button class="btn" onclick="loadSessions()">Refresh Sessions</button>
                     <button class="btn btn-danger" onclick="terminateAllSessions()">Terminate All Sessions</button>
+                    <button class="btn btn-danger" onclick="terminateDesignerSessions()" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);">Terminate all DESIGNER Sessions</button>
                     <button class="btn btn-danger" onclick="terminateSelectedSessions()" id="terminateSelectedBtn" style="display:none;">Terminate Selected</button>
                 </div>
                 <div id="step4BlockedOverlay" style="display: none; position: relative; background: rgba(255, 255, 255, 0.9); padding: 2rem; text-align: center; border-radius: 8px; border: 2px dashed #ff9800; margin-bottom: 1rem;">
@@ -881,6 +882,86 @@
             } catch (error) {
                 alert('Network error: ' + error.message);
             }
+        }
+        
+        async function terminateDesignerSessions() {
+            // Filter sessions to find only DESIGNER sessions
+            const designerSessions = allSessions.filter(session => {
+                const appId = session['app-id'] || session.appId || '';
+                return appId.toUpperCase() === 'DESIGNER';
+            });
+            
+            if (designerSessions.length === 0) {
+                alert('No DESIGNER sessions found in the current database.');
+                return;
+            }
+            
+            const filteredSessions = applyFilters(allSessions);
+            const isFiltered = filteredSessions.length !== allSessions.length;
+            
+            let confirmMessage = `Are you sure you want to terminate ${designerSessions.length} DESIGNER session(s) for database "${currentConnection.database_name}"?`;
+            
+            if (isFiltered) {
+                confirmMessage += `\n\nNote: This action will terminate ALL DESIGNER sessions in the database, not just the ones currently visible in your filtered view.`;
+            }
+            
+            confirmMessage += '\n\nThis action cannot be undone.';
+            
+            if (!confirm(confirmMessage)) {
+                return;
+            }
+            
+            let successCount = 0;
+            let failCount = 0;
+            let errorMessages = [];
+            
+            // Terminate DESIGNER sessions one by one
+            for (const session of designerSessions) {
+                const sessionId = session.session || session.id || '';
+                try {
+                    const response = await fetch('/api/terminate_session', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            ...currentConnection,
+                            session_id: sessionId
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        successCount++;
+                        // Remove terminated session from selected set if it was selected
+                        selectedSessionIds.delete(sessionId);
+                    } else {
+                        failCount++;
+                        let errorMsg = `Session ${sessionId}: ${data.error || 'Unknown error'}`;
+                        if (data.stderr && data.stderr.trim()) {
+                            errorMsg += ` (${data.stderr.trim()})`;
+                        }
+                        errorMessages.push(errorMsg);
+                        console.error(`Failed to terminate DESIGNER session ${sessionId}:`, data.error);
+                    }
+                } catch (error) {
+                    failCount++;
+                    errorMessages.push(`Session ${sessionId}: Network error - ${error.message}`);
+                    console.error(`Error terminating DESIGNER session ${sessionId}:`, error);
+                }
+            }
+            
+            // Show results
+            let message = `Successfully terminated ${successCount} DESIGNER session(s)`;
+            if (failCount > 0) {
+                message += `. Failed to terminate ${failCount} DESIGNER session(s)`;
+                if (errorMessages.length > 0) {
+                    message += '\n\nErrors:\n' + errorMessages.join('\n');
+                }
+            }
+            alert(message);
+            
+            // Refresh the sessions list
+            loadSessions();
         }
         
         function displayClusters(clusters) {
