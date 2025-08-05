@@ -219,6 +219,18 @@
             margin-top: 0;
         }
         
+        /* Cluster list scrolling */
+        #clustersList {
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+        }
+        
+        #clustersList .table {
+            margin-top: 0;
+            min-width: 600px; /* Ensure table has minimum width to trigger horizontal scroll */
+        }
+        
         /* Session list container */
         #sessionsList {
             flex: 1;
