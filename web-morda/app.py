@@ -15,6 +15,7 @@ app.secret_key = 'your-secret-key-change-this'  # Change this in production
 DATA_DIR = os.environ.get('DATA_DIR', 'data')
 USERS_FILE = os.path.join(DATA_DIR, 'users.json')
 LOGS_FILE = os.path.join(DATA_DIR, 'logs.json')
+MESSAGE_FILE = os.path.join(DATA_DIR, 'system_message.json')
 
 # Cluster credentials from environment
 DEFAULT_CLUSTER_USER = os.environ.get('CLUSTER_USER', '')
@@ -42,11 +43,11 @@ def load_users():
                 'is_admin': True
             }
         }
-        with open(USERS_FILE, 'w') as f:
-            json.dump(default_users, f, indent=2)
+        with open(USERS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(default_users, f, indent=2, ensure_ascii=False)
         return default_users
     
-    with open(USERS_FILE, 'r') as f:
+    with open(USERS_FILE, 'r', encoding='utf-8') as f:
         users = json.load(f)
         
     # Migrate old format to new format if needed
@@ -67,8 +68,8 @@ def load_users():
 
 def save_users(users):
     """Save users to JSON file"""
-    with open(USERS_FILE, 'w') as f:
-        json.dump(users, f, indent=2)
+    with open(USERS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(users, f, indent=2, ensure_ascii=False)
 
 def filter_databases_for_user(databases, username, user_data):
     """Filter databases based on user permissions"""
@@ -127,7 +128,7 @@ def log_action(username, action, details=""):
     
     logs = []
     if os.path.exists(LOGS_FILE):
-        with open(LOGS_FILE, 'r') as f:
+        with open(LOGS_FILE, 'r', encoding='utf-8') as f:
             logs = json.load(f)
     
     logs.append(log_entry)
@@ -136,8 +137,25 @@ def log_action(username, action, details=""):
     if len(logs) > 1000:
         logs = logs[-1000:]
     
-    with open(LOGS_FILE, 'w') as f:
-        json.dump(logs, f, indent=2)
+    with open(LOGS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(logs, f, indent=2, ensure_ascii=False)
+
+def load_system_message():
+    """Load system message from JSON file"""
+    if not os.path.exists(MESSAGE_FILE):
+        return {"enabled": False, "message": ""}
+    
+    try:
+        with open(MESSAGE_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        return {"enabled": False, "message": ""}
+
+def save_system_message(message_data):
+    """Save system message to JSON file"""
+    os.makedirs(DATA_DIR, exist_ok=True)
+    with open(MESSAGE_FILE, 'w', encoding='utf-8') as f:
+        json.dump(message_data, f, indent=2, ensure_ascii=False)
 
 def login_required(f):
     """Decorator to require login"""
@@ -544,6 +562,47 @@ def get_servers():
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
 
+@app.route('/api/admin/message', methods=['GET'])
+@admin_required
+def get_system_message():
+    """Get current system message"""
+    try:
+        message_data = load_system_message()
+        return jsonify({'success': True, 'message': message_data})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
+
+@app.route('/api/admin/message', methods=['POST'])
+@admin_required
+def set_system_message():
+    """Set system message"""
+    try:
+        data = request.get_json()
+        message_data = {
+            "enabled": data.get('enabled', False),
+            "message": data.get('message', '').strip()
+        }
+        
+        save_system_message(message_data)
+        log_action(session['username'], 'set_system_message', 
+                  f"Enabled: {message_data['enabled']}, Message: {message_data['message'][:50]}...")
+        
+        return jsonify({'success': True, 'message': 'System message updated successfully'})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
+
+@app.route('/api/message', methods=['GET'])
+def get_public_system_message():
+    """Get system message for display to all users"""
+    try:
+        message_data = load_system_message()
+        if message_data.get('enabled', False) and message_data.get('message', '').strip():
+            return jsonify({'success': True, 'message': message_data['message']})
+        else:
+            return jsonify({'success': True, 'message': ''})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
+
 if __name__ == '__main__':
     # Ensure data directory exists
     try:
@@ -556,4 +615,4 @@ if __name__ == '__main__':
     print(f"Users file: {USERS_FILE}")
     print(f"Logs file: {LOGS_FILE}")
     print(f"Cluster user configured: {'Yes' if DEFAULT_CLUSTER_USER else 'No'}")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5005, debug=True)

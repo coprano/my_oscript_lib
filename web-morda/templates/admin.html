@@ -257,6 +257,36 @@
     </div>
     
     <div class="container">
+        <!-- System Message Card -->
+        <div class="card">
+            <div class="card-header">
+                System Message
+            </div>
+            <div class="card-body">
+                <div id="messageStatus"></div>
+                <form id="messageForm">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <input type="checkbox" id="messageEnabled" name="messageEnabled">
+                            <label for="messageEnabled">Enable system message</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="messageText">Message text:</label>
+                        <textarea id="messageText" name="messageText" rows="3" 
+                                  placeholder="Enter a message to display to all users..."></textarea>
+                        <small style="color: #6c757d;">This message will appear at the top of the main page for all users</small>
+                    </div>
+                    
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-success">Save Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- User Management Card -->
         <div class="card">
             <div class="card-header">
                 User Management
@@ -492,8 +522,65 @@ test_*<br>
             }
         }
         
-        // Load users on page load
+        // System message functions
+        function showMessageStatus(message, type = 'success') {
+            const statusDiv = document.getElementById('messageStatus');
+            statusDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            setTimeout(() => {
+                statusDiv.innerHTML = '';
+            }, 5000);
+        }
+        
+        async function loadSystemMessage() {
+            try {
+                const response = await fetch('/api/admin/message');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const messageData = data.message;
+                    document.getElementById('messageEnabled').checked = messageData.enabled || false;
+                    document.getElementById('messageText').value = messageData.message || '';
+                } else {
+                    showMessageStatus('Failed to load system message: ' + (data.error || 'Unknown error'), 'error');
+                }
+            } catch (error) {
+                showMessageStatus('Network error loading system message: ' + error.message, 'error');
+            }
+        }
+        
+        // Handle message form submission
+        document.getElementById('messageForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const messageData = {
+                enabled: document.getElementById('messageEnabled').checked,
+                message: document.getElementById('messageText').value.trim()
+            };
+            
+            try {
+                const response = await fetch('/api/admin/message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(messageData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showMessageStatus('System message updated successfully');
+                } else {
+                    showMessageStatus('Failed to update system message: ' + (data.error || 'Unknown error'), 'error');
+                }
+            } catch (error) {
+                showMessageStatus('Network error: ' + error.message, 'error');
+            }
+        });
+        
+        // Load users and system message on page load
         loadUsers();
+        loadSystemMessage();
     </script>
 </body>
 </html>
