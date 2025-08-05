@@ -507,7 +507,9 @@
             {% if is_admin %}
             <a href="/admin" class="logout-btn">Admin Panel</a>
             {% endif %}
-            <a href="#" class="logout-btn" onclick="showChangePasswordModal()">Change Password</a>
+            {% if allow_password_change%}
+            <a href="#" class="logout-btn" onclick="if(typeof showChangePasswordModal === 'function') { showChangePasswordModal(); } else { alert('Password change feature is not available'); }">Change Password</a>
+            {% endif %}
             <a href="/logout" class="logout-btn">Logout</a>
         </div>
     </div>

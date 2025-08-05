@@ -24,6 +24,9 @@ MESSAGE_FILE = os.path.join(DATA_DIR, 'system_message.json')
 DEFAULT_CLUSTER_USER = os.environ.get('CLUSTER_USER', '')
 DEFAULT_CLUSTER_PWD = os.environ.get('CLUSTER_PWD', '')
 
+# Security settings from environment
+ALLOW_USER_PASSWORD_CHANGE = os.environ.get('ALLOW_USER_PASSWORD_CHANGE', 'false').lower() == 'true'
+
 # RAC port mappings (kept for backward compatibility)
 RAC_PORT_MAP = {
     '1541': '1545',
@@ -231,7 +234,8 @@ def index():
     print(f"Index route accessed by user: {session['username']}")
     return render_template('index.html', 
                          username=session['username'], 
-                         is_admin=session.get('is_admin', False))
+                         is_admin=session.get('is_admin', False),
+                         allow_password_change=ALLOW_USER_PASSWORD_CHANGE)
 
 @app.route('/admin')
 @admin_required

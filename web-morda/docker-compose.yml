@@ -9,6 +9,7 @@ services:
       - ./data:/app/data
       - /opt/1cv8:/opt/1cv8:ro
     environment:
+      - ALLOW_USER_PASSWORD_CHANGE=false
       - FLASK_ENV=production
       - DATA_DIR=/app/data
       - CLUSTER_USER=your_cluster_user
