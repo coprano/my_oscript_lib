@@ -531,10 +531,9 @@
                         <option value="">-- Select a server --</option>
                     </select>
                     <small style="color: #6c757d; margin-top: 0.5rem; display: block;">
-                        Choose from whitelisted servers<br>
+                        Choose the server from the list <br>
                     </small>
                 </div>
-                <button class="btn" onclick="connectToServer()">Connect</button>
                 <button class="btn" onclick="testFunction()" style="background: #28a745;">Test JavaScript</button>
                 <div id="connectionResult"></div>
             </div>
@@ -948,6 +947,9 @@
                     
                     // Reset to step 1
                     activateStep(1);
+                } else {
+                    // Auto-connect when a server is selected
+                    connectToServer();
                 }
             });
         });
