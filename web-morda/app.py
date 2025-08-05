@@ -8,10 +8,11 @@ import hashlib
 from functools import wraps
 import secrets
 import string
-from rac_utils import RACManager, create_rac_manager_from_connection_string, load_debug_config
+from rac_utils import RACManager, create_rac_manager_from_connection_string
+from common import load_debug_config
 
 app = Flask(__name__)
-app.secret_key = 'your-secret-key-change-this'  # Change this in production
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'your-secret-key-change-this')
 
 # Configuration
 DATA_DIR = os.environ.get('DATA_DIR', 'data')
@@ -29,16 +30,29 @@ RAC_PORT_MAP = {
     '2541': '2545'
 }
 
+
+def debug_print(message: str, category: str = "general"):
+    """Print debug message if debug is enabled for the category"""
+    config = load_debug_config(DATA_DIR)
+    
+    if not config.get("debug_enabled", False):
+        return
+    
+    # Check if specific category is enabled
+    settings = config.get("settings", {})
+    category_enabled = True
+    
+    if category == "app_debug":
+        category_enabled = settings.get("app_debug", True)
+
+    if category_enabled:
+        print(message)
+
 def load_users():
     """Load users from JSON file"""
     if not os.path.exists(USERS_FILE):
         # Create default users file with enhanced structure
         default_users = {
-            'petrovma': {
-                'password_hash': hashlib.sha256('password123'.encode()).hexdigest(),
-                'whitelisted_bases': [],
-                'is_admin': False
-            },
             'admin': {
                 'password_hash': hashlib.sha256('admin123'.encode()).hexdigest(),
                 'whitelisted_bases': [],
@@ -316,10 +330,10 @@ def get_databases():
     server = data.get('server')
     cluster_port = data.get('cluster_port')
     
-    print(f"[DEBUG] get_databases called with data: {data}")
-    print(f"[DEBUG] cluster_id: {cluster_id}")
-    print(f"[DEBUG] server: {server}")
-    print(f"[DEBUG] cluster_port: {cluster_port}")
+    debug_print(f"[DEBUG] get_databases called with data: {data}")
+    debug_print(f"[DEBUG] cluster_id: {cluster_id}")
+    debug_print(f"[DEBUG] server: {server}")
+    debug_print(f"[DEBUG] cluster_port: {cluster_port}")
     
     try:
         # Use environment cluster credentials
@@ -361,11 +375,11 @@ def get_sessions():
     server = data.get('server')
     cluster_port = data.get('cluster_port')
     
-    print(f"[DEBUG] get_sessions called with data: {data}")
-    print(f"[DEBUG] cluster_id: {cluster_id}")
-    print(f"[DEBUG] infobase_id: {infobase_id}")
-    print(f"[DEBUG] server: {server}")
-    print(f"[DEBUG] cluster_port: {cluster_port}")
+    debug_print(f"[DEBUG] get_sessions called with data: {data}")
+    debug_print(f"[DEBUG] cluster_id: {cluster_id}")
+    debug_print(f"[DEBUG] infobase_id: {infobase_id}")
+    debug_print(f"[DEBUG] server: {server}")
+    debug_print(f"[DEBUG] cluster_port: {cluster_port}")
     
     try:
         # Use environment cluster credentials
@@ -378,10 +392,10 @@ def get_sessions():
         # Get sessions list
         sessions = rac_manager.get_sessions_list(infobase_id, cluster_id)
         
-        print(f"[DEBUG] Raw sessions returned: {sessions}")
-        print(f"[DEBUG] Number of sessions: {len(sessions)}")
+        debug_print(f"[DEBUG] Raw sessions returned: {sessions}")
+        debug_print(f"[DEBUG] Number of sessions: {len(sessions)}")
         for i, session_data in enumerate(sessions):
-            print(f"[DEBUG] Session {i}: {session_data}")
+            debug_print(f"[DEBUG] Session {i}: {session_data}")
         
         log_action(session['username'], 'get_sessions', f"Database: {infobase_id}, Sessions: {len(sessions)}")
         

@@ -7,7 +7,7 @@ services:
       - "5000:5000"
     volumes:
       - ./data:/app/data
-      - /opt/1cv8:/opt/1cv8:ro  # Mount 1C installation (read-only) - adjust path if needed
+      - /opt/1cv8:/opt/1cv8:ro
     environment:
       - FLASK_ENV=production
       - DATA_DIR=/app/data
@@ -15,4 +15,5 @@ services:
       - CLUSTER_PWD=your_cluster_password
       - RAC_PATH=/opt/1cv8/x86_64/current/rac
       - FLASK_PORT=5000
+      - FLASK_SECRET_KEY=your_secret_key  # Change this in production
     restart: unless-stopped
