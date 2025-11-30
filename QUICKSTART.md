@@ -48,6 +48,9 @@ python excel_processor.py data.xlsx commands.json -o output.xlsx
 
 # With debug output
 python excel_processor.py data.xlsx commands.json --debug
+
+# With custom theme presets
+python excel_processor.py data.xlsx commands.json --presets my_themes.json
 ```
 
 ## Command Reference
@@ -127,6 +130,49 @@ Copies formatting from one cell to another.
   "target_column": 1
 }
 ```
+
+## Custom Theme Presets
+
+You can create your own theme presets in a separate JSON file:
+
+**my_themes.json:**
+```json
+{
+  "company_header": {
+    "font": {
+      "name": "Calibri",
+      "size": 14,
+      "bold": true,
+      "color": "#FFFFFF"
+    },
+    "fill": {
+      "color": "#002060"
+    },
+    "alignment": {
+      "horizontal": "center",
+      "vertical": "center"
+    }
+  }
+}
+```
+
+**Use it with:**
+```bash
+python excel_processor.py data.xlsx commands.json --presets my_themes.json
+```
+
+**Then in your commands:**
+```json
+{
+  "command": "set_theme",
+  "sheet": "Sheet1",
+  "row": 1,
+  "column": 1,
+  "theme": "company_header"
+}
+```
+
+See `example_presets.json` for more examples.
 
 ## Status File
 

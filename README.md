@@ -33,16 +33,20 @@ python excel_processor.py input.xlsx commands.json --debug
 
 # Custom status file location
 python excel_processor.py input.xlsx commands.json --status-file /path/to/status.txt
+
+# Use custom theme presets
+python excel_processor.py input.xlsx commands.json --presets my_themes.json
 ```
 
 ### Command Line Arguments
 
-- `--help`: Display help
 - `excel_file`: Path to the Excel file to process (required)
 - `json_file`: Path to the JSON file containing an array of commands (required)
 - `-o, --output`: Output Excel file path (default: overwrite input file)
+- `--presets`: Path to JSON file with custom theme presets (optional)
 - `--status-file`: Path to status file (default: status.txt in Excel file directory). Status file is **always created**.
 - `--debug`: Enable debug output showing detailed execution information
+
 ### JSON File Format
 
 The JSON file must contain an **array** of command objects:
@@ -243,30 +247,110 @@ Copies all formatting (font, colors, borders, alignment, etc.) from one cell to 
 
 ## Preset Themes
 
-### Header
+### Built-in Presets
+
+The script includes the following built-in themes:
+
+#### Header
 - Bold white text on blue background
 - Center aligned
 
-### Title
+#### Title
 - Bold black text on light blue background
 - Center aligned
 
-### Highlight
+#### Highlight
 - Regular text on yellow background
 - Left aligned
 
-### Warning
+#### Warning
 - Bold white text on red background
 - Center aligned
 
-### Success
+#### Success
 - White text on green background
 - Center aligned
 
-### Default
+#### Default
 - Regular black text
 - No background
 - Left aligned
+
+### Custom Presets
+
+You can define your own theme presets in a separate JSON file and load them with the `--presets` argument.
+
+**Custom presets file format (`my_themes.json`):**
+```json
+{
+  "company_header": {
+    "font": {
+      "name": "Calibri",
+      "size": 14,
+      "bold": true,
+      "color": "#FFFFFF"
+    },
+    "fill": {
+      "color": "#002060"
+    },
+    "alignment": {
+      "horizontal": "center",
+      "vertical": "center"
+    }
+  },
+  "subtotal": {
+    "font": {
+      "name": "Arial",
+      "size": 11,
+      "bold": true,
+      "color": "#000000"
+    },
+    "fill": {
+      "color": "#E7E6E6"
+    },
+    "alignment": {
+      "horizontal": "right",
+      "vertical": "center"
+    }
+  },
+  "note": {
+    "font": {
+      "name": "Arial",
+      "size": 9,
+      "italic": true,
+      "color": "#808080"
+    },
+    "alignment": {
+      "horizontal": "left",
+      "vertical": "top",
+      "wrap_text": true
+    }
+  }
+}
+```
+
+**Using custom presets:**
+```bash
+python excel_processor.py input.xlsx commands.json --presets my_themes.json
+```
+
+**In your commands JSON:**
+```json
+{
+  "command": "set_theme",
+  "sheet": "Sheet1",
+  "row": 1,
+  "column": 1,
+  "theme": "company_header"
+}
+```
+
+**Custom preset properties:**
+- `font`: Object with `name`, `size`, `bold`, `italic`, `underline`, `color`
+- `fill`: Object with `color` (hex color for cell background)
+- `alignment`: Object with `horizontal`, `vertical`, `wrap_text`
+
+Custom presets can override built-in presets by using the same name. See `example_presets.json` for a complete example.
 
 ## Status File
 

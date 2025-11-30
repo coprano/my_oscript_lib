@@ -16,12 +16,69 @@ from copy import copy
 
 
 class ExcelProcessor:
-    def __init__(self, excel_path, debug=False):
+    def __init__(self, excel_path, debug=False, custom_presets=None):
         """Initialize the Excel processor with a workbook path."""
         self.excel_path = excel_path
         self.debug = debug
         self.workbook = None
         self.errors = []
+        # Convert custom presets from JSON format to openpyxl style objects
+        self.custom_presets = self._convert_presets_to_styles(custom_presets or {})
+    
+    def _convert_presets_to_styles(self, presets_json):
+        """Convert JSON preset definitions to openpyxl style objects."""
+        converted = {}
+        for name, preset in presets_json.items():
+            converted_preset = {}
+            
+            # Convert font
+            if 'font' in preset:
+                font_data = preset['font']
+                font_kwargs = {}
+                if 'name' in font_data:
+                    font_kwargs['name'] = font_data['name']
+                if 'size' in font_data:
+                    font_kwargs['size'] = font_data['size']
+                if 'bold' in font_data:
+                    font_kwargs['bold'] = font_data['bold']
+                if 'italic' in font_data:
+                    font_kwargs['italic'] = font_data['italic']
+                if 'underline' in font_data:
+                    font_kwargs['underline'] = 'single' if font_data['underline'] else None
+                if 'color' in font_data:
+                    font_kwargs['color'] = font_data['color'].replace('#', '')
+                
+                if font_kwargs:
+                    converted_preset['font'] = Font(**font_kwargs)
+            
+            # Convert fill
+            if 'fill' in preset:
+                fill_data = preset['fill']
+                if 'color' in fill_data:
+                    color = fill_data['color'].replace('#', '')
+                    converted_preset['fill'] = PatternFill(
+                        start_color=color,
+                        end_color=color,
+                        fill_type='solid'
+                    )
+            
+            # Convert alignment
+            if 'alignment' in preset:
+                align_data = preset['alignment']
+                align_kwargs = {}
+                if 'horizontal' in align_data:
+                    align_kwargs['horizontal'] = align_data['horizontal']
+                if 'vertical' in align_data:
+                    align_kwargs['vertical'] = align_data['vertical']
+                if 'wrap_text' in align_data:
+                    align_kwargs['wrap_text'] = align_data['wrap_text']
+                
+                if align_kwargs:
+                    converted_preset['alignment'] = Alignment(**align_kwargs)
+            
+            converted[name] = converted_preset
+        
+        return converted
         
     def load_workbook(self):
         """Load the Excel workbook."""
@@ -155,7 +212,7 @@ class ExcelProcessor:
     
     def _apply_preset_theme(self, cell, preset_name):
         """Apply a preset theme to a cell."""
-        presets = {
+        builtin_presets = {
             'header': {
                 'font': Font(name='Arial', size=12, bold=True, color='FFFFFF'),
                 'fill': PatternFill(start_color='366092', end_color='366092', fill_type='solid'),
@@ -188,8 +245,16 @@ class ExcelProcessor:
             }
         }
         
+        # Merge built-in and custom presets (custom presets override built-in)
+        presets = {**builtin_presets, **self.custom_presets}
+        
         if preset_name not in presets:
-            raise ValueError(f"Unknown preset theme: {preset_name}. Available: {', '.join(presets.keys())}")
+            available = list(builtin_presets.keys())
+            custom_list = list(self.custom_presets.keys())
+            error_msg = f"Unknown preset theme: {preset_name}. Built-in: {', '.join(available)}"
+            if custom_list:
+                error_msg += f". Custom: {', '.join(custom_list)}"
+            raise ValueError(error_msg)
         
         theme = presets[preset_name]
         if 'font' in theme:
@@ -327,6 +392,9 @@ Examples:
   
   # Enable debug output and custom status file
   %(prog)s input.xlsx commands.json --debug --status-file status.txt
+  
+  # Use custom theme presets
+  %(prog)s input.xlsx commands.json --presets my_themes.json
 
 JSON Format:
   The JSON file must contain an array of command objects. Each command
@@ -346,6 +414,7 @@ Behavior:
     parser.add_argument('excel_file', help='Path to the Excel file to process')
     parser.add_argument('json_file', help='Path to the JSON file containing an array of commands')
     parser.add_argument('-o', '--output', help='Output Excel file path (default: overwrite input file)')
+    parser.add_argument('--presets', help='Path to JSON file with custom theme presets (optional)')
     parser.add_argument('--status-file', help='Status file path (default: <excel_file_dir>/status.txt). Always created.')
     parser.add_argument('--debug', action='store_true', help='Enable debug output with detailed execution info')
     
@@ -368,6 +437,25 @@ Behavior:
         status_path = os.path.join(excel_dir, 'status.txt')
     
     try:
+        # Load custom presets if provided
+        custom_presets = {}
+        if args.presets:
+            if not os.path.exists(args.presets):
+                print(f"Error: Presets file not found: {args.presets}", file=sys.stderr)
+                sys.exit(1)
+            
+            try:
+                with open(args.presets, 'r', encoding='utf-8') as f:
+                    custom_presets = json.load(f)
+                
+                if args.debug:
+                    print(f"Loaded {len(custom_presets)} custom theme presets from {args.presets}")
+            except json.JSONDecodeError as e:
+                error_msg = f"Invalid presets JSON file: {str(e)}"
+                print(f"Error: {error_msg}", file=sys.stderr)
+                write_status_file(status_path, False, error_msg)
+                sys.exit(1)
+        
         # Load JSON commands
         with open(args.json_file, 'r', encoding='utf-8') as f:
             commands = json.load(f)
@@ -376,7 +464,7 @@ Behavior:
             print(f"Loaded {len(commands)} commands from {args.json_file}")
         
         # Process Excel file
-        processor = ExcelProcessor(args.excel_file, debug=args.debug)
+        processor = ExcelProcessor(args.excel_file, debug=args.debug, custom_presets=custom_presets)
         
         if not processor.load_workbook():
             write_status_file(status_path, False, processor.get_error_summary())
