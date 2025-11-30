@@ -92,7 +92,7 @@ Sets the value of a specific cell.
 **Parameters:**
 - `sheet` (string): Sheet name
 - `row` (integer): Row number (1-indexed)
-- `column` (integer): Column number (1-indexed)
+- `column` (integer or string): Column number (1-indexed, e.g., 1, 2, 3) or column letter (e.g., "A", "B", "C")
 - `text` (string): Text to set (optional, defaults to empty string)
 
 ```json
@@ -144,7 +144,7 @@ Applies a predefined style to a cell.
 **Parameters:**
 - `sheet` (string): Sheet name
 - `row` (integer): Row number
-- `column` (integer): Column number
+- `column` (integer or string): Column number (1-indexed, e.g., 1, 2, 3) or column letter (e.g., "A", "B", "C")
 - `theme` (string): Preset name
 
 **Available presets:** `header`, `title`, `highlight`, `warning`, `success`, `default`
@@ -166,7 +166,7 @@ Applies custom formatting to a cell. All properties are optional.
 **Parameters:**
 - `sheet` (string): Sheet name
 - `row` (integer): Row number
-- `column` (integer): Column number
+- `column` (integer or string): Column number (1-indexed, e.g., 1, 2, 3) or column letter (e.g., "A", "B", "C")
 - `theme` (object): Custom theme properties (see Custom Theme Properties section)
 
 ```json
@@ -205,10 +205,10 @@ Copies all formatting (font, colors, borders, alignment, etc.) from one cell to 
 **Parameters:**
 - `source_sheet` (string): Source sheet name
 - `source_row` (integer): Source row number
-- `source_column` (integer): Source column number
+- `source_column` (integer or string): Source column number (1-indexed, e.g., 1, 2, 3) or column letter (e.g., "A", "B", "C")
 - `target_sheet` (string): Target sheet name
 - `target_row` (integer): Target row number
-- `target_column` (integer): Target column number
+- `target_column` (integer or string): Target column number (1-indexed, e.g., 1, 2, 3) or column letter (e.g., "A", "B", "C")
 
 ```json
 {
@@ -393,6 +393,39 @@ The script uses a **continue-on-error** approach:
 6. Status file contains all error details
 
 This allows you to see all issues at once rather than fixing them one at a time.
+
+## Column Notation
+
+The script supports two ways to specify columns in commands:
+
+1. **Numeric notation**: Use integers (1, 2, 3, ...) where 1 is column A, 2 is column B, etc.
+2. **Letter notation**: Use column letters ("A", "B", "C", ..., "Z", "AA", "AB", ...)
+
+Both notations can be used interchangeably in any command that requires a column parameter.
+
+**Example with numeric notation:**
+```json
+{
+  "command": "set_cell_text",
+  "sheet": "Sheet1",
+  "row": 1,
+  "column": 1,
+  "text": "Column A"
+}
+```
+
+**Example with letter notation:**
+```json
+{
+  "command": "set_cell_text",
+  "sheet": "Sheet1",
+  "row": 1,
+  "column": "A",
+  "text": "Column A"
+}
+```
+
+Both examples above will write to the same cell (A1).
 
 ## Example
 

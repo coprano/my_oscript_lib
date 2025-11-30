@@ -56,13 +56,24 @@ python excel_processor.py data.xlsx commands.json --presets my_themes.json
 ## Command Reference
 
 ### 1. Set Cell Text
-Sets the value of a cell.
+Sets the value of a cell. Column can be specified as a number or letter.
 ```json
 {
   "command": "set_cell_text",
   "sheet": "Sheet1",
   "row": 2,
   "column": 3,
+  "text": "Your text here"
+}
+```
+
+Or using letter notation:
+```json
+{
+  "command": "set_cell_text",
+  "sheet": "Sheet1",
+  "row": 2,
+  "column": "C",
   "text": "Your text here"
 }
 ```
@@ -94,7 +105,7 @@ Applies a predefined style. Available: `header`, `title`, `highlight`, `warning`
   "command": "set_theme",
   "sheet": "Sheet1",
   "row": 1,
-  "column": 1,
+  "column": "A",
   "theme": "header"
 }
 ```
@@ -106,7 +117,7 @@ Applies custom formatting.
   "command": "set_theme",
   "sheet": "Sheet1",
   "row": 2,
-  "column": 1,
+  "column": "A",
   "theme": {
     "font_name": "Arial",
     "font_size": 12,
@@ -124,10 +135,10 @@ Copies formatting from one cell to another.
   "command": "copy_format",
   "source_sheet": "Sheet1",
   "source_row": 1,
-  "source_column": 1,
+  "source_column": "A",
   "target_sheet": "Sheet1",
   "target_row": 10,
-  "target_column": 1
+  "target_column": "A"
 }
 ```
 
@@ -189,6 +200,7 @@ python excel_processor.py data.xlsx commands.json --status-file /path/to/status.
 ## Tips
 
 - Row and column numbers are 1-indexed (first row is 1, first column is 1)
+- Columns can be specified as numbers (1, 2, 3...) or letters ("A", "B", "C"...)
 - Colors can be specified with or without `#` (both `#FF0000` and `FF0000` work)
 - Commands are executed in order from the JSON array
 - Use `--debug` flag to see detailed execution information

@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-from openpyxl.utils import get_column_letter
+from openpyxl.utils import get_column_letter, column_index_from_string
 from copy import copy
 
 
@@ -24,6 +24,19 @@ class ExcelProcessor:
         self.errors = []
         # Convert custom presets from JSON format to openpyxl style objects
         self.custom_presets = self._convert_presets_to_styles(custom_presets or {})
+    
+    @staticmethod
+    def _normalize_column(column):
+        """Convert column to integer index. Accepts both int (1, 2, 3) and string ('A', 'B', 'C')."""
+        if isinstance(column, int):
+            return column
+        elif isinstance(column, str):
+            try:
+                return column_index_from_string(column.upper())
+            except Exception:
+                raise ValueError(f"Invalid column identifier: '{column}'. Use integer (1, 2, 3...) or letter (A, B, C...)")
+        else:
+            raise ValueError(f"Column must be int or str, got {type(column)}")
     
     def _convert_presets_to_styles(self, presets_json):
         """Convert JSON preset definitions to openpyxl style objects."""
@@ -142,7 +155,7 @@ class ExcelProcessor:
         """Set text in a specific cell."""
         sheet_name = command.get('sheet')
         row = command.get('row')
-        column = command.get('column')
+        column = self._normalize_column(command.get('column'))
         text = command.get('text', '')
         
         if sheet_name not in self.workbook.sheetnames:
@@ -187,7 +200,7 @@ class ExcelProcessor:
         """Apply theme/styling to a cell."""
         sheet_name = command.get('sheet')
         row = command.get('row')
-        column = command.get('column')
+        column = self._normalize_column(command.get('column'))
         theme = command.get('theme')
         
         if sheet_name not in self.workbook.sheetnames:
@@ -327,11 +340,11 @@ class ExcelProcessor:
         """Copy formatting from one cell to another."""
         source_sheet = command.get('source_sheet')
         source_row = command.get('source_row')
-        source_column = command.get('source_column')
+        source_column = self._normalize_column(command.get('source_column'))
         
         target_sheet = command.get('target_sheet')
         target_row = command.get('target_row')
-        target_column = command.get('target_column')
+        target_column = self._normalize_column(command.get('target_column'))
         
         if source_sheet not in self.workbook.sheetnames:
             raise ValueError(f"Source sheet '{source_sheet}' not found")
