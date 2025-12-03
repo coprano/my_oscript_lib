@@ -54,7 +54,7 @@ The JSON file must contain an **array** of command objects:
 ```json
 [
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 1,
     "column": 1,
@@ -97,7 +97,7 @@ Sets the value of a specific cell.
 
 ```json
 {
-  "command": "set_cell_text",
+  "command": "set_cell_value",
   "sheet": "Sheet1",
   "row": 1,
   "column": 1,
@@ -372,8 +372,10 @@ The script **always creates** a status file to track execution results.
 **Example failure status file:**
 ```
 1
-Error executing command 3 (set_cell_text): Sheet 'InvalidSheet' not found
+Error executing command 3 (set_cell_value): Sheet 'InvalidSheet' not found
+Command: {"command": "set_cell_value", "sheet": "InvalidSheet", "row": 1, "column": 1, "text": "Hello"}
 Error executing command 5 (delete_row): row must be > 0
+Command: {"command": "delete_row", "sheet": "Sheet1", "row": 0}
 ```
 
 ## Exit Codes
@@ -406,7 +408,7 @@ Both notations can be used interchangeably in any command that requires a column
 **Example with numeric notation:**
 ```json
 {
-  "command": "set_cell_text",
+  "command": "set_cell_value",
   "sheet": "Sheet1",
   "row": 1,
   "column": 1,
@@ -417,7 +419,7 @@ Both notations can be used interchangeably in any command that requires a column
 **Example with letter notation:**
 ```json
 {
-  "command": "set_cell_text",
+  "command": "set_cell_value",
   "sheet": "Sheet1",
   "row": 1,
   "column": "A",

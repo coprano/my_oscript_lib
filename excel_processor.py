@@ -130,8 +130,8 @@ class ExcelProcessor:
                 print(f"\nExecuting command {idx + 1}: {cmd_type}")
             
             try:
-                if cmd_type == 'set_cell_text':
-                    self._set_cell_text(command)
+                if cmd_type == 'set_cell_value':
+                    self._set_cell_value(command)
                 elif cmd_type == 'add_row':
                     self._add_row(command)
                 elif cmd_type == 'delete_row':
@@ -141,17 +141,19 @@ class ExcelProcessor:
                 elif cmd_type == 'copy_format':
                     self._copy_format(command)
                 else:
-                    error_msg = f"Unknown command: {cmd_type}"
+                    command_json = json.dumps(command, ensure_ascii=False, indent=None)
+                    error_msg = f"Unknown command: {cmd_type}; Command_json: {command_json}"
                     self.errors.append(error_msg)
                     if self.debug:
                         print(f"✗ {error_msg}")
             except Exception as e:
-                error_msg = f"Error executing command {idx + 1} ({cmd_type}): {str(e)}"
+                command_json = json.dumps(command, ensure_ascii=False, indent=None)
+                error_msg = f"Error executing command. Id: {idx + 1}; Type:({cmd_type}); Error:{str(e)}; Command_json: {command_json}"
                 self.errors.append(error_msg)
                 if self.debug:
                     print(f"✗ {error_msg}")
     
-    def _set_cell_text(self, command):
+    def _set_cell_value(self, command):
         """Set text in a specific cell."""
         sheet_name = command.get('sheet')
         row = command.get('row')
@@ -413,7 +415,7 @@ JSON Format:
   The JSON file must contain an array of command objects. Each command
   must have a "command" field specifying the operation type.
   
-  Supported commands: set_cell_text, add_row, delete_row, set_theme, copy_format
+  Supported commands: set_cell_value, add_row, delete_row, set_theme, copy_format
 
 Behavior:
   - Commands are executed in order from the JSON array

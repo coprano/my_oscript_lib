@@ -54,7 +54,7 @@ JSON-файл должен содержать **массив** объектов 
 ```json
 [
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 1,
     "column": 1,
@@ -97,7 +97,7 @@ JSON-файл должен содержать **массив** объектов 
 
 ```json
 {
-  "command": "set_cell_text",
+  "command": "set_cell_value",
   "sheet": "Sheet1",
   "row": 1,
   "column": 1,
@@ -372,8 +372,10 @@ python excel_processor.py input.xlsx commands.json --presets my_themes.json
 **Пример файла статуса при ошибке:**
 ```
 1
-Error executing command 3 (set_cell_text): Sheet 'InvalidSheet' not found
+Error executing command 3 (set_cell_value): Sheet 'InvalidSheet' not found
+Command: {"command": "set_cell_value", "sheet": "InvalidSheet", "row": 1, "column": 1, "text": "Hello"}
 Error executing command 5 (delete_row): row must be > 0
+Command: {"command": "delete_row", "sheet": "Sheet1", "row": 0}
 ```
 
 ## Коды завершения
@@ -406,7 +408,7 @@ Error executing command 5 (delete_row): row must be > 0
 **Пример с числовым обозначением:**
 ```json
 {
-  "command": "set_cell_text",
+  "command": "set_cell_value",
   "sheet": "Sheet1",
   "row": 1,
   "column": 1,
@@ -417,7 +419,7 @@ Error executing command 5 (delete_row): row must be > 0
 **Пример с буквенным обозначением:**
 ```json
 {
-  "command": "set_cell_text",
+  "command": "set_cell_value",
   "sheet": "Sheet1",
   "row": 1,
   "column": "A",

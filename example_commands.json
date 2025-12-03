@@ -1,20 +1,20 @@
 [
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 1,
     "column": 1,
     "text": "Employee Name"
   },
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 1,
-    "column": 2,
+    "column": "AP",
     "text": "Department"
   },
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 1,
     "column": 3,
@@ -42,21 +42,21 @@
     "theme": "header"
   },
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 2,
     "column": 1,
     "text": "John Doe"
   },
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 2,
     "column": 2,
     "text": "Engineering"
   },
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 2,
     "column": 3,
@@ -68,21 +68,21 @@
     "after_row": 2
   },
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 3,
     "column": 1,
     "text": "Jane Smith"
   },
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 3,
     "column": 2,
     "text": "Marketing"
   },
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 3,
     "column": 3,
@@ -113,7 +113,7 @@
     "target_column": 1
   },
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 5,
     "column": 1,

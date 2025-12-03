@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```json
 [
   {
-    "command": "set_cell_text",
+    "command": "set_cell_value",
     "sheet": "Sheet1",
     "row": 1,
     "column": 1,
@@ -59,7 +59,7 @@ python excel_processor.py data.xlsx commands.json --presets my_themes.json
 Sets the value of a cell. Column can be specified as a number or letter.
 ```json
 {
-  "command": "set_cell_text",
+  "command": "set_cell_value",
   "sheet": "Sheet1",
   "row": 2,
   "column": 3,
@@ -70,7 +70,7 @@ Sets the value of a cell. Column can be specified as a number or letter.
 Or using letter notation:
 ```json
 {
-  "command": "set_cell_text",
+  "command": "set_cell_value",
   "sheet": "Sheet1",
   "row": 2,
   "column": "C",
