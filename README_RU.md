@@ -23,25 +23,25 @@ pip install openpyxl
 
 ```bash
 # Перезаписать исходный файл
-python excel_processor.py input.xlsx commands.json
+python excel_processor.py --excel-file input.xlsx --json-file commands.json
 
 # Сохранить в новый файл
-python excel_processor.py input.xlsx commands.json -o output.xlsx
+python excel_processor.py --excel-file input.xlsx --json-file commands.json -o output.xlsx
 
 # Включить вывод отладки
-python excel_processor.py input.xlsx commands.json --debug
+python excel_processor.py --excel-file input.xlsx --json-file commands.json --debug
 
 # Указать пользовательское расположение файла статуса
-python excel_processor.py input.xlsx commands.json --status-file /path/to/status.txt
+python excel_processor.py --excel-file input.xlsx --json-file commands.json --status-file /path/to/status.txt
 
 # Использовать пользовательские темы
-python excel_processor.py input.xlsx commands.json --presets my_themes.json
+python excel_processor.py --excel-file input.xlsx --json-file commands.json --presets my_themes.json
 ```
 
 ### Аргументы командной строки
 
-- `excel_file`: Путь к обрабатываемому Excel-файлу (обязательный)
-- `json_file`: Путь к JSON-файлу, содержащему массив команд (обязательный)
+- `--excel-file`: Путь к обрабатываемому Excel-файлу (обязательный)
+- `--json-file`: Путь к JSON-файлу, содержащему массив команд (обязательный)
 - `-o, --output`: Путь к выходному Excel-файлу (по умолчанию: перезаписывает входной файл)
 - `--presets`: Путь к JSON-файлу с пользовательскими темами (опционально)
 - `--status-file`: Путь к файлу статуса (по умолчанию: status.txt в директории Excel-файла). Файл статуса **всегда создается**.
@@ -331,7 +331,7 @@ JSON-файл должен содержать **массив** объектов 
 
 **Использование пользовательских тем:**
 ```bash
-python excel_processor.py input.xlsx commands.json --presets my_themes.json
+python excel_processor.py --excel-file input.xlsx --json-file commands.json --presets my_themes.json
 ```
 
 **В вашем JSON с командами:**

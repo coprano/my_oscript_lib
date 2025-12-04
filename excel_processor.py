@@ -400,16 +400,16 @@ def main():
         epilog="""
 Examples:
   # Process commands and overwrite original file
-  %(prog)s input.xlsx commands.json
+  %(prog)s --excel-file input.xlsx --json-file commands.json
   
   # Process commands and save to new file
-  %(prog)s input.xlsx commands.json -o output.xlsx
+  %(prog)s --excel-file input.xlsx --json-file commands.json -o output.xlsx
   
   # Enable debug output and custom status file
-  %(prog)s input.xlsx commands.json --debug --status-file status.txt
+  %(prog)s --excel-file input.xlsx --json-file commands.json --debug --status-file status.txt
   
   # Use custom theme presets
-  %(prog)s input.xlsx commands.json --presets my_themes.json
+  %(prog)s --excel-file input.xlsx --json-file commands.json --presets my_themes.json
 
 JSON Format:
   The JSON file must contain an array of command objects. Each command
@@ -426,9 +426,9 @@ Behavior:
         """
     )
     
-    parser.add_argument('excel_file', help='Path to the Excel file to process')
-    parser.add_argument('json_file', help='Path to the JSON file containing an array of commands')
-    parser.add_argument('-o', '--output', help='Output Excel file path (default: overwrite input file)')
+    parser.add_argument('--excel-file', required=True, help='Path to the Excel file to process')
+    parser.add_argument('--json-file', required=True, help='Path to the JSON file containing an array of commands')
+    parser.add_argument('-o', '--output-file', help='Output Excel file path (default: overwrite input file)')
     parser.add_argument('--presets', help='Path to JSON file with custom theme presets (optional)')
     parser.add_argument('--status-file', help='Status file path (default: <excel_file_dir>/status.txt). Always created.')
     parser.add_argument('--debug', action='store_true', help='Enable debug output with detailed execution info')

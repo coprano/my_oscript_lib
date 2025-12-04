@@ -41,16 +41,16 @@ pip install -r requirements.txt
 3. **Запустите скрипт**:
 ```bash
 # Перезаписать исходный файл
-python excel_processor.py data.xlsx commands.json
+python excel_processor.py --excel-file data.xlsx --json-file commands.json
 
 # Или сохранить в новый файл
-python excel_processor.py data.xlsx commands.json -o output.xlsx
+python excel_processor.py --excel-file data.xlsx --json-file commands.json -o output.xlsx
 
 # С выводом отладки
-python excel_processor.py data.xlsx commands.json --debug
+python excel_processor.py --excel-file data.xlsx --json-file commands.json --debug
 
 # С пользовательскими темами
-python excel_processor.py data.xlsx commands.json --presets my_themes.json
+python excel_processor.py --excel-file data.xlsx --json-file commands.json --presets my_themes.json
 ```
 
 ## Справочник команд
@@ -169,7 +169,7 @@ python excel_processor.py data.xlsx commands.json --presets my_themes.json
 
 **Используйте с помощью:**
 ```bash
-python excel_processor.py data.xlsx commands.json --presets my_themes.json
+python excel_processor.py --excel-file data.xlsx --json-file commands.json --presets my_themes.json
 ```
 
 **Затем в ваших командах:**
@@ -194,7 +194,7 @@ python excel_processor.py data.xlsx commands.json --presets my_themes.json
 
 Вы можете указать пользовательский файл статуса:
 ```bash
-python excel_processor.py data.xlsx commands.json --status-file /path/to/status.txt
+python excel_processor.py --excel-file data.xlsx --json-file commands.json --status-file /path/to/status.txt
 ```
 
 ## Советы

@@ -23,25 +23,25 @@ pip install openpyxl
 
 ```bash
 # Overwrite original file
-python excel_processor.py input.xlsx commands.json
+python excel_processor.py --excel-file input.xlsx --json-file commands.json
 
 # Save to new file
-python excel_processor.py input.xlsx commands.json -o output.xlsx
+python excel_processor.py --excel-file input.xlsx --json-file commands.json -o output.xlsx
 
 # Enable debug output
-python excel_processor.py input.xlsx commands.json --debug
+python excel_processor.py --excel-file input.xlsx --json-file commands.json --debug
 
 # Custom status file location
-python excel_processor.py input.xlsx commands.json --status-file /path/to/status.txt
+python excel_processor.py --excel-file input.xlsx --json-file commands.json --status-file /path/to/status.txt
 
 # Use custom theme presets
-python excel_processor.py input.xlsx commands.json --presets my_themes.json
+python excel_processor.py --excel-file input.xlsx --json-file commands.json --presets my_themes.json
 ```
 
 ### Command Line Arguments
 
-- `excel_file`: Path to the Excel file to process (required)
-- `json_file`: Path to the JSON file containing an array of commands (required)
+- `--excel-file`: Path to the Excel file to process (required)
+- `--json-file`: Path to the JSON file containing an array of commands (required)
 - `-o, --output`: Output Excel file path (default: overwrite input file)
 - `--presets`: Path to JSON file with custom theme presets (optional)
 - `--status-file`: Path to status file (default: status.txt in Excel file directory). Status file is **always created**.
@@ -331,7 +331,7 @@ You can define your own theme presets in a separate JSON file and load them with
 
 **Using custom presets:**
 ```bash
-python excel_processor.py input.xlsx commands.json --presets my_themes.json
+python excel_processor.py --excel-file input.xlsx --json-file commands.json --presets my_themes.json
 ```
 
 **In your commands JSON:**

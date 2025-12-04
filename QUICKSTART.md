@@ -41,16 +41,16 @@ pip install -r requirements.txt
 3. **Run the script**:
 ```bash
 # Overwrite the original file
-python excel_processor.py data.xlsx commands.json
+python excel_processor.py --excel-file data.xlsx --json-file commands.json
 
 # Or save to a new file
-python excel_processor.py data.xlsx commands.json -o output.xlsx
+python excel_processor.py --excel-file data.xlsx --json-file commands.json -o output.xlsx
 
 # With debug output
-python excel_processor.py data.xlsx commands.json --debug
+python excel_processor.py --excel-file data.xlsx --json-file commands.json --debug
 
 # With custom theme presets
-python excel_processor.py data.xlsx commands.json --presets my_themes.json
+python excel_processor.py --excel-file data.xlsx --json-file commands.json --presets my_themes.json
 ```
 
 ## Command Reference
@@ -169,7 +169,7 @@ You can create your own theme presets in a separate JSON file:
 
 **Use it with:**
 ```bash
-python excel_processor.py data.xlsx commands.json --presets my_themes.json
+python excel_processor.py --excel-file data.xlsx --json-file commands.json --presets my_themes.json
 ```
 
 **Then in your commands:**
@@ -194,7 +194,7 @@ The script automatically creates a status file (default: `status.txt` in the sam
 
 You can specify a custom status file:
 ```bash
-python excel_processor.py data.xlsx commands.json --status-file /path/to/status.txt
+python excel_processor.py --excel-file data.xlsx --json-file commands.json --status-file /path/to/status.txt
 ```
 
 ## Tips
