@@ -8,6 +8,8 @@ import argparse
 import json
 import sys
 import os
+import zipfile
+import shutil
 from pathlib import Path
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -21,8 +23,6 @@ class ExcelProcessor:
         self.excel_path = excel_path
         self.debug = debug
         self.workbook = None
-        # Keep an original copy to preserve images/drawings when saving
-        self._original_workbook = None
         self.errors = []
         # Convert custom presets from JSON format to openpyxl style objects
         self.custom_presets = self._convert_presets_to_styles(custom_presets or {})
@@ -98,24 +98,7 @@ class ExcelProcessor:
     def load_workbook(self):
         """Load the Excel workbook."""
         try:
-            # Load a working copy and a separate original copy to retain drawings/images
             self.workbook = load_workbook(self.excel_path, data_only=False)
-            try:
-                self._original_workbook = load_workbook(self.excel_path, data_only=False)
-                if self.debug:
-                    print(f"✓ Loaded original workbook copy for image preservation")
-                    # Diagnostic: check for images in original
-                    for sheet_name in self._original_workbook.sheetnames:
-                        ws = self._original_workbook[sheet_name]
-                        img_count = len(getattr(ws, '_images', []))
-                        draw_count = len(getattr(ws, '_drawings', []))
-                        if img_count > 0 or draw_count > 0:
-                            print(f"  Sheet '{sheet_name}': {img_count} _images, {draw_count} _drawings")
-            except Exception as e:
-                # Non-fatal: original copy is optional, used only to restore images
-                self._original_workbook = None
-                if self.debug:
-                    print(f"  Warning: Could not load original workbook copy: {e}")
             if self.debug:
                 print(f"✓ Loaded workbook: {self.excel_path}")
             return True
@@ -130,15 +113,18 @@ class ExcelProcessor:
         """Save the workbook to the specified path or overwrite the original."""
         try:
             save_path = output_path if output_path else self.excel_path
-            # Attempt to restore images/drawings from the original workbook before saving
-            try:
-                if self._original_workbook is not None:
-                    self._restore_images_from_original()
-            except Exception:
-                # Don't fail saving just because image restore failed
-                if self.debug:
-                    print("Warning: failed to restore images from original workbook; continuing to save")
+            
+            # Save the workbook first
             self.workbook.save(save_path)
+            
+            # Then restore images/drawings at ZIP level from original file
+            if save_path != self.excel_path:  # Only if saving to different file
+                try:
+                    self._restore_media_and_drawings_from_zip(save_path)
+                except Exception as e:
+                    if self.debug:
+                        print(f"  Warning: failed to restore images/drawings: {e}")
+            
             if self.debug:
                 print(f"✓ Saved workbook to: {save_path}")
             return True
@@ -396,96 +382,55 @@ class ExcelProcessor:
             print(f"  ✓ Copied format from [{source_sheet}!{get_column_letter(source_column)}{source_row}] "
                   f"to [{target_sheet}!{get_column_letter(target_column)}{target_row}]")
 
-    def _copy_images_between_worksheets(self, src_ws, dst_ws):
-        """Copy images/drawings from src_ws to dst_ws when possible.
-
-        This uses internal openpyxl attributes and best-effort handling because
-        openpyxl does not provide a stable public API for copying drawings.
-        """
-        copied_count = 0
+    def _restore_media_and_drawings_from_zip(self, output_path):
+        """Copy xl/media and xl/drawings folders from original Excel to output Excel.
         
-        # Copy simple images stored in _images
-        if hasattr(src_ws, '_images') and src_ws._images:
-            for img in src_ws._images:
-                try:
-                    # Get anchor - try different attribute names
-                    anchor = getattr(img, 'anchor', None) or getattr(img, 'ref', None)
-                    if anchor:
-                        dst_ws.add_image(img, anchor)
-                    else:
-                        dst_ws.add_image(img)
-                    copied_count += 1
-                except Exception as e:
-                    # best-effort: skip problematic images
-                    if self.debug:
-                        print(f"  Warning: failed to copy image on sheet '{src_ws.title}': {e}")
-
-        # Copy drawings/shapes (ImageShape, charts, etc.)
-        if hasattr(src_ws, '_drawings') and src_ws._drawings:
-            for drawing in src_ws._drawings:
-                # Try to get shapes from the drawing object
-                shapes = getattr(drawing, 'shapes', None) or getattr(drawing, '_shapes', None) or []
-                for shape in shapes:
-                    try:
-                        # Try to extract image object from shape
-                        img_obj = getattr(shape, 'image', None) or getattr(shape, 'pic', None) or getattr(shape, 'img', None)
-                        if img_obj is None:
-                            # Skip non-image shapes (charts, etc.)
-                            continue
-                        
-                        anchor = getattr(shape, 'anchor', None)
-                        if anchor:
-                            dst_ws.add_image(img_obj, anchor)
-                        else:
-                            dst_ws.add_image(img_obj)
-                        copied_count += 1
-                    except Exception as e:
-                        if self.debug:
-                            print(f"  Warning: failed to copy drawing shape on sheet '{src_ws.title}': {e}")
-        
-        if self.debug and copied_count > 0:
-            print(f"  ✓ Copied {copied_count} image(s) to sheet '{dst_ws.title}'") 
-
-    def _restore_images_from_original(self):
-        """Restore images and drawings from the originally loaded workbook.
-
-        For each sheet present in both workbooks, clear any existing images
-        and copy fresh images from the original to avoid corruption.
+        This works at the ZIP level to preserve images and drawings that openpyxl
+        doesn't properly handle.
         """
-        if self._original_workbook is None:
-            if self.debug:
-                print("  No original workbook available for image restoration")
+        if not os.path.exists(self.excel_path):
             return
-
-        total_sheets = 0
-        for sheet_name in self._original_workbook.sheetnames:
-            if sheet_name not in self.workbook.sheetnames:
-                continue
-            
-            src_ws = self._original_workbook[sheet_name]
-            dst_ws = self.workbook[sheet_name]
-
-            # Check if source has any images to copy
-            src_has_images = bool(getattr(src_ws, '_images', None))
-            src_has_drawings = bool(getattr(src_ws, '_drawings', None))
-            
-            if not src_has_images and not src_has_drawings:
-                # No images in source, skip
-                continue
-            
-            # Clear existing images/drawings in destination to avoid duplicates
-            # and ensure we get fresh copies from original
-            if hasattr(dst_ws, '_images'):
-                dst_ws._images = []
-            if hasattr(dst_ws, '_drawings'):
-                dst_ws._drawings = []
-            
-            # Perform the copy
-            self._copy_images_between_worksheets(src_ws, dst_ws)
-            total_sheets += 1
         
-        if self.debug:
-            print(f"✓ Restored images from {total_sheets} sheet(s)")
+        # Paths to copy from original ZIP
+        folders_to_copy = ['xl/media/', 'xl/drawings/']
+        files_copied = 0
+        
+        try:
+            # Open both files as ZIP archives
+            with zipfile.ZipFile(self.excel_path, 'r') as src_zip:
+                # Get list of all files in source that we want to copy
+                files_to_copy = []
+                for name in src_zip.namelist():
+                    if any(name.startswith(folder) for folder in folders_to_copy):
+                        files_to_copy.append(name)
+                
+                if not files_to_copy:
+                    if self.debug:
+                        print("  No media/drawings found in original file")
+                    return
+                
+                # Read the output file and add missing media/drawing files
+                with zipfile.ZipFile(output_path, 'a') as dst_zip:
+                    existing_names = set(dst_zip.namelist())
+                    
+                    for file_name in files_to_copy:
+                        # Remove if exists, then add fresh copy
+                        if file_name in existing_names:
+                            # Can't remove from ZIP, so we skip (will be overwritten on next open)
+                            pass
+                        
+                        # Copy file from source to destination
+                        file_data = src_zip.read(file_name)
+                        dst_zip.writestr(file_name, file_data)
+                        files_copied += 1
+                
+                if self.debug:
+                    print(f"  ✓ Restored {files_copied} media/drawing file(s) from original")
+        
+        except Exception as e:
+            if self.debug:
+                print(f"  Warning: Error during media/drawing restoration: {e}")
+            raise
     
     def has_errors(self):
         """Check if any errors occurred during processing."""
