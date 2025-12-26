@@ -396,36 +396,50 @@ class ExcelProcessor:
         files_copied = 0
         
         try:
-            # Open both files as ZIP archives
-            with zipfile.ZipFile(self.excel_path, 'r') as src_zip:
-                # Get list of all files in source that we want to copy
-                files_to_copy = []
-                for name in src_zip.namelist():
-                    if any(name.startswith(folder) for folder in folders_to_copy):
-                        files_to_copy.append(name)
-                
-                if not files_to_copy:
-                    if self.debug:
-                        print("  No media/drawings found in original file")
-                    return
-                
-                # Read the output file and add missing media/drawing files
-                with zipfile.ZipFile(output_path, 'a') as dst_zip:
-                    existing_names = set(dst_zip.namelist())
+            # Create a temporary file
+            import tempfile
+            temp_fd, temp_path = tempfile.mkstemp(suffix='.xlsx')
+            os.close(temp_fd)
+            
+            try:
+                # Open source (original) and destination (just saved) as ZIP archives
+                with zipfile.ZipFile(self.excel_path, 'r') as src_zip:
+                    # Get list of all files in source that we want to copy
+                    media_files = []
+                    for name in src_zip.namelist():
+                        if any(name.startswith(folder) for folder in folders_to_copy):
+                            media_files.append(name)
                     
-                    for file_name in files_to_copy:
-                        # Remove if exists, then add fresh copy
-                        if file_name in existing_names:
-                            # Can't remove from ZIP, so we skip (will be overwritten on next open)
-                            pass
-                        
-                        # Copy file from source to destination
-                        file_data = src_zip.read(file_name)
-                        dst_zip.writestr(file_name, file_data)
-                        files_copied += 1
+                    if not media_files:
+                        if self.debug:
+                            print("  No media/drawings found in original file")
+                        return
+                    
+                    # Create new ZIP with all files from output + media from source
+                    with zipfile.ZipFile(output_path, 'r') as dst_zip:
+                        with zipfile.ZipFile(temp_path, 'w', zipfile.ZIP_DEFLATED) as new_zip:
+                            # Copy all files from output (skip media/drawings folders)
+                            for item in dst_zip.namelist():
+                                if not any(item.startswith(folder) for folder in folders_to_copy):
+                                    data = dst_zip.read(item)
+                                    new_zip.writestr(item, data)
+                            
+                            # Add media/drawings from original
+                            for item in media_files:
+                                data = src_zip.read(item)
+                                new_zip.writestr(item, data)
+                                files_copied += 1
+                
+                # Replace output with temp file
+                shutil.move(temp_path, output_path)
                 
                 if self.debug:
                     print(f"  ✓ Restored {files_copied} media/drawing file(s) from original")
+            
+            finally:
+                # Clean up temp file if it still exists
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
         
         except Exception as e:
             if self.debug:
