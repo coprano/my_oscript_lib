@@ -391,8 +391,6 @@ class ExcelProcessor:
         if not os.path.exists(self.excel_path):
             return
         
-        # Paths to copy from original ZIP
-        folders_to_copy = ['xl/media/', 'xl/drawings/']
         files_copied = 0
         
         try:
@@ -404,10 +402,18 @@ class ExcelProcessor:
             try:
                 # Open source (original) and destination (just saved) as ZIP archives
                 with zipfile.ZipFile(self.excel_path, 'r') as src_zip:
-                    # Get list of all files in source that we want to copy
+                    # Get list of all files in source related to media/drawings
+                    # Include: xl/media/, xl/drawings/, and their _rels folders
                     media_files = []
-                    for name in src_zip.namelist():
-                        if any(name.startswith(folder) for folder in folders_to_copy):
+                    src_namelist = src_zip.namelist()
+                    
+                    for name in src_namelist:
+                        # Copy media, drawings, and all their relationship files
+                        # Also copy worksheet _rels that might reference drawings
+                        if (name.startswith('xl/media/') or 
+                            name.startswith('xl/drawings/') or
+                            'xl/drawings/_rels/' in name or
+                            (name.startswith('xl/worksheets/_rels/') and name.endswith('.rels'))):
                             media_files.append(name)
                     
                     if not media_files:
@@ -415,14 +421,27 @@ class ExcelProcessor:
                             print("  No media/drawings found in original file")
                         return
                     
+                    # Also get [Content_Types].xml to preserve media content types
+                    content_types_data = None
+                    if '[Content_Types].xml' in src_namelist:
+                        content_types_data = src_zip.read('[Content_Types].xml')
+                    
                     # Create new ZIP with all files from output + media from source
                     with zipfile.ZipFile(output_path, 'r') as dst_zip:
                         with zipfile.ZipFile(temp_path, 'w', zipfile.ZIP_DEFLATED) as new_zip:
-                            # Copy all files from output (skip media/drawings folders)
+                            # Copy all files from output (skip media/drawings and [Content_Types].xml)
                             for item in dst_zip.namelist():
-                                if not any(item.startswith(folder) for folder in folders_to_copy):
+                                if (not item.startswith('xl/media/') and 
+                                    not item.startswith('xl/drawings/') and
+                                    'xl/drawings/_rels/' not in item and
+                                    not (item.startswith('xl/worksheets/_rels/') and item.endswith('.rels')) and
+                                    item != '[Content_Types].xml'):
                                     data = dst_zip.read(item)
                                     new_zip.writestr(item, data)
+                            
+                            # Add [Content_Types].xml from original (has media types)
+                            if content_types_data:
+                                new_zip.writestr('[Content_Types].xml', content_types_data)
                             
                             # Add media/drawings from original
                             for item in media_files:
