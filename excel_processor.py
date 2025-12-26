@@ -21,6 +21,8 @@ class ExcelProcessor:
         self.excel_path = excel_path
         self.debug = debug
         self.workbook = None
+        # Keep an original copy to preserve images/drawings when saving
+        self._original_workbook = None
         self.errors = []
         # Convert custom presets from JSON format to openpyxl style objects
         self.custom_presets = self._convert_presets_to_styles(custom_presets or {})
@@ -96,7 +98,13 @@ class ExcelProcessor:
     def load_workbook(self):
         """Load the Excel workbook."""
         try:
-            self.workbook = load_workbook(self.excel_path)
+            # Load a working copy and a separate original copy to retain drawings/images
+            self.workbook = load_workbook(self.excel_path, data_only=False)
+            try:
+                self._original_workbook = load_workbook(self.excel_path, data_only=False)
+            except Exception:
+                # Non-fatal: original copy is optional, used only to restore images
+                self._original_workbook = None
             if self.debug:
                 print(f"✓ Loaded workbook: {self.excel_path}")
             return True
@@ -111,6 +119,14 @@ class ExcelProcessor:
         """Save the workbook to the specified path or overwrite the original."""
         try:
             save_path = output_path if output_path else self.excel_path
+            # Attempt to restore images/drawings from the original workbook before saving
+            try:
+                if self._original_workbook is not None:
+                    self._restore_images_from_original()
+            except Exception:
+                # Don't fail saving just because image restore failed
+                if self.debug:
+                    print("Warning: failed to restore images from original workbook; continuing to save")
             self.workbook.save(save_path)
             if self.debug:
                 print(f"✓ Saved workbook to: {save_path}")
@@ -368,6 +384,74 @@ class ExcelProcessor:
         if self.debug:
             print(f"  ✓ Copied format from [{source_sheet}!{get_column_letter(source_column)}{source_row}] "
                   f"to [{target_sheet}!{get_column_letter(target_column)}{target_row}]")
+
+    def _copy_images_between_worksheets(self, src_ws, dst_ws):
+        """Copy images/drawings from src_ws to dst_ws when possible.
+
+        This uses internal openpyxl attributes and best-effort handling because
+        openpyxl does not provide a stable public API for copying drawings.
+        """
+        try:
+            from openpyxl.drawing.image import Image as OpenpyxlImage
+            from openpyxl.drawing.spreadsheet_drawing import OneCellAnchor, TwoCellAnchor
+        except Exception:
+            OpenpyxlImage = None
+
+        # Copy simple images stored in _images
+        if hasattr(src_ws, '_images') and src_ws._images:
+            for img in src_ws._images:
+                try:
+                    anchor = getattr(img, 'anchor', None) or getattr(img, 'ref', None)
+                    if anchor:
+                        dst_ws.add_image(img, anchor)
+                    else:
+                        dst_ws.add_image(img)
+                except Exception:
+                    # best-effort: skip problematic images
+                    if self.debug:
+                        print(f"Warning: failed to copy an image on sheet '{src_ws.title}'")
+
+        # Copy drawings/shapes (ImageShape etc.)
+        if hasattr(src_ws, '_drawings') and src_ws._drawings:
+            for drawing in src_ws._drawings:
+                shapes = getattr(drawing, 'shapes', None) or getattr(drawing, '_shapes', None) or []
+                for shape in shapes:
+                    img_obj = getattr(shape, 'image', None) or getattr(shape, 'pic', None) or getattr(shape, 'img', None)
+                    anchor = getattr(shape, 'anchor', None)
+                    if img_obj is None:
+                        continue
+                    try:
+                        if anchor:
+                            dst_ws.add_image(img_obj, anchor)
+                        else:
+                            dst_ws.add_image(img_obj)
+                    except Exception:
+                        if self.debug:
+                            print(f"Warning: failed to copy a drawing image on sheet '{src_ws.title}'")
+
+    def _restore_images_from_original(self):
+        """Restore images and drawings from the originally loaded workbook.
+
+        For each sheet present in both workbooks, copy images if the destination
+        sheet does not already have images/drawings to avoid duplicates.
+        """
+        if self._original_workbook is None:
+            return
+
+        for sheet_name in self._original_workbook.sheetnames:
+            if sheet_name not in self.workbook.sheetnames:
+                continue
+            src_ws = self._original_workbook[sheet_name]
+            dst_ws = self.workbook[sheet_name]
+
+            dst_has_images = bool(getattr(dst_ws, '_images', None))
+            dst_has_drawings = bool(getattr(dst_ws, '_drawings', None))
+            if dst_has_images or dst_has_drawings:
+                # assume images already present; skip to avoid duplicates
+                continue
+
+            # Perform a best-effort copy
+            self._copy_images_between_worksheets(src_ws, dst_ws)
     
     def has_errors(self):
         """Check if any errors occurred during processing."""
