@@ -102,9 +102,20 @@ class ExcelProcessor:
             self.workbook = load_workbook(self.excel_path, data_only=False)
             try:
                 self._original_workbook = load_workbook(self.excel_path, data_only=False)
-            except Exception:
+                if self.debug:
+                    print(f"✓ Loaded original workbook copy for image preservation")
+                    # Diagnostic: check for images in original
+                    for sheet_name in self._original_workbook.sheetnames:
+                        ws = self._original_workbook[sheet_name]
+                        img_count = len(getattr(ws, '_images', []))
+                        draw_count = len(getattr(ws, '_drawings', []))
+                        if img_count > 0 or draw_count > 0:
+                            print(f"  Sheet '{sheet_name}': {img_count} _images, {draw_count} _drawings")
+            except Exception as e:
                 # Non-fatal: original copy is optional, used only to restore images
                 self._original_workbook = None
+                if self.debug:
+                    print(f"  Warning: Could not load original workbook copy: {e}")
             if self.debug:
                 print(f"✓ Loaded workbook: {self.excel_path}")
             return True
