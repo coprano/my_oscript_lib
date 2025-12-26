@@ -493,7 +493,7 @@ Behavior:
             write_status_file(status_path, False, error_summary)
             sys.exit(1)
         
-        if not processor.save_workbook(args.output):
+        if not processor.save_workbook(args.output_file):
             write_status_file(status_path, False, processor.get_error_summary())
             sys.exit(1)
         
