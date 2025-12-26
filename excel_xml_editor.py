@@ -97,133 +97,206 @@ def modify_worksheet_xml(xml_data, commands, sheet_name, debug=False):
 
 def set_cell_value_text(xml_str, row, col, value, debug=False):
     """
-    Set cell value using text manipulation to preserve XML structure.
+    Set cell value using simple text replacement - very conservative approach.
     """
     cell_ref = row_col_to_cell_ref(row, col)
-    value_str = str(value)
+    value_str = str(value) if value else ""
     
-    # Detect if value is a number
-    try:
-        float(value_str)
-        is_number = True
-    except ValueError:
-        is_number = False
+    # Detect if value is a number (but only for non-empty values)
+    is_number = False
+    if value_str:
+        try:
+            float(value_str)
+            is_number = True
+        except ValueError:
+            is_number = False
     
-    # Find the cell element
-    # Pattern: <c r="A1" ...> ... </c> or <c r="A1" ... />
-    cell_pattern = rf'<c\s+r="{cell_ref}"[^>]*>.*?</c>'
-    cell_match = re.search(cell_pattern, xml_str, re.DOTALL)
+    # Escape XML special characters (backslash doesn't need escaping in XML)
+    escaped_value = (value_str
+                    .replace('&', '&amp;')
+                    .replace('<', '&lt;')
+                    .replace('>', '&gt;')
+                    .replace('"', '&quot;')
+                    .replace("'", '&apos;')
+                    .replace('\n', '&#10;')
+                    .replace('\r', '&#13;')
+                    .replace('\t', '&#9;'))
+    
+    # Find the cell element - match exact cell reference only
+    # Try self-closing tag first, then regular tag
+    cell_pattern_selfclosing = rf'<c r="{re.escape(cell_ref)}"[^/>]*/>'
+    cell_match = re.search(cell_pattern_selfclosing, xml_str)
+    
+    if not cell_match:
+        # Try regular tag with content
+        cell_pattern = rf'<c r="{re.escape(cell_ref)}"[^>]*>.*?</c>'
+        cell_match = re.search(cell_pattern, xml_str, re.DOTALL)
     
     if cell_match:
-        # Cell exists - replace its content
+        # Cell exists - replace ONLY the content between tags
         old_cell = cell_match.group(0)
         
-        # Build new cell content
-        # Extract attributes from old cell
-        attr_match = re.match(r'<c\s+r="[^"]+"\s*([^>]*?)(?:>|/>)', old_cell)
-        other_attrs = attr_match.group(1).strip() if attr_match else ''
+        # Check if it's a self-closing tag
+        is_self_closing = old_cell.strip().endswith('/>')
         
-        # Remove type attribute if exists, we'll add our own
-        other_attrs = re.sub(r'\s*t="[^"]*"', '', other_attrs)
-        
-        # Build new cell
-        if is_number:
-            new_cell = f'<c r="{cell_ref}" t="n" {other_attrs}><v>{value_str}</v></c>'
+        if is_self_closing:
+            # Handle self-closing tag like <c r="C16" s="15"/>
+            # Extract the opening part without the />
+            opening_part = old_cell[:old_cell.rfind('/>')]
+            # Remove type attribute if present
+            opening_part = re.sub(r'\s+t="[^"]*"', '', opening_part)
+            # Remove self-closing slash if present
+            opening_part = opening_part.rstrip().rstrip('/')
         else:
-            # Escape XML special characters
-            escaped_value = value_str.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-            new_cell = f'<c r="{cell_ref}" t="inlineStr" {other_attrs}><is><t>{escaped_value}</t></is></c>'
+            # Regular tag with content
+            # Find the content between <c...> and </c>
+            content_start = old_cell.find('>') + 1
+            content_end = old_cell.rfind('</')
+            
+            if content_start <= 0 or content_end <= 0 or content_end <= content_start:
+                if debug:
+                    print(f"  ⚠ Could not parse cell content for {cell_ref}")
+                return xml_str
+            
+            # Extract opening tag and preserve all attributes except 't'
+            opening_part = old_cell[:content_start]
+            # Remove type attribute and add our own, but be very careful
+            opening_part = re.sub(r'\s+t="[^"]*"', '', opening_part)
+            # Remove the trailing >
+            if opening_part.endswith('>'):
+                opening_part = opening_part[:-1]
         
+        # Build new cell content
+        if is_number and value_str:
+            new_type = ' t="n"'
+            new_content = f'<v>{value_str}</v>'
+        elif value_str:
+            new_type = ' t="inlineStr"'
+            new_content = f'<is><t>{escaped_value}</t></is>'
+        else:
+            new_type = ''
+            new_content = ''
+        
+        # Build the new cell
+        new_cell = opening_part + new_type + '>' + new_content + '</c>'
         xml_str = xml_str.replace(old_cell, new_cell, 1)
         
         if debug:
             print(f"  ✓ Set cell {cell_ref} = '{value_str}'")
     else:
-        # Cell doesn't exist - need to add it
-        xml_str = insert_new_cell(xml_str, row, col, value_str, is_number, debug)
+        # Cell doesn't exist - add it using simple insertion
+        xml_str = insert_new_cell_simple(xml_str, row, col, value_str, is_number, escaped_value, debug)
     
     return xml_str
 
 
-def insert_new_cell(xml_str, row, col, value_str, is_number, debug=False):
+def insert_new_cell_simple(xml_str, row, col, value_str, is_number, escaped_value, debug=False):
     """
-    Insert a new cell into the XML when it doesn't exist.
+    Ultra-safe cell insertion that preserves XML structure completely.
     """
     cell_ref = row_col_to_cell_ref(row, col)
     
-    # Build cell XML
-    if is_number:
+    # Build the new cell element - be very explicit about structure
+    if is_number and value_str:
         cell_xml = f'<c r="{cell_ref}" t="n"><v>{value_str}</v></c>'
-    else:
-        escaped_value = value_str.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+    elif value_str:
         cell_xml = f'<c r="{cell_ref}" t="inlineStr"><is><t>{escaped_value}</t></is></c>'
+    else:
+        # Empty cell - no type attribute, no content
+        cell_xml = f'<c r="{cell_ref}"></c>'
     
-    # Find the row element
-    row_pattern = rf'<row\s+r="{row}"[^>]*>.*?</row>'
+    # Look for existing row - be more specific with the pattern
+    row_pattern = rf'<row r="{row}"([^>]*)>(.*?)</row>'
     row_match = re.search(row_pattern, xml_str, re.DOTALL)
     
     if row_match:
         # Row exists - insert cell in correct column order
-        row_content = row_match.group(0)
+        row_attrs = row_match.group(1)
+        row_content = row_match.group(2)
+        old_row_full = row_match.group(0)
         
-        # Find where to insert (maintain column order)
-        cells_in_row = re.finditer(r'<c\s+r="([^"]+)"[^>]*>.*?</c>', row_content, re.DOTALL)
-        insert_pos = None
+        # Find all existing cells in this row and their column positions
+        existing_cells = list(re.finditer(r'<c r="([A-Z]+)\d+"[^>]*(?:>.*?</c>|/>)', row_content, re.DOTALL))
         
-        for cell_match in cells_in_row:
-            existing_ref = cell_match.group(1)
-            try:
-                ex_row, ex_col = cell_ref_to_row_col(existing_ref)
-                if ex_col > col:
+        inserted = False
+        if existing_cells:
+            # Find the correct position to insert based on column order
+            for cell_match in existing_cells:
+                existing_col_letter = cell_match.group(1)
+                existing_col_num = column_letter_to_number(existing_col_letter)
+                
+                if col > existing_col_num:
+                    # Continue looking
+                    continue
+                else:
                     # Insert before this cell
-                    insert_pos = row_match.start() + cell_match.start()
+                    pos = cell_match.start()
+                    new_content = row_content[:pos] + cell_xml + row_content[pos:]
+                    new_row = f'<row r="{row}"{row_attrs}>{new_content}</row>'
+                    xml_str = xml_str.replace(old_row_full, new_row, 1)
+                    inserted = True
                     break
-            except:
-                pass
-        
-        if insert_pos is None:
-            # Insert at end of row (before </row>)
-            close_tag_pos = row_content.rfind('</row>')
-            if close_tag_pos != -1:
-                insert_pos = row_match.start() + close_tag_pos
-        
-        if insert_pos:
-            xml_str = xml_str[:insert_pos] + cell_xml + xml_str[insert_pos:]
+            
+            if not inserted:
+                # Append at the end (column is after all existing cells)
+                new_row = f'<row r="{row}"{row_attrs}>{row_content}{cell_xml}</row>'
+                xml_str = xml_str.replace(old_row_full, new_row, 1)
         else:
-            # Fallback: replace row content
-            new_row = row_content.replace('</row>', cell_xml + '</row>')
-            xml_str = xml_str.replace(row_content, new_row, 1)
+            # No existing cells, just add it
+            new_row = f'<row r="{row}"{row_attrs}>{cell_xml}</row>'
+            xml_str = xml_str.replace(old_row_full, new_row, 1)
         
         if debug:
             print(f"  ✓ Set cell {cell_ref} = '{value_str}'")
     else:
-        # Row doesn't exist - create it
+        # Row doesn't exist - create minimal row and insert in correct order
         row_xml = f'<row r="{row}">{cell_xml}</row>'
         
         # Find sheetData and insert row in correct position
-        sheetdata_match = re.search(r'<sheetData>(.*?)</sheetData>', xml_str, re.DOTALL)
+        sheetdata_pattern = r'(<sheetData>)(.*?)(</sheetData>)'
+        sheetdata_match = re.search(sheetdata_pattern, xml_str, re.DOTALL)
+        
         if sheetdata_match:
-            sheetdata_content = sheetdata_match.group(1)
+            sheetdata_open = sheetdata_match.group(1)
+            sheetdata_content = sheetdata_match.group(2)
+            sheetdata_close = sheetdata_match.group(3)
+            old_sheetdata_full = sheetdata_match.group(0)
             
-            # Find where to insert row
-            rows = re.finditer(r'<row\s+r="(\d+)"[^>]*>.*?</row>', sheetdata_content, re.DOTALL)
-            insert_pos = None
+            # Find all existing rows and their positions
+            existing_rows = list(re.finditer(r'<row r="(\d+)"[^>]*>.*?</row>', sheetdata_content, re.DOTALL))
             
-            for row_match in rows:
-                existing_row = int(row_match.group(1))
-                if existing_row > row:
-                    insert_pos = sheetdata_match.start(1) + row_match.start()
-                    break
-            
-            if insert_pos is None:
-                # Insert at end of sheetData
-                insert_pos = sheetdata_match.end(1)
-            
-            xml_str = xml_str[:insert_pos] + row_xml + xml_str[insert_pos:]
+            inserted = False
+            if existing_rows:
+                # Find the correct position to insert
+                for i, row_match in enumerate(existing_rows):
+                    existing_row_num = int(row_match.group(1))
+                    if row > existing_row_num:
+                        # Continue looking
+                        continue
+                    else:
+                        # Insert before this row
+                        pos = row_match.start()
+                        new_content = sheetdata_content[:pos] + row_xml + sheetdata_content[pos:]
+                        new_sheetdata = sheetdata_open + new_content + sheetdata_close
+                        xml_str = xml_str.replace(old_sheetdata_full, new_sheetdata, 1)
+                        inserted = True
+                        break
+                
+                if not inserted:
+                    # Insert at the end (row number is larger than all existing)
+                    new_sheetdata = sheetdata_open + sheetdata_content + row_xml + sheetdata_close
+                    xml_str = xml_str.replace(old_sheetdata_full, new_sheetdata, 1)
+            else:
+                # No existing rows, just add it
+                new_sheetdata = sheetdata_open + row_xml + sheetdata_close
+                xml_str = xml_str.replace(old_sheetdata_full, new_sheetdata, 1)
             
             if debug:
                 print(f"  Created row {row}")
                 print(f"  ✓ Set cell {cell_ref} = '{value_str}'")
+        else:
+            if debug:
+                print(f"  ⚠ Could not find sheetData element")
     
     return xml_str
 
