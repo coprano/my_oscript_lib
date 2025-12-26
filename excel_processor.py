@@ -391,67 +391,90 @@ class ExcelProcessor:
         This uses internal openpyxl attributes and best-effort handling because
         openpyxl does not provide a stable public API for copying drawings.
         """
-        try:
-            from openpyxl.drawing.image import Image as OpenpyxlImage
-            from openpyxl.drawing.spreadsheet_drawing import OneCellAnchor, TwoCellAnchor
-        except Exception:
-            OpenpyxlImage = None
-
+        copied_count = 0
+        
         # Copy simple images stored in _images
         if hasattr(src_ws, '_images') and src_ws._images:
             for img in src_ws._images:
                 try:
+                    # Get anchor - try different attribute names
                     anchor = getattr(img, 'anchor', None) or getattr(img, 'ref', None)
                     if anchor:
                         dst_ws.add_image(img, anchor)
                     else:
                         dst_ws.add_image(img)
-                except Exception:
+                    copied_count += 1
+                except Exception as e:
                     # best-effort: skip problematic images
                     if self.debug:
-                        print(f"Warning: failed to copy an image on sheet '{src_ws.title}'")
+                        print(f"  Warning: failed to copy image on sheet '{src_ws.title}': {e}")
 
-        # Copy drawings/shapes (ImageShape etc.)
+        # Copy drawings/shapes (ImageShape, charts, etc.)
         if hasattr(src_ws, '_drawings') and src_ws._drawings:
             for drawing in src_ws._drawings:
+                # Try to get shapes from the drawing object
                 shapes = getattr(drawing, 'shapes', None) or getattr(drawing, '_shapes', None) or []
                 for shape in shapes:
-                    img_obj = getattr(shape, 'image', None) or getattr(shape, 'pic', None) or getattr(shape, 'img', None)
-                    anchor = getattr(shape, 'anchor', None)
-                    if img_obj is None:
-                        continue
                     try:
+                        # Try to extract image object from shape
+                        img_obj = getattr(shape, 'image', None) or getattr(shape, 'pic', None) or getattr(shape, 'img', None)
+                        if img_obj is None:
+                            # Skip non-image shapes (charts, etc.)
+                            continue
+                        
+                        anchor = getattr(shape, 'anchor', None)
                         if anchor:
                             dst_ws.add_image(img_obj, anchor)
                         else:
                             dst_ws.add_image(img_obj)
-                    except Exception:
+                        copied_count += 1
+                    except Exception as e:
                         if self.debug:
-                            print(f"Warning: failed to copy a drawing image on sheet '{src_ws.title}'")
+                            print(f"  Warning: failed to copy drawing shape on sheet '{src_ws.title}': {e}")
+        
+        if self.debug and copied_count > 0:
+            print(f"  ✓ Copied {copied_count} image(s) to sheet '{dst_ws.title}'") 
 
     def _restore_images_from_original(self):
         """Restore images and drawings from the originally loaded workbook.
 
-        For each sheet present in both workbooks, copy images if the destination
-        sheet does not already have images/drawings to avoid duplicates.
+        For each sheet present in both workbooks, clear any existing images
+        and copy fresh images from the original to avoid corruption.
         """
         if self._original_workbook is None:
+            if self.debug:
+                print("  No original workbook available for image restoration")
             return
 
+        total_sheets = 0
         for sheet_name in self._original_workbook.sheetnames:
             if sheet_name not in self.workbook.sheetnames:
                 continue
+            
             src_ws = self._original_workbook[sheet_name]
             dst_ws = self.workbook[sheet_name]
 
-            dst_has_images = bool(getattr(dst_ws, '_images', None))
-            dst_has_drawings = bool(getattr(dst_ws, '_drawings', None))
-            if dst_has_images or dst_has_drawings:
-                # assume images already present; skip to avoid duplicates
+            # Check if source has any images to copy
+            src_has_images = bool(getattr(src_ws, '_images', None))
+            src_has_drawings = bool(getattr(src_ws, '_drawings', None))
+            
+            if not src_has_images and not src_has_drawings:
+                # No images in source, skip
                 continue
-
-            # Perform a best-effort copy
+            
+            # Clear existing images/drawings in destination to avoid duplicates
+            # and ensure we get fresh copies from original
+            if hasattr(dst_ws, '_images'):
+                dst_ws._images = []
+            if hasattr(dst_ws, '_drawings'):
+                dst_ws._drawings = []
+            
+            # Perform the copy
             self._copy_images_between_worksheets(src_ws, dst_ws)
+            total_sheets += 1
+        
+        if self.debug:
+            print(f"✓ Restored images from {total_sheets} sheet(s)")
     
     def has_errors(self):
         """Check if any errors occurred during processing."""
