@@ -1,0 +1,16 @@
+[
+  {
+    "command": "set_cell_value",
+    "sheet": "Sheet1",
+    "row": 3,
+    "column": "F",
+    "text": "5"
+  },
+  {
+    "command": "set_cell_value",
+    "sheet": "Sheet1",
+    "row": 3,
+    "column": "G",
+    "text": "4"
+  }
+]
