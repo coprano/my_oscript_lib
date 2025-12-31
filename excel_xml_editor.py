@@ -329,8 +329,22 @@ def get_sheet_name_from_path(sheet_path, workbook_xml, rels_xml):
         return None
     
     sheet_num = match.group(1)
+    target_path = f'worksheets/sheet{sheet_num}.xml'
     
-    # Parse workbook.xml to find sheet name
+    # Parse rels to find rId for this worksheet path
+    rid_for_sheet = None
+    if rels_xml:
+        try:
+            rels_root = ET.fromstring(rels_xml)
+            for rel in rels_root:
+                rel_target = rel.get('Target', '')
+                if rel_target == target_path:
+                    rid_for_sheet = rel.get('Id', '')
+                    break
+        except:
+            pass
+    
+    # Parse workbook.xml to find sheet name using rId
     try:
         ET.register_namespace('', EXCEL_NS)
         root = ET.fromstring(workbook_xml)
@@ -341,15 +355,9 @@ def get_sheet_name_from_path(sheet_path, workbook_xml, rels_xml):
             if tag == 'sheets':
                 # Find sheet with matching rId
                 for sheet in elem:
-                    sheet_id = sheet.get('sheetId', '')
-                    if sheet_id == sheet_num:
-                        return sheet.get('name', f'Sheet{sheet_num}')
-                    # Also try matching by rId
                     r_id = sheet.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id', '')
-                    if r_id:
-                        # Parse rels to match rId to target
-                        # For simplicity, use sheetId match for now
-                        pass
+                    if rid_for_sheet and r_id == rid_for_sheet:
+                        return sheet.get('name', f'Sheet{sheet_num}')
         
         # Fallback: use sheet order
         sheet_index = int(sheet_num) - 1
