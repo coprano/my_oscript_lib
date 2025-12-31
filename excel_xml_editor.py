@@ -205,15 +205,33 @@ def insert_new_cell_simple(xml_str, row, col, value_str, is_number, escaped_valu
         # Empty cell - no type attribute, no content
         cell_xml = f'<c r="{cell_ref}"></c>'
     
-    # Look for existing row - be more specific with the pattern
-    row_pattern = rf'<row r="{row}"([^>]*)>(.*?)</row>'
-    row_match = re.search(row_pattern, xml_str, re.DOTALL)
+    # Look for existing row - handle both regular and self-closing rows
+    # Try self-closing first
+    row_pattern_selfclosing = rf'<row r="{row}"[^/>]*/>'  
+    row_match = re.search(row_pattern_selfclosing, xml_str)
+    
+    if not row_match:
+        # Try regular row with content
+        row_pattern = rf'<row r="{row}"([^>]*)>(.*?)</row>'
+        row_match = re.search(row_pattern, xml_str, re.DOTALL)
     
     if row_match:
         # Row exists - insert cell in correct column order
-        row_attrs = row_match.group(1)
-        row_content = row_match.group(2)
         old_row_full = row_match.group(0)
+        
+        # Check if it's a self-closing row
+        is_selfclosing_row = old_row_full.strip().endswith('/>')
+        
+        if is_selfclosing_row:
+            # Convert self-closing row to regular row with content
+            # Extract attributes from self-closing tag
+            row_opening = old_row_full[:old_row_full.rfind('/>')]
+            row_attrs = row_opening[row_opening.find(f'r="{row}"')+len(f'r="{row}"'):]
+            row_content = ''
+        else:
+            # Regular row with content
+            row_attrs = row_match.group(1)
+            row_content = row_match.group(2)
         
         # Find all existing cells in this row and their column positions
         existing_cells = list(re.finditer(r'<c r="([A-Z]+)\d+"[^>]*(?:>.*?</c>|/>)', row_content, re.DOTALL))
@@ -262,8 +280,8 @@ def insert_new_cell_simple(xml_str, row, col, value_str, is_number, escaped_valu
             sheetdata_close = sheetdata_match.group(3)
             old_sheetdata_full = sheetdata_match.group(0)
             
-            # Find all existing rows and their positions
-            existing_rows = list(re.finditer(r'<row r="(\d+)"[^>]*>.*?</row>', sheetdata_content, re.DOTALL))
+            # Find all existing rows and their positions (including self-closing)
+            existing_rows = list(re.finditer(r'<row r="(\d+)"[^>]*(?:>.*?</row>|/>)', sheetdata_content, re.DOTALL))
             
             inserted = False
             if existing_rows:
