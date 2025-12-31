@@ -370,10 +370,16 @@ def get_sheet_name_from_path(sheet_path, workbook_xml, rels_xml):
     return f'Sheet{sheet_num}'
 
 
-def force_recalculation(workbook_xml_data, debug=False):
+def force_recalculation(workbook_xml_data, debug=False, full_calc_on_load=False):
     """
     Modify workbook.xml to ensure automatic calculation mode.
-    Combined with calcChain.xml removal, this triggers one-time recalculation on first open.
+    Combined with calcChain.xml removal, this triggers recalculation on first open.
+    
+    Args:
+        full_calc_on_load: If True, sets fullCalcOnLoad="1" flag which tells Excel to perform
+                          a full recalculation on every file open (not just once).
+                          Note: In practice, Excel should remove this flag after first open,
+                          but some versions may keep it, causing recalc on every open.
     """
     try:
         xml_str = workbook_xml_data.decode('utf-8') if isinstance(workbook_xml_data, bytes) else workbook_xml_data
@@ -385,18 +391,28 @@ def force_recalculation(workbook_xml_data, debug=False):
         if calcpr_match:
             # Replace existing calcPr to ensure auto calculation mode
             old_calcpr = calcpr_match.group(0)
-            new_calcpr = '<calcPr calcMode="auto"/>'
+            if full_calc_on_load:
+                new_calcpr = '<calcPr calcMode="auto" fullCalcOnLoad="1"/>'
+                if debug:
+                    print("  ✓ Set calcMode to auto with fullCalcOnLoad (forces recalc on open)")
+            else:
+                new_calcpr = '<calcPr calcMode="auto"/>'
+                if debug:
+                    print("  ✓ Set calcMode to auto (recalc on first open due to missing calcChain)")
             xml_str = xml_str.replace(old_calcpr, new_calcpr, 1)
-            if debug:
-                print("  ✓ Set calcMode to auto (recalc on first open due to missing calcChain)")
         else:
             # Add calcPr element before </workbook>
             workbook_close = '</workbook>'
             if workbook_close in xml_str:
-                new_calcpr = '<calcPr calcMode="auto"/>'
+                if full_calc_on_load:
+                    new_calcpr = '<calcPr calcMode="auto" fullCalcOnLoad="1"/>'
+                    if debug:
+                        print("  ✓ Added calcPr with auto mode and fullCalcOnLoad (forces recalc on open)")
+                else:
+                    new_calcpr = '<calcPr calcMode="auto"/>'
+                    if debug:
+                        print("  ✓ Added calcPr with auto mode (recalc on first open due to missing calcChain)")
                 xml_str = xml_str.replace(workbook_close, new_calcpr + workbook_close, 1)
-                if debug:
-                    print("  ✓ Added calcPr with auto mode (recalc on first open due to missing calcChain)")
         
         return xml_str.encode('utf-8')
     except Exception as e:
@@ -405,7 +421,7 @@ def force_recalculation(workbook_xml_data, debug=False):
         return workbook_xml_data
 
 
-def modify_excel_file(input_path, output_path, commands, debug=False, recalculate=True):
+def modify_excel_file(input_path, output_path, commands, debug=False, recalculate=True, full_calc_on_load=False):
     """
     Main function: Opens Excel ZIP, modifies worksheet XMLs, preserves everything else.
     """
@@ -461,7 +477,7 @@ def modify_excel_file(input_path, output_path, commands, debug=False, recalculat
                         elif item == 'xl/workbook.xml' and recalculate:
                             if debug:
                                 print(f"\nProcessing {item}")
-                            data = force_recalculation(data, debug)
+                            data = force_recalculation(data, debug, full_calc_on_load)
                         
                         # Write to output ZIP
                         dst_zip.writestr(item, data)
@@ -533,6 +549,8 @@ Supported Commands:
     parser.add_argument('--status-file', help='Status file path (default: <excel_file_dir>/status.txt)')
     parser.add_argument('--no-recalculate', action='store_false', dest='recalculate', 
                         help='Skip formula recalculation on first open (by default, formulas are recalculated)')
+    parser.add_argument('--full-calc-on-load', action='store_true', 
+                        help='Set fullCalcOnLoad flag (forces Excel to recalculate on every open, not recommended)')
     parser.add_argument('--debug', action='store_true', help='Enable debug output')
     
     args = parser.parse_args()
@@ -562,7 +580,7 @@ Supported Commands:
             print(f"Loaded {len(commands)} commands from {args.json_file}")
         
         # Process Excel file
-        success = modify_excel_file(args.excel_file, args.output_file, commands, args.debug, args.recalculate)
+        success = modify_excel_file(args.excel_file, args.output_file, commands, args.debug, args.recalculate, args.full_calc_on_load)
         
         if success:
             write_status_file(status_path, True)
